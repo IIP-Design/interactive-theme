@@ -50,17 +50,17 @@ class Bio {
 
 	public function content_block_fields() {
 
-		$prefix = 'yali_';
+		$prefix = 'inter_';
 
 		$bio_box = new_cmb2_box( array(
 			'id'           => $prefix . 'bio_box',
-			'title'        => __( 'Bio Fields', 'yali' ),
+			'title'        => __( 'Bio Fields', 'inter' ),
 			'object_types' => array( 'bios' )
 		) );
 
 		$bio_box->add_field( array(
 			'id'   => $prefix . 'bio_title',
-			'name' => __( 'Title', 'yali' ),
+			'name' => __( 'Title', 'inter' ),
 			'type' => 'text'
 		));		
 	}

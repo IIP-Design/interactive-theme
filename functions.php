@@ -5,10 +5,7 @@
  */
 require_once get_stylesheet_directory() . '/includes/autoloader.php';
 
-// Require badge generation class
-include( get_stylesheet_directory() . '/badge/class-america-badge-generation.php');
-
-YALI_Autoloader::register( get_stylesheet_directory() . '/includes/' );
+Inter_Autoloader::register( get_stylesheet_directory() . '/includes/' );
 
 use Inter\Twig as Twig;
 use Inter\Content_Block as Content_Block;
@@ -87,10 +84,10 @@ class InteractiveSite {
 	}
 
 	function add_constants( $constants ) {
-		$yali_constants = array(
+		$interactive_constants = array(
 			'CHILD_THEME_VERSION' => corona_get_theme_version( get_stylesheet_directory() . '/version.json' )
 		);
-		$constants = array_merge( $yali_constants, $constants );
+		$constants = array_merge( $interactive_constants, $constants );
 		return $constants;
 	}
 
@@ -128,16 +125,16 @@ class InteractiveSite {
 			wp_enqueue_style( 'article-feed-css', $article_feed_css, null, '1.0.0' );
 		}
 
-		wp_register_script( 'yali-js', get_stylesheet_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), CHILD_THEME_VERSION, true );
-		wp_localize_script( 'yali-js', 'cdp', array(
+		wp_register_script( 'inter-js', get_stylesheet_directory_uri() . '/dist/js/bundle.min.js', array('jquery'), CHILD_THEME_VERSION, true );
+		wp_localize_script( 'inter-js', 'cdp', array(
 			'publicAPI'  => $public_api,
 			'searchIndexes'  => $search_indexes
 		));
-		wp_enqueue_script( 'yali-js' );
+		wp_enqueue_script( 'inter-js' );
 	}
 
 	function admin_enqueue_scripts() {
-		wp_enqueue_style( 'yali-admin-css', get_stylesheet_directory_uri() . '/style-admin.css' );
+		wp_enqueue_style( 'inter-admin-css', get_stylesheet_directory_uri() . '/style-admin.css' );
 	}
 
 	function admin_remove_menu_pages() {

@@ -6,7 +6,7 @@
 
 $cta = new_cmb2_box( array(
   'id'           =>  $prefix . 'cb_cta',
-  'title'        => __( 'CTA Button(s)', 'yali' ),
+  'title'        => __( 'CTA Button(s)', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'low'
 ));
@@ -16,9 +16,9 @@ $cta_button_group = $cta->add_field( array(
   'type'    => 'group',
   'description'   => __( 'Add buttons to be displayed on CTA content block' ),
   'options'       => array(
-      'group_title'     => __( 'Button Item {#}', 'yali' ),
-      'add_button'      => __( 'Add Another Button Item', 'yali' ),
-      'remove_button'   => __( 'Remove Item', 'yali' ),
+      'group_title'     => __( 'Button Item {#}', 'inter' ),
+      'add_button'      => __( 'Add Another Button Item', 'inter' ),
+      'remove_button'   => __( 'Remove Item', 'inter' ),
       'sortable'        => true
   )
 ));

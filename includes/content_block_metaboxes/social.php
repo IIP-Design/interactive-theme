@@ -4,7 +4,7 @@
  *************************************************************************************************/
 $cb_social_links = new_cmb2_box( array(
   'id'           =>  $prefix . 'cb_social_links',
-  'title'        => __( 'Social Media Links', 'yali' ),
+  'title'        => __( 'Social Media Links', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'low'
 ));

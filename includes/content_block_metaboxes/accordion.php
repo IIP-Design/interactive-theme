@@ -6,7 +6,7 @@
 
 $accordion = new_cmb2_box( array(
   'id'           => $prefix . 'cb_accordion',
-  'title'        => __( 'Accordion', 'yali' ),
+  'title'        => __( 'Accordion', 'inter' ),
   'object_types' => array('content_block'),
   'priority'     => 'low'
 ));
@@ -23,9 +23,9 @@ $accordion->add_field( array(
   'type' => 'select',
   'default' => 'center',
   'options'          => array(
-    'left'           => __( 'Left', 'yali' ),
-    'center'         => __( 'Center', 'yali' ),
-    'right'          => __( 'Right', 'yali' )
+    'left'           => __( 'Left', 'inter' ),
+    'center'         => __( 'Center', 'inter' ),
+    'right'          => __( 'Right', 'inter' )
   )
 ));
 
@@ -48,9 +48,9 @@ $accordion_group_field_id = $accordion->add_field( array(
   'type'          => 'group',
   'description'   => __( 'Add Content Items for Accordion Display' ),
   'options'       => array(
-    'group_title'     => __( 'Item {#}', 'yali' ),
-    'add_button'      => __( 'Add Another Item', 'yali' ),
-    'remove_button'   => __( 'Remove Item', 'yali' ),
+    'group_title'     => __( 'Item {#}', 'inter' ),
+    'add_button'      => __( 'Add Another Item', 'inter' ),
+    'remove_button'   => __( 'Remove Item', 'inter' ),
     'sortable'        => true
   ),
 ));

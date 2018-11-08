@@ -2,7 +2,7 @@
 /**
  * Class loader using SPL autoloader.
  */
-class YALI_Autoloader {
+class Inter_Autoloader {
 
 	/**
 	 * Path to look for classes

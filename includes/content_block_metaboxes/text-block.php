@@ -6,7 +6,7 @@
 
 $text_block = new_cmb2_box( array(
   'id'           => $prefix . 'cb_text_block',
-  'title'        => __( 'Text Content Block', 'yali' ),
+  'title'        => __( 'Text Content Block', 'inter' ),
   'object_types' => array('content_block'),
   'priority'     => 'low'
 ));

@@ -5,7 +5,7 @@
 **************************************************************************************************/
 $cb_box_btn = new_cmb2_box( array(
   'id'           =>  $prefix . 'cb_box_btn',
-  'title'        => __( 'Button', 'yali' ),
+  'title'        => __( 'Button', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'low'
 ));
@@ -40,8 +40,8 @@ $cb_box_btn->add_field( array(
   'type'             => 'select',
   'default'          => 'center',
   'options'          => array(
-    'left'           => __( 'Left', 'yali' ),
-    'center'         => __( 'Center', 'yali' ),
-    'right'          => __( 'Right', 'yali' )
+    'left'           => __( 'Left', 'inter' ),
+    'center'         => __( 'Center', 'inter' ),
+    'right'          => __( 'Right', 'inter' )
   )
 ));

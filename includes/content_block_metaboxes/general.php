@@ -5,7 +5,7 @@
 **************************************************************************************************/
 $cb_box = new_cmb2_box( array(
   'id'           =>  $prefix . 'cb_box',
-  'title'        => __( 'General Fields', 'yali' ),
+  'title'        => __( 'General Fields', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'high',
   'closed'       => false
@@ -13,22 +13,22 @@ $cb_box = new_cmb2_box( array(
 
 // Add Content Block Title
 $cb_box->add_field(  array(
-  'name'    => __( 'Block Title', 'yali' ),
+  'name'    => __( 'Block Title', 'inter' ),
   'id'      => $prefix . 'block_title',
   'type'    => 'text' ,
   'desc'    => 'Block title that displays. If nothing is entered then the page title will display'
 ));
 
 $cb_box->add_field(  array(
-  'name'    => __( 'Block Title Size', 'yali' ),
+  'name'    => __( 'Block Title Size', 'inter' ),
   'id'      => $prefix . 'cb_block_title_size',
   'type'    => 'radio_inline',
   'desc'    => 'Block title size',
   'options' => array(
-		'h2'    => __( 'Heading 2', 'yali' ),
-		'h3'    => __( 'Heading 3', 'yali' ),
-		'h4'    => __( 'Heading 4', 'yali' ),
-		'h5'    => __( 'Heading 5', 'yali' )
+		'h2'    => __( 'Heading 2', 'inter' ),
+		'h3'    => __( 'Heading 3', 'inter' ),
+		'h4'    => __( 'Heading 4', 'inter' ),
+		'h5'    => __( 'Heading 5', 'inter' )
 	),
 	'default' => 'h2'
 ));
@@ -41,16 +41,16 @@ $cb_box->add_field( array(
     'type'           => 'select',
     'default'        => 'post_list',
   'options'          => array(
-    'accordion'      => __( 'Accordion', 'yali' ),
-    'button_links'   => __( 'Button Links', 'yali' ),
-    'campaigns_list' => __( 'Campaigns List', 'yali' ),
-    'cta'            => __( 'Call To Action', 'yali' ),
-    'media_block'    => __( 'Media Block', 'yali' ),
-    'page_list'      => __( 'Page List', 'yali' ),
-    'post_list'      => __( 'Post List', 'yali' ),
-    'filtered_list'  => __( 'Post List with Filters', 'yali' ),
-    'social'         => __( 'Social Icons', 'yali' ),
-    'text_block'     => __( 'Text Block', 'yali' )
+    'accordion'      => __( 'Accordion', 'inter' ),
+    'button_links'   => __( 'Button Links', 'inter' ),
+    'campaigns_list' => __( 'Campaigns List', 'inter' ),
+    'cta'            => __( 'Call To Action', 'inter' ),
+    'media_block'    => __( 'Media Block', 'inter' ),
+    'page_list'      => __( 'Page List', 'inter' ),
+    'post_list'      => __( 'Post List', 'inter' ),
+    'filtered_list'  => __( 'Post List with Filters', 'inter' ),
+    'social'         => __( 'Social Icons', 'inter' ),
+    'text_block'     => __( 'Text Block', 'inter' )
   )
 ));
 
@@ -76,8 +76,8 @@ $cb_box->add_field( array(
   'desc'    => '',
   'type'    => 'radio_inline',
   'options' => array(
-		'yes'   => __( 'Yes', 'yali' ),
-		'no'    => __( 'No', 'yali' )
+		'yes'   => __( 'Yes', 'inter' ),
+		'no'    => __( 'No', 'inter' )
 	),
 	'default' => 'yes'
 ));
@@ -89,8 +89,8 @@ $cb_box->add_field( array(
   'desc'    => '',
   'type'    => 'radio_inline',
   'options' => array(
-		'yes'   => __( 'Yes', 'yali' ),
-		'no'    => __( 'No', 'yali' )
+		'yes'   => __( 'Yes', 'inter' ),
+		'no'    => __( 'No', 'inter' )
 	),
 	'default' => 'yes'
 ));
@@ -102,8 +102,8 @@ $cb_box->add_field( array(
   'desc'    => '',
   'type'    => 'radio_inline',
   'options' => array(
-		'yes'   => __( 'Yes', 'yali' ),
-		'no'    => __( 'No', 'yali' )
+		'yes'   => __( 'Yes', 'inter' ),
+		'no'    => __( 'No', 'inter' )
 	),
 	'default' => 'yes'
 ));
@@ -116,9 +116,9 @@ $cb_box->add_field( array(
     'type'           => 'select',
     'default'        => 'left',
   'options'          => array(
-    'left'           => __( 'Left', 'yali' ),
-    'center'         => __( 'Center', 'yali' ),
-    'right'          => __( 'Right', 'yali' )
+    'left'           => __( 'Left', 'inter' ),
+    'center'         => __( 'Center', 'inter' ),
+    'right'          => __( 'Right', 'inter' )
   )
 ));
 
@@ -145,9 +145,9 @@ $cb_box->add_field( array(
     'type'          => 'select',
     'default'       => 'left',
   'options'         => array(
-    'left'          => __( 'Left', 'yali' ),
-    'center'        => __( 'Center', 'yali' ),
-    'right'         => __( 'Right', 'yali' )
+    'left'          => __( 'Left', 'inter' ),
+    'center'        => __( 'Center', 'inter' ),
+    'right'         => __( 'Right', 'inter' )
   )
 ));
 
@@ -174,10 +174,10 @@ $cb_box->add_field( array(
     'type'            => 'select',
     'default'         => 'Normal',
   'options'         => array(
-    '300'           => __( 'Light', 'yali' ),
-    '400'           => __( 'Normal', 'yali' ),
-    '500'           => __( 'Bold', 'yali' ),
-    '700'           => __( 'Heavy', 'yali' )
+    '300'           => __( 'Light', 'inter' ),
+    '400'           => __( 'Normal', 'inter' ),
+    '500'           => __( 'Bold', 'inter' ),
+    '700'           => __( 'Heavy', 'inter' )
   )
 ));
 
@@ -189,8 +189,8 @@ $cb_box->add_field( array(
     'type'            => 'select',
     'default'         => 'left',
   'options'         => array(
-    'left'          => __( 'Left', 'yali' ),
-    'center'        => __( 'Center', 'yali' ),
-    'right'         => __( 'Right', 'yali' )
+    'left'          => __( 'Left', 'inter' ),
+    'center'        => __( 'Center', 'inter' ),
+    'right'         => __( 'Right', 'inter' )
   )
 ));

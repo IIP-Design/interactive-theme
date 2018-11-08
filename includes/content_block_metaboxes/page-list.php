@@ -52,9 +52,9 @@ $cb_pages_list_group = $cb_pages_list->add_field( array(
 	'type' => 'group',
 	'description'   => __( 'Select Pages To be Displayed' ),
   	'options'       => array(
-		'group_title'     => __( 'Page {#}', 'yali' ),
-		'add_button'      => __( 'Add Another Page', 'yali' ),
-		'remove_button'   => __( 'Remove Page', 'yali' ),
+		'group_title'     => __( 'Page {#}', 'inter' ),
+		'add_button'      => __( 'Add Another Page', 'inter' ),
+		'remove_button'   => __( 'Remove Page', 'inter' ),
 		'sortable'        => true
 	),
 ));

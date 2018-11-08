@@ -5,7 +5,7 @@
 **************************************************************************************************/
 $cb_box_filter = new_cmb2_box( array(
   'id'           =>  $prefix . 'cb_box_filter',
-  'title'        => __( 'Filters', 'yali' ),
+  'title'        => __( 'Filters', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'low'
 ));

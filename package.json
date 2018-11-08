@@ -1,22 +1,22 @@
 {
   "name": "interactive-theme",
   "version": "0.0.1",
-  "description": "Theme developed for use on YALI website",
+  "description": "Theme developed for use on IIP Inter website",
   "main": "index.php",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IIP-Design/yali-theme.git"
+    "url": "git+https://github.com/IIP-Design/interactive-theme.git"
   },
   "keywords": [
     "theme",
-    "yali"
+    "wordpress"
   ],
   "author": "Office of Design, U.S. Department of State",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IIP-Design/yali-theme/issues"
+    "url": "https://github.com/IIP-Design/interactive-theme/issues"
   },
-  "homepage": "https://github.com/IIP-Design/yali-theme#readme",
+  "homepage": "https://github.com/IIP-Design/interactive-theme#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "browserify": "mkdirp dist/js -p && browserify assets/js/*.js -o dist/js/bundle.js -t [ babelify --presets [ env ] ]",

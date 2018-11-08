@@ -1,11 +1,9 @@
 <?php
 
 // Media Block
-// Ex. Usage: /unites/ page, 'Share your knowlege'/'Promote YALIUnites'
-
 $media_block = new_cmb2_box( array(
 	'id'           =>  $prefix . 'cb_media',
-	'title'        => __( 'Media Block', 'yali' ),
+	'title'        => __( 'Media Block', 'inter' ),
 	'object_types' => array( 'content_block' ),	
 	'priority' => 'low'
 ));
@@ -29,9 +27,9 @@ $media_block_group_field = $media_block->add_field( array(
 	'type'  	=> 'group',
 	'description'   => __( 'Add Media Items and Text Content' ),
 	'options'       => array(
-	    'group_title'     => __( 'Media Item {#}', 'yali' ),
-	    'add_button'      => __( 'Add Another Item', 'yali' ),
-	    'remove_button'   => __( 'Remove Item', 'yali' ),
+	    'group_title'     => __( 'Media Item {#}', 'inter' ),
+	    'add_button'      => __( 'Add Another Item', 'inter' ),
+	    'remove_button'   => __( 'Remove Item', 'inter' ),
 	    'sortable'        => true
 	)
 ));

@@ -21,18 +21,18 @@ class Content_Block_Shortcode {
    * 'Type of content block' CMB2 field under the General Box in the content_Block class:
    *
    *  $cb_box->add_field( array(
-   *  'name'                 => 'Block Type',
-	 *  'desc'                 => 'Type of content block',
-	 * 'id'                    => $prefix . 'cb_type',
-	 *  'type'                 => 'select',
-	 * 'default'               => 'left',
-   *  'options'              => array(
-   *     'cta'               => __( 'Call To Action', 'yali' ),
-   *     'social'            => __( 'Social Icons', 'yali' ),
-   *     'post_list'         => __( 'Standard Post List', 'yali' ),
-   *     'my_block'          => __( 'My Block', 'yali' )
+   *    'name'        => 'Block Type',
+	 *    'desc'        => 'Type of content block',
+	 *    'id'          => $prefix . 'cb_type',
+	 *    'type'        => 'select',
+	 *    'default'     => 'left',
+   *    'options'     => array(
+   *      'cta'       => __( 'Call To Action', 'inter' ),
+   *      'social'    => __( 'Social Icons', 'inter' ),
+   *      'post_list' => __( 'Standard Post List', 'inter' ),
+   *      'my_block'  => __( 'My Block', 'inter' )
    *    )
-	 * ));
+	 * ) );
    *
    *
    * @param [array] $atts Attributes from content block

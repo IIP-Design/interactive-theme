@@ -3,7 +3,7 @@
 // Display 1 - 4 button links (link to file, page, element on page)
 $button_links = new_cmb2_box( array(
   'id'           =>  $prefix . 'cb_button_links',
-  'title'        => __( 'Button Links', 'yali' ),
+  'title'        => __( 'Button Links', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'low'
 ));
@@ -20,9 +20,9 @@ $button_links_group_field = $button_links->add_field( array(
 	'type'  	=> 'group',
 	'description'   => __( 'Add Button Link Items - Add either a file or a link for button, include button text' ),
 	'options'       => array(
-	    'group_title'     => __( 'Button Link Item {#}', 'yali' ),
-	    'add_button'      => __( 'Add Another Button Link Item', 'yali' ),
-	    'remove_button'   => __( 'Remove Item', 'yali' ),
+	    'group_title'     => __( 'Button Link Item {#}', 'inter' ),
+	    'add_button'      => __( 'Add Another Button Link Item', 'inter' ),
+	    'remove_button'   => __( 'Remove Item', 'inter' ),
 	    'sortable'        => true
 	)
 ));
@@ -43,7 +43,7 @@ $button_links->add_group_field( $button_links_group_field, array(
 ));
 
 $button_links->add_group_field( $button_links_group_field, array(
-	'name'                      => __( 'Add link for button', 'yali' ),
+	'name'                      => __( 'Add link for button', 'inter' ),
 	'id'                        => $prefix . 'button_link',
 	'type'                      => 'link_picker',
 	'desc'                      => __( '' ),
@@ -51,7 +51,7 @@ $button_links->add_group_field( $button_links_group_field, array(
 ));
 
 $button_links->add_group_field( $button_links_group_field, array(
-	'name'                      => __( 'Check if link is on same page', 'yali' ),
+	'name'                      => __( 'Check if link is on same page', 'inter' ),
 	'desc'                      => __( 'adds a class to scroll to link if link is on same page' ),
 	'id'                        => $prefix . 'button_link_scroll',
 	'type'                      => 'checkbox',	
