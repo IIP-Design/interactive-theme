@@ -1,0 +1,90 @@
+/*------------------------------------*\
+  #HTML-ELEMENTS
+\*------------------------------------*/
+
+body {
+  background-color: #fff;
+  color: $font-color;
+  line-height: 1.44;
+  letter-spacing: 0.3px;
+}
+
+main {
+  position: relative;
+}
+
+.site-content {
+  margin-top: 88px;
+  @media screen and (max-width: 933px) {
+    margin-top: 62px;
+  }
+}
+
+/*------------------------------------*\
+  #	SEMANTIC UI OVERRIDES
+\*------------------------------------*/
+
+.ui.inverted.menu {
+  border: none;
+}
+
+.ui .button {
+  border-radius: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: em(22);
+  padding-top: em(16);
+  padding-bottom: em(16);
+  min-width: em(400);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    filter: brightness(.96);
+    transform: translate(-1px, -1px);
+  }
+
+  &:active{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+/*------------------------------------*\
+  #		RESPONSIVE BACKGROUND IMAGES
+\*------------------------------------*/
+
+[data-responsive-background-image] {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+
+[data-responsive-background-image] img {
+  display: none;
+}
+
+.image_3-2 {
+  padding-top: 33.33%;
+}
+
+.image_6-1 {
+  padding-top: 16.66%;
+}
+
+/*------------------------------------*\
+  #		ANCHOR TAGS
+\*------------------------------------*/
+
+:target::before {
+  content:"";
+  display: block;
+  margin: -150px 0 0;
+  height: 150px;
+}
+
+:target:focus {
+  outline: none;
+}

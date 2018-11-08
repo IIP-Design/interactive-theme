@@ -1,0 +1,200 @@
+.join {
+	text-align: center;
+	color: $blue-navy;
+	transition: all 0.5s ease;
+
+
+	&.ui.form {
+		position: absolute;
+		top: 300%;
+		right: 0;
+		display: none;
+		max-height: 1000px;
+		max-width: 500px;
+		width: 100%;
+		font-family: $font-family;
+		background-color: $yellow;
+		opacity: 1;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+		@media screen and (max-width: 1400px) {
+			top: 200%;
+			max-width: 400px;
+			font-size: 12px;
+		}
+		@media screen and (max-width: 933px) {
+			right: 50%;
+			transform: translate(50%);
+		}
+
+		.field {
+			margin-bottom: em(20);
+
+			input {
+				height: 48px;
+				font-family: $font-family;
+				font-weight: 400;
+				@media screen and (max-width: 1400px) {
+					height: 32px;
+				}
+			}
+		}
+
+		select {
+			height: 48px;
+			font-family: $font-family;
+			@media screen and (max-width: 1400px) {
+				height: 32px;
+			}
+
+			&.hide_on_init {
+				display: none;
+			}
+		}
+	}
+
+
+	&.fade_out.ui.form {
+		top: 0;
+		opacity: 0;
+	}
+
+
+	.upArrow {
+
+		&.upArrow--joinForm {
+			position: absolute;
+			top: -20px;
+			left: 50%;
+			display: none;
+			border-width: 20px;
+			border-bottom-color: $yellow;
+			@media screen and (min-width: 934px) {
+				display: none !important;
+			}
+			@media screen and (max-width: 425px) {
+				margin-left: -10px;
+			}
+		}
+	}
+
+
+	&_wrapper {
+		position: relative;
+		padding: 40px;
+		@media screen and (max-width: 1400px) {
+			padding: 20px;
+		}
+	}
+
+
+	&_intro {
+		font-family: $font-family;
+		font-size: em(34);
+		@media screen and (max-width: 1400px) {
+			padding: 14px;
+			font-size: 1.5em;
+		}
+	}
+
+
+	&_select {
+		margin-bottom: 20px;
+	}
+
+
+	&_interests {
+		@media screen and (max-width: 500px) {
+			text-align: left;
+		}
+
+		&_title {
+			margin-bottom: 10px;
+			font-size: em(28);
+			text-align: center;
+			@media screen and (max-width: 1400px) {
+				font-size: 1.5em;
+			}
+		}
+
+		&_chkbx_wrapper {
+			display: inline-block;
+			@media screen and (max-width: 500px) {
+				display: block;
+				padding-left: 16px;
+			}
+
+			&:first-of-type {
+				@media screen and (min-width: 501px) {
+					margin-right: 125px;
+				}
+			}
+
+			&:last-child {
+				margin-bottom: 20px;
+			}
+
+			.ui.checkbox {
+				display: block;
+				padding-bottom: 16px;
+				font-size: 1em;
+				@media screen and (max-width: 500px) {
+					padding-bottom: 8px;
+				}
+
+				label {
+					font-weight: 400;
+					@media screen and (max-width: 1400px) {
+						font-size: 1em;
+					}
+					@media screen and (max-width: 500px) {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+
+
+	.hide_on_init {
+		display: none;
+	}
+
+
+	&_submit {
+		width: 100%;
+		height: em(60);
+		font-family: $font-family;
+		font-size: em(20) !important;
+		@media screen and (max-width: 1400px) {
+			padding: 15px;
+			font-size: 1.5em;
+		}
+
+		&.ui.button {
+			background-color: $blue-navy;
+			color: #fff;
+		}
+	}
+
+}
+
+#frm_form_6_container {
+
+	fieldset > input {
+		border-radius: none;
+	}
+
+	&.frm_forms > fieldset {
+
+		&.frm_submit > button {
+		width: 100%;
+		height: em(60);
+		font-family: $font-family;
+		font-size: em(20) !important;
+		@media screen and (max-width: 1400px) {
+			padding: 15px;
+			font-size: 1.5em;
+			}
+		}
+	}
+}

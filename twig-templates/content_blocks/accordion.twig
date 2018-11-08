@@ -1,0 +1,16 @@
+<div id='{{ id }}' class='accordion_layout'>
+	{% if headline %}
+	<h2 style='text-align: {{ headline_alignment }}'>{{ headline }}</h2>
+	{% endif %}
+	
+	<div class='ui styled accordion'>		
+		{% for item in items_array %}
+		<h3 
+			class='title' 
+			style='color: {{ font_color }}; border-color: {{ font_color }};'>
+			{{ item.item_title }}
+		</h3>			
+		<div class='content'>{{ item.item_content }}</div>
+		{% endfor %}	
+	</div>
+</div>

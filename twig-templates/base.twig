@@ -1,0 +1,69 @@
+{% block head_wrapper %}
+
+	{% include 'partials/header.twig' %}
+	{% block head %}
+	{% endblock %}
+
+	{{ tha_head_bottom() }}
+
+	</head>
+
+{% endblock %}
+
+	<body {{ body_class() }}>
+
+		{{ tha_body_top() }}
+
+		<div class="site-container">
+			<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+			{{ tha_header_before() }}
+
+			<header id="masthead" class="site-header">
+				{% block header %}
+					{# <!--Global nav, search, join button-- > #}
+					{% include "partials/menu-header.twig" with {'menu': site.get_menu(2)} %}
+				{% endblock %}
+			</header>
+
+			{{ tha_content_before() }}
+
+			<main class="site-content" name="main" role="main">
+
+				{{ tha_content_top() }}
+
+				<!-- overrride default content block with page specifc content -->
+				<div class="yali_page {{ get_pagename() }}">
+					{% block content %}
+						<section class="ui container">
+							<p>Content area</p>
+						</section>
+					{% endblock %}
+				</div>
+
+				{% if sidebar %}
+					<aside class="layout-sidebar">
+						{{ sidebar }}
+					</aside>
+				{% endif %}
+
+				{{ tha_content_bottom() }}
+
+			</main><!-- #main -->
+
+			{{ tha_content_after() }}
+
+			<footer class="footer ui inverted bottom menu segment">
+				{% block footer %}
+					{% include "partials/footer.twig" %}
+				{% endblock %}
+			</footer>
+
+			{{ tha_footer_after() }}
+
+		</div><!-- .site-container -->
+
+		{{ tha_body_bottom() }}
+		{{ wp_footer() }}
+	</body>
+</html>

@@ -1,0 +1,71 @@
+.accordion_layout {
+	margin: 50px 0;
+
+	.ui.styled.accordion {
+		width: 100%;
+		text-align: left;
+		box-shadow: none;
+		background: inherit;
+
+		.title {
+			margin-bottom: 16px;
+			/*border: 8px solid $blue-navy;*/
+			border: 8px solid;
+			font-size: em(32);
+			/*color: $blue-navy;*/
+			@media screen and (min-width: 768px) and (max-width: 933px) {					
+				font-size: em(24, $mobile);
+			}
+			@media screen and (max-width: 767px) {
+				margin-bottom: 12px;
+				padding: 0.4em 1em;
+				font-size: em(20, $mobile);
+			}
+
+			/*&:hover {
+				border-color: $blue-medium;
+				color: $blue-medium;					
+			}
+
+			&.active {
+				border-color: $blue-medium;	
+				color: #fff;					
+				background-color: $blue-medium;
+			}*/
+		}
+
+		.content {
+			margin-left: 1em;
+			@media screen and (max-width: 767px) {
+				margin-left: 0;
+			}
+
+			h5, p, li {
+				word-break: break-word;
+			}
+
+			h5 {
+				@media screen and (max-width: 767px) {
+					margin-bottom: 5px;
+				}
+			}
+
+			a {
+				font-weight: 700;				
+				/*color: $blue-medium;*/
+
+				&.cta_link {
+					color: #fff;
+				}
+			}
+
+			ul {				
+				font-weight: 300;
+			}
+
+			.button-links_wrapper {
+				padding: 10px 0;
+			}
+		}
+	}
+}

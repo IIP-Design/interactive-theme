@@ -1,0 +1,62 @@
+.hero {
+	position: relative;
+
+
+	&--bg_img {
+		padding-top: 16.25%;
+	}
+
+
+	&-inner {		
+		color: #fff;
+		@media screen and (max-width: 933px) {
+			padding: 0;
+		}		
+
+		&.bottom_padd {
+			@media screen and (max-width: 1024px) {
+				padding-bottom: 16px !important;
+			}
+
+			&--thin {
+				padding-bottom: 85px;
+			}
+
+			&--thick {
+				padding-bottom: 200px;
+
+				&_home {
+					padding-bottom: 120px;					
+				}
+			}
+		}
+		
+		h1 {
+      font-size: em(112);
+      line-height: 1;
+      color: #fff;
+      @media screen and (max-width: 933px) {
+        font-size: em(72, $mobile);
+      }
+      @media screen and (max-width: 415px) {
+        font-size: em(51, $mobile);
+      }
+      @media screen and (max-width: 375px) {
+        font-size: em(39, $mobile);
+      }			
+		}	
+
+		p {		
+			font-weight: 300;				
+		}
+	}
+
+	.hero-attribution {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding: .5em .875em;
+		font-size: .875em;
+		background-color: rgba(0, 0, 0, .4);
+	}
+}

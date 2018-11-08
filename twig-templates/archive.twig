@@ -1,0 +1,21 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+<section class='hero hero--bg_img' style='background-image: url("{{ header_url }}"); background-size: cover;'>
+    <div class='hero-inner bottom_padd bottom_padd--thin'>
+    	<div class='hero-content ui container'>
+    		<h1 class='hero-h1'>{{ archive_name }}</h1>
+    	</div>
+    </div>
+</section>
+
+{# Use double quotes instead of single quotes for
+	data-filter-value="" to prevent values with an
+	apostrophe from breaking CDP query string. #}
+<section class='ui container'>	
+	<div class='inner-container archive_posts' data-filter='{{ archive_type }}' data-filter-value="{{ archive_name }}">
+		{{ filtered_post_block }}	
+	</div>	
+</section>
+
+{% endblock %}

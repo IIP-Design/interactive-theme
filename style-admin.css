@@ -1,0 +1,51 @@
+/* Show only CMB2 color picker palette */
+.wp-picker-container .iris-picker {
+    height: 17px !important;
+    width: 160px !important;
+    position: absolute;
+    border: none;
+}
+
+.wp-picker-container .iris-border .iris-palette-container {
+    position: relative;
+    width: 255px;
+    left: 140px;
+    top: -32px;
+}
+
+
+.wp-picker-input-wrap, .iris-picker-inner, .my-color-field {
+    display: none !important;
+}
+
+/* hate to use !important here but it is the only way to overide the inline styles */
+.iris-palette-container .iris-palette{
+    width: 27px !important; 
+    height: 27px !important;
+}
+
+/*
+* for Alumni Videos on Campaigns Page Template
+*/
+.cmb2-oembed.embed-status iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/**
+ * Attachments custom attribution field styles
+ */
+#post-body-content .compat-field-attribution > td.field {
+    width: 100%;
+}
+
+#post-body-content [name$="[attribution]"] {
+    min-width: 100%;
+}
+
+/*
+* set column witdh for block type column in content block post list
+*/
+.column-block_type {
+    width: 10%;
+}

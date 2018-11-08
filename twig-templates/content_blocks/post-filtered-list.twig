@@ -1,0 +1,75 @@
+
+<section class='cb full-width' style="background-color: {{ block_bg_color }}">
+	<div class='ui container'>
+    <div class='inner-container'>
+  	  <!-- content block title -->
+     
+    	{% include 'partials/content_block_title.twig' %}
+      <p class="cb_excerpt" style="text-align: {{ excerpt_alignment }}">{{ excerpt }} </p>
+      
+      <!-- attach filters -->
+      <div class="cb_dropdown cb-cdp-filters" data-target="{{ selector }}">
+      {% for filter in filters %}
+        {% if filter == 'sort' %}
+          <div id="{{ filter }}" class="ui dropdown single fluid">
+            <input type="hidden" name="{{ filter }}" value="recent">
+            <div class="default text">Sort by</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="recent">Most Recent</div>
+              <div class="item" data-value="az">A-Z</div>
+            </div>
+          </div>
+        {% else %}
+          <div id="{{ filter }}" class="ui dropdown single loading fluid scrolling">
+            <input type="hidden" name="{{ filter }}">
+            <div class="default text">{{ filter |capitalize }}</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="">{{ filter |capitalize }}: All </div>
+              {# <div class="ui icon search input">
+                <i class="search icon"></i>
+                <input type="text" placeholder="Search {{ filter }}...">
+              </div> #}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+
+      {% if date_display == 'hide' %}
+      <style type="text/css">
+        #{{ selector }} .article-meta {
+          display: none;
+        }
+      </style>
+      {% endif %}
+
+      {% if lang_key is not empty %}
+      <script type="text/javascript">
+        /* <![CDATA[ */
+        var yaliCbLang_{{ selector }} = {
+          key: '{{ lang_key }}',
+          value: '{{ lang_value }}'
+        };
+        /* ]]> */
+      </script>
+      {% endif %}
+
+      <!-- attach article feed module -->
+      <div id="{{ selector }}" data-content-type='cdp-filtered-list' data-types={{ types|json_encode() }} style="margin-top: 2em; text-align: {{ text_alignment }}">LOADING Component...</div>
+    
+       <!-- show more button -->
+      {% if btn_label is not empty or btn_link is not empty %}
+      <div class="cb_button" style="text-align: {{ btn_text_alignment }}">
+        <button id="btn-{{ selector }}" class="ui button" style="background-color: {{ btn_bg_color }}" tabindex="0">
+          <div style="color: {{ btn_label_color }}"> {{ btn_label }}
+            <i style="color:  {{ btn_label_color }}" class="caret down icon"></i>
+          </div>
+        </button>
+      </div>
+      {% endif %}
+
+    </div><!-- inner-container -->
+  </div>
+</section>

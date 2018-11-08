@@ -1,0 +1,53 @@
+.cb-social {
+	padding: em(45) 0;
+	text-align: center;
+	@media screen and (max-width: 767px) {
+		padding: 50px 0;
+	}
+
+	&.lightblue {
+		background-color: $blue-bright;
+	}
+
+
+	&_title {
+		color: $blue-navy;
+		@media screen and (max-width: 767px) {
+			font-size: 2.2em;
+		}
+	}
+
+
+	&_icon {
+		display: inline-block;
+		margin: 0 15px;
+		border-radius: 50%;
+		font-size: 2rem;
+		@media screen and (max-width: 320px) {
+			font-size: 1.2rem;
+		}
+
+		&:hover {
+			text-decoration: none;
+			border-bottom: none;
+		}
+
+		i {
+			position: relative;
+			height: 2em;
+			width: 2em;
+			border-radius: 50%;
+			font-size: 1em;
+			color: $blue-bright;
+			background-color: $blue-navy;
+
+			&:before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+}

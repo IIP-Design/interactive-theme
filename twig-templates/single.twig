@@ -1,0 +1,101 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+{% set series_name = (post_data.post_series_names is not empty) ? post_data.post_series_names[0].name : '' %}
+
+{% set category_name = (post_data.post_category_names is not empty) ? post_data.post_category_names[0].name : '' %}
+
+{% set tag_name = (post_data.post_tag_names is not empty) ? post_data.post_tag_names[0].name : '' %}
+
+{% if header_url is not empty %}
+  {% if ( hero_title_display == 'yes' ) or ( hero_title_display == 'no') %}
+  <section class='hero hero--bg_img' style='background-image: url("{{ header_url }}"); background-size: cover;'>
+      <div class='hero-inner bottom_padd {{ hero_title_display == "yes" ? "bottom_padd--thin" : "bottom_padd--thick" }} '>
+      	{% if hero_title_display == 'yes' %}
+      	<div class='hero-content ui container'>
+      		<h1 class='hero-h1'>{{ post_data.title.rendered }}</h1>
+          <p class='subtitle'>{{ hero_subtitle }}</p>
+      	</div>
+      	{% endif %}
+				{% if ( hero_attribution_display == 'yes' ) and ( hero_attribution_value is not empty) %}
+				<p class='hero-attribution'>{{ hero_attribution_value }}</p>
+				{% endif %}				
+      </div>
+  </section>
+  {% endif %}
+{% endif %}
+
+<section class='ui container'>
+	{% if ( hero_title_display == 'no' ) or ( hero_title_display == 'hide' )%}
+  	<h1 class='title-overlay_title'>{{ post_data.title.rendered }}</h1>
+    <h4 class='subtitle-container'>{{ hero_subtitle }}</h4>
+	{% endif %}
+
+	<div class='inner-container single_post'>
+		<section class='section single_post_content'>
+			<div>{{ post_data.content.rendered }}</div>
+
+      <div class="addthis_inline_share_toolbox"></div>
+      <div class='single_post_tax'>
+				{% for term in taxonomy_terms %}
+					{% if term.taxonomy == 'post_tag' %}
+					<p class='tax_term'>
+						<a href='/tag/{{ term.slug }}'>{{ term.name }}</a>{% if not loop.last %},{% endif %}
+					</p>
+					{% else %}
+					<p class='tax_term'>
+						<a href='/{{ term.taxonomy }}/{{ term.slug }}'>{{ term.name }}</a>{% if not loop.last %},{% endif %}
+					</p>
+					{% endif %}
+				{% endfor %}
+			</div>
+
+			{% if related_content_display == 'yes' %}
+				{% include 'content_blocks/post-list.twig' with
+					{
+						title: 'You May Also Like',
+						cdp_post_select_by: 'recent',
+						cdp_taxonomy_select_by: select_by_taxonomy,
+						cdp_indexes: search_indexes,
+						cdp_posts_related_link_display: 'display_as_link',
+						cdp_image: {"image-shape":"rectangle","image-height":"","image-border-width":"","image-border-style":"solid","image-border-color":""},
+						cdp_category: category_slug_name,
+						cdp_series: series_slug_name,
+						cdp_tag: tag_slug_name,
+						cdp_num_posts: 3,
+						cdp_ui_layout: 'default',
+						cdp_ui_direction: 'row'
+					}
+				%}
+			{% endif %}
+
+			<h3 class='archive_link'>
+				<a
+					class='cta_link'
+					{% if series_name is not empty %}
+					href='/{{ post_data.post_series_names[0].taxonomy }}/{{ post_data.post_series_names[0].slug }}'
+					{% elseif category_name is not empty and category_name != 'Uncategorized' %}
+					href='/{{ post_data.post_category_names[0].taxonomy }}/{{ post_data.post_category_names[0].slug }}'
+					{% elseif tag_name is not empty %}
+					href='/tag/{{ post_data.post_tag_names[0].slug }}'
+					{% else %}
+					href='/learning'
+					{% endif %}
+					>
+					More from &ldquo;{{ (series_name is not empty) ? series_name : (category_name is not empty and category_name != 'Uncategorized') ? category_name : (tag_name is not empty) ? tag_name : 'YALI Network in Action' }}&rdquo; <i class='angle right icon'></i>
+				</a>
+			</h3>
+		</section>
+	</div>
+</section>
+
+		{% if post_data.post_content_type_names[0].name == 'Podcast' %}
+		{{ social_block }}
+		{% endif %}
+
+
+	</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+	{{ tha_footer_top() }}
+
+	{% set footer_menu_id = 3 %}	
+
+	{% include "partials/menu-footer.twig" with {'menu': site.get_menu(footer_menu_id)} %}	
+
+	{{ tha_footer_bottom() }}

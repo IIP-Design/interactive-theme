@@ -1,0 +1,42 @@
+.title-overlay {
+	display: block;
+	position: relative;
+	background-color: #fff;
+
+
+	&.ui.container {
+		@media screen and (min-width: 1025px) {
+			margin-top: -100px !important;
+
+			&.higher {
+				margin-top: -200px !important;			
+			}
+		}		
+	}	
+
+	
+	&_title { 		
+		text-align: center; 
+		color: $blue-navy;
+		@media screen and (min-width: 1025px) {
+			padding-top: 32px;
+		}
+	}
+
+
+	.columns-text {
+		column-count: 1;
+		font-size: em(28);
+		font-weight: 300;
+		@include bp($tablet) {
+	    	column-count: 2;
+	  	}
+	  	@media screen and (max-width: 933px) {
+	  		font-size: em(16, $mobile);
+	  	}
+
+	  	> p {
+	  		font-size: 1em;
+	  	}
+	}
+}

@@ -1,0 +1,53 @@
+.search_results {
+		
+
+	&_title {
+		width: 100%;
+		text-align: left;
+
+		&:after {
+			content: '';
+			display: block;
+			height: 5px;
+			background-color: $blue-navy;
+		}
+	}
+
+
+	&_list {
+
+		&.ui.stackable.grid {
+			margin-bottom: 50px;
+			@media screen and (max-width: 767px) {
+
+				> .column.row > .column.results_article {
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+			}
+		}		
+	}
+
+
+	.results_list_row {
+
+		&.hidden {
+			display: none;
+		}
+	}
+
+
+	.results_article {
+
+    	&_title {
+			margin-bottom: 10px;
+		}
+
+		&_excerpt {
+			@media screen and (min-width: 934px) {
+				font-size: em(17);
+			}
+		}
+	}
+
+}

@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+.sass-cache/
+npm-debug.log*
+vendor/
+.bundle
+example-functions.php
+.idea/

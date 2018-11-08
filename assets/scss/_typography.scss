@@ -1,0 +1,181 @@
+/*------------------------------------*\
+  #TYPOGRAPHY
+\*------------------------------------*/
+
+
+html {
+  font-size: 100%;
+}
+
+
+body {
+  font-size: $font-size + 0px;
+
+  &.page,
+  &.single,
+  &.archive,
+  &.error404,
+  &.search {
+    font-size: $font-size + 0px;
+    color: $blue-navy;
+    @media screen and (max-width: 933px) {
+      font-size: $mobile + 0px;
+    }
+  }
+}
+
+
+h1 {
+  font-size: em(64);
+  font-weight: 900;
+  @media screen and (max-width: 933px) {
+    font-size: em(34, $mobile);
+  }
+}
+
+
+h2 {
+  font-size: em(48);
+  font-weight: 900;
+  @media screen and (max-width: 933px) {
+    font-size: em(28, $mobile);
+  }
+}
+
+
+h3 {
+  font-size: em(32);
+  font-weight: 700;
+  @media screen and (max-width: 933px) {
+    font-size: em(24, $mobile);
+  }
+}
+
+
+h4 {
+  font-size: em(24);
+  font-weight: 700;
+  @media screen and (max-width: 933px) {
+    font-size: em(20, $mobile);
+  }
+}
+
+
+h5 {
+  font-size: em(20);
+  font-weight: 700;
+  @media screen and (max-width: 933px) {
+    font-size: em(18, $mobile);
+  }
+}
+
+
+a {
+
+  color: $blue-medium;
+
+  &:hover {
+    color: $blue-medium;
+    border-bottom: 2px dotted;
+  }
+
+}
+
+
+h1, h2, h3, h4, h5, {
+
+  > a {
+
+    color: $blue-navy;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:active {
+      color: $blue-navy;
+      background-color: $yellow;
+    }
+  }
+}
+
+
+p {
+
+  > a {
+
+    &:active {
+      background-color: $yellow;
+    }
+  }
+}
+
+
+p, ol, ul {
+  font-size: em(22);
+  font-weight: 300;
+  line-height: 1.44;
+  @media screen and (max-width: 933px) {
+    font-size: 1em;
+  }
+
+  > a {
+    font-weight: 600;
+  }
+}
+
+li > a {
+  font-weight: 600;
+}
+
+ul {
+
+  ol {
+    font-size: 1em;
+  }
+}
+
+
+ol {
+
+  ul {
+    font-size: 1em;
+  }
+}
+
+
+blockquote {
+  font-size: $font-size + 0px;
+  @media screen and (max-width: 933px) {
+    font-size: $mobile + 0px;
+  }
+}
+
+
+.text_light {
+  color: #fff;
+}
+
+
+.text_dark,
+.cta_link.text_dark {
+  color: $blue-navy;
+
+  &:hover {
+    color: $blue-navy;
+  }
+}
+
+
+.text_bold {
+    font-weight: 700;
+}
+
+
+.caption {
+  font-size: em(14);
+  font-style: italic;
+  @media screen and (max-width: 933px) {
+    font-size: em(12, $mobile);
+  }
+}

@@ -1,0 +1,101 @@
+.cb .article-item-group {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: $font-color;
+  font-size: 1em;
+}
+
+
+.cb .article-content   {
+  
+
+  p {
+    line-height: 1.5;
+    @media screen and (max-width: 933px) {
+      font-size: 16px;
+    }
+  }
+  
+
+  h3.article-title {
+    font-size: 1.5rem;
+    text-decoration:  none;
+    color: $blue-navy;
+    @media screen and (max-width: 933px) {
+      font-size: 20px;
+    }
+  }
+
+
+  .article-title_link {
+    color: $blue-navy;
+
+
+    &:hover {
+      color: $blue-medium;
+      border-bottom: 2px dotted $blue-medium;
+      text-decoration: none;
+    }
+  }
+
+
+  div.article-meta {
+    color: lighten($blue-navy, 10%);
+    
+    span {  
+      color: $blue-navy; 
+    }    
+  }
+
+  /************* 
+  Related Links Dropdown Menu 
+  **************/
+  .post_list_links {
+    
+    &_wrapper {
+      position: absolute;
+      @media screen and (max-width: 767px) {
+        position: relative;
+      }
+    }
+
+    &_dropdown {
+      border: none;
+      border-radius: 0;
+      border-color: $red;
+      background-color: $red;
+      color: #fff;
+
+      &:hover {
+        background-color: $red;
+        color: #fff;              
+        transform: none;
+      }
+
+      .text {
+        color: #fff !important;
+        font-weight: inherit !important;
+      }
+
+      .menu {
+        width: 100%;
+        min-width: 100%;
+        margin: 0;
+        border: none !important;
+        border-radius: 0;
+        background-color: $red;
+        color: #fff;
+        opacity: 0.85;
+        @media screen and (max-width: 767px) {
+          position: relative;
+          box-shadow: none !important;
+        }
+
+        .item {
+          border: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<section class='ui container'>
+  <div class='lead-in'>
+    {% if course_language == 'en' %}
+	    <h3 class='course-page-lead-in'>Course:</h3>
+    {% endif %}
+    {% if course_language == 'fr' %}
+      <h3 class='course-page-lead-in'>Cours:</h3>
+    {% endif %}
+    {% if ( course_language == 'pt' ) or ( course_language == 'es' ) %}
+      <h3 class='course-page-lead-in'>Curso:</h3>
+    {% endif %}
+    <h2 class='course-page-title'>{{ page_data.title.rendered }}</h2>
+  </div>
+
+  <div class='inner-container'>
+		<div class='page-content'>
+			{{ page_data.content.rendered }}
+		</div>
+	</div>
+
+</section>
+
+{% endblock %}

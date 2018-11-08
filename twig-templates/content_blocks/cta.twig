@@ -1,0 +1,41 @@
+{% if header_url is not empty %}
+<section
+    class='cb cb_cta {{ ( cb_layout_width[0] == "yes" ) ? "full-width" : "full-container-width" }}'
+    style="background-color: {{ block_bg_color }}"
+    data-responsive-background-image>
+  <img src="{{ header_url }}"
+      sizes="{{ sizes }}"
+      srcset="{{ srcset }}">
+{% endif %}
+{% if header_url is empty %}
+  <section
+    class='cb cb_cta noimage {{ ( cb_layout_width[0] == "yes" ) ? "full-width" : "full-container-width" }}'
+    style="background-color: {{ block_bg_color }}">
+{% endif %}
+	<div class='ui container'>
+    <div class='inner-container'>
+  		<!-- content block title -->
+      {% include 'partials/content_block_title.twig' %}      
+      <p class="cb_excerpt" style="text-align: {{ excerpt_alignment }}; color: {{ excerpt_color }}; font-weight: {{ excerpt_font_weight }}">{{ excerpt }} </p>      
+
+      <!-- CTA Button(s) Display -->
+      {% if cta_buttons is not empty %}
+      <div class='ui stackable centered grid'>
+        {% for button in cta_buttons %}
+        <div class="cb_button eight wide column">
+          <a 
+            class="ui button cb_cta_button_link" 
+            href="{{ button.yali_cta_button_link.url }}"          
+            {{ button.yali_cta_button_link.blank == 'true' ? "target='_blank'" : '' }}
+            style="background-color: {{ button.yali_cta_button_bg_color }}" 
+            tabindex="0">
+            <div style="color: {{ button.yali_cta_button_text_color }}"> {{ button.yali_cta_button_link.text }}</div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div><!-- inner-container -->
+  </div>
+</section>

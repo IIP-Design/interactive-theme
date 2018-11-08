@@ -1,0 +1,18 @@
+.yali_page {
+	
+	
+	.media-container.responsive {
+		text-align: center;
+
+		iframe {
+			width: 100% !important;
+			@media screen and (min-width: 768px) {
+				height: 480px !important;
+			}			
+			@media screen and (max-width: 425px) {
+				height: auto;
+			}
+		}
+	}
+
+}
