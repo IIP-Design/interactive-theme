@@ -1,6 +1,6 @@
 <?php
 
-use Yali\Twig as Twig;
+use Inter\Twig as Twig;
 
 global $post;
 

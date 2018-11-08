@@ -1,11 +1,11 @@
 <?php
 
-use Yali\Twig as Twig;
+use Inter\Twig as Twig;
 
 // Post Object
 global $post;
 
-$post_data = Yali\API::get_contentblock($post->ID);
+$post_data = Inter\API::get_contentblock($post->ID);
 $content_block = do_shortcode($post_data['display_shortcode']);
 
 

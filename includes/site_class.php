@@ -1,8 +1,8 @@
 <?php
 
-namespace Yali;
+namespace Inter;
 
-use Yali\API as API;
+use Inter\API as API;
 
 class Site {
 

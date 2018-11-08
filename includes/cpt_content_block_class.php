@@ -1,8 +1,8 @@
 <?php
 
-namespace Yali;
+namespace Inter;
 
-use Twig_YALI_Extension;
+use Twig_Inter_Extension;
 
 class Content_Block {
 

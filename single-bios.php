@@ -1,12 +1,12 @@
 <?php
 
-use Yali\Twig as Twig;
+use Inter\Twig as Twig;
 
 // Post Object
 global $post;
 
-$post_data = Yali\API::get_bio($post->ID);
-$feat_img_obj = !empty($post_data["featured_media"]) ? Yali\API::get_featImg_obj($post_data["featured_media"]) : null;
+$post_data = Inter\API::get_bio($post->ID);
+$feat_img_obj = !empty($post_data["featured_media"]) ? Inter\API::get_featImg_obj($post_data["featured_media"]) : null;
 $bio_image = $feat_img_obj !== null ? $feat_img_obj["source_url"] : null;
 // Reset post data back to post query - above get_featImg_obj API request modifies $post global var
 wp_reset_postdata();

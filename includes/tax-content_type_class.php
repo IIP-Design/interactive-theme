@@ -1,6 +1,6 @@
 <?php
 
-namespace Yali;
+namespace Inter;
 
 class Content_Type_Tax {
 

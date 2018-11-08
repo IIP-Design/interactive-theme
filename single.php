@@ -1,13 +1,13 @@
 <?php
 
-use Yali\Twig as Twig;
+use Inter\Twig as Twig;
 
 // Post Object
 global $post;
 
 
-$post_data = Yali\API::get_post($post->ID);
-$feat_img_obj = !empty($post_data['featured_media']) ? Yali\API::get_featImg_obj($post_data['featured_media']) : null;
+$post_data = Inter\API::get_post($post->ID);
+$feat_img_obj = !empty($post_data['featured_media']) ? Inter\API::get_featImg_obj($post_data['featured_media']) : null;
 $header_url = $feat_img_obj !== null ? $feat_img_obj['source_url'] : null;
 // Reset post data back to single post query - above get_featImg_obj API request modifies $post global var
 wp_reset_postdata();
@@ -44,7 +44,7 @@ foreach($taxonomy_terms as $indx => $obj) {
 }
 
 // Get search indices
-$search_indexes = YaliSite::cdp_get_option('cdp_indexes');
+$search_indexes = InteractiveSite::cdp_get_option('cdp_indexes');
 
 // TEMP
 $check_host = $_SERVER['SERVER_NAME'];
@@ -80,7 +80,7 @@ $context = array(
   'series_slug'			=> $series_slug,
   'category_slug'		=> $category_slug,
   'tag_slug'				=> $tag_slug,
-  'series_slug_name'			=> $series_slug_name,
+  'series_slug_name' => $series_slug_name,
   'category_slug_name'		=> $category_slug_name,
   'tag_slug_name'				=> $tag_slug_name,
   'search_indexes'	=> $search_indexes

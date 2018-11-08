@@ -1,6 +1,6 @@
 <?php
 
-namespace Yali;
+namespace Inter;
 
 class Custom_Button_Shortcode {
 

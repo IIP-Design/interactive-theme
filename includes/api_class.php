@@ -1,6 +1,6 @@
 <?php
 
-namespace Yali;
+namespace Inter;
 
 use WP_REST_Request;
 

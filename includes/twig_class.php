@@ -1,15 +1,15 @@
 <?php
 
 /**
- * use YALI namespace to avoid potential conflicts
+ * use Inter namespace to avoid potential conflicts
  */
-namespace Yali;
+namespace Inter;
 
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 use Twig_Extension_Debug;
 use Twig_Function;
-use Twig_YALI_Extension;
+use Twig_Inter_Extension;
 
 class Twig {
 
@@ -36,8 +36,8 @@ class Twig {
 			$twig->addExtension( new Twig_Extension_Debug() );
 		}
 
-    // add all Wordpress, Yali, Corona functions, filters, globals etc via single extension
-    $twig->addExtension( new Twig_YALI_Extension() );
+    // add all Wordpress, Inter, Corona functions, filters, globals etc via single extension
+    $twig->addExtension( new Twig_Inter_Extension() );
 
     // allow addtional Twig configuration to be registered
     $twig = apply_filters('twig_init', $twig);

@@ -10,16 +10,16 @@ include( get_stylesheet_directory() . '/badge/class-america-badge-generation.php
 
 YALI_Autoloader::register( get_stylesheet_directory() . '/includes/' );
 
-use Yali\Twig as Twig;
-use Yali\Content_Block as Content_Block;
-use Yali\Content_Block_Shortcode as Content_Block_Shortcode;
-use Yali\Custom_Button_Shortcode as Custom_Button_Shortcode;
-use Yali\Bio as Bio;
-use Yali\Content_Type_Tax as Content_Type_Tax;
-use Yali\Series_Tax as Series_Tax;
+use Inter\Twig as Twig;
+use Inter\Content_Block as Content_Block;
+use Inter\Content_Block_Shortcode as Content_Block_Shortcode;
+use Inter\Custom_Button_Shortcode as Custom_Button_Shortcode;
+use Inter\Bio as Bio;
+use Inter\Content_Type_Tax as Content_Type_Tax;
+use Inter\Series_Tax as Series_Tax;
 
 
-class YaliSite {
+class InteractiveSite {
 
 	/**
 	 * Initializes theme
@@ -107,7 +107,6 @@ class YaliSite {
 	function register_taxonomies() {
 		// this is where you can register custom taxonomies
 		Content_Type_Tax::register();
-		Series_Tax::register();
 	}
 
 	function register_shortcodes() {
@@ -283,4 +282,4 @@ class YaliSite {
 	}
 }
 
-new YaliSite();
+new InteractiveSite();

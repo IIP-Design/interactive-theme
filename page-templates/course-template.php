@@ -3,7 +3,7 @@
 Template Name: Course Template
 */
 
-use Yali\Twig as Twig;
+use Inter\Twig as Twig;
 
 // Post Object
 global $post;
@@ -12,8 +12,8 @@ $pagename = get_query_var('pagename');
 $check_host = $_SERVER['SERVER_NAME'];
 
 // Page data
-$page_data = Yali\API::get_page($post->ID);
-$feat_img_obj = !empty($page_data["featured_media"]) ? Yali\API::get_featImg_obj($page_data["featured_media"]) : null;
+$page_data = Inter\API::get_page($post->ID);
+$feat_img_obj = !empty($page_data["featured_media"]) ? Inter\API::get_featImg_obj($page_data["featured_media"]) : null;
 $header_url = $feat_img_obj !== null ? $feat_img_obj["source_url"] : null;
 // Reset post data back to post query - above get_featImg_obj API request modifies $post global var
 wp_reset_postdata();
