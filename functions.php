@@ -39,10 +39,10 @@ class InteractiveSite {
 		add_action( 'pre_get_posts', array( $this, 'search_filter') );
 		add_filter( 'frm_notification_attachment', array( $this, 'yali_add_attachment'), 10, 3 );
 		add_filter( 'frm_encode_subject', array( $this, 'frm_encode_subject') );
-    add_action( 'wp_head', array( $this, 'insert_gtm_head') );
-		add_action( 'tha_body_top', array( $this, 'insert_gtm_body') );
-		add_action( 'wp_head', array( $this, 'insert_dap') );
-		add_action( 'wp_head', array( $this, 'insert_hotjar') );
+    // add_action( 'wp_head', array( $this, 'insert_gtm_head') );
+		// add_action( 'tha_body_top', array( $this, 'insert_gtm_body') );
+		// add_action( 'wp_head', array( $this, 'insert_dap') );
+		// add_action( 'wp_head', array( $this, 'insert_hotjar') );
 		add_filter( 'attachment_fields_to_edit', array( $this, 'yali_attachment_fields' ), 10, 2 );
 		add_action( 'edit_attachment', array( $this, 'yali_update_attachment_meta' ) );
 		add_action( 'wp_ajax_save-attachment-compat', array( $this, 'yali_media_custom_fields' ) );
@@ -62,7 +62,7 @@ class InteractiveSite {
 		}
 
 		/*
-		* Add Custom Shortcode Dropdown List to TinyMCE - must be after Yali_Autoloader
+		* Add Custom Shortcode Dropdown List to TinyMCE - must be after Inter_Autoloader
 		*/
     require_once 'includes/tinymce_dropdown/tinymce_dropdown.php';
 

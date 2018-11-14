@@ -16,7 +16,7 @@ function check_session_data() {
 		localStorage.session = 'new';
 		form.style.display = 'block';
 		
-		site_title.textContent === 'Young African Leaders Initiative';
+		site_title.textContent === 'Interactive';
 	}		
 	
 	if( session == 'returning' ) {
@@ -70,7 +70,7 @@ function display_form() {
 
 
 function set_title() {			
-	if( site_title.textContent === 'Young African Leaders Initiative' ) site_title.textContent = 'YALI';
+	if( site_title.textContent === 'Interactive' ) site_title.textContent = 'YALI';
 }
 
 function on_resize() {
