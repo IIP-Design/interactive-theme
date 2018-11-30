@@ -1,6 +1,6 @@
 .join {
 	text-align: center;
-	color: $blue-navy;
+	color: $white;
 	transition: all 0.5s ease;
 
 
@@ -13,7 +13,7 @@
 		max-width: 500px;
 		width: 100%;
 		font-family: $font-family;
-		background-color: $yellow;
+		background-color: $blue-navy;
 		opacity: 1;
 		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 		@media screen and (max-width: 1400px) {

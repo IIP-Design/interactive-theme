@@ -27,7 +27,7 @@ function set_title_text() {
 	if( window.innerWidth > 767 ) {
 		nav_text.innerHTML = 'Interactive';
 	} else {
-		if( localStorage.session !== 'new' || localStorage.scrolled == 'true' ) nav_text.innerHTML = 'YALI';		
+		if( localStorage.session !== 'new' || localStorage.scrolled == 'true' ) nav_text.innerHTML = 'Interactive';		
 	}
 }
 
