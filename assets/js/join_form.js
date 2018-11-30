@@ -70,7 +70,7 @@ function display_form() {
 
 
 function set_title() {			
-	if( site_title.textContent === 'Interactive' ) site_title.textContent = 'YALI';
+	if( site_title.textContent === 'Interactive' ) site_title.textContent = 'Interactive';
 }
 
 function on_resize() {
