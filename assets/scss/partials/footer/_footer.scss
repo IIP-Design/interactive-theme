@@ -29,11 +29,11 @@
 
   &_wrapper {
     position: relative;
-    width: 100%;
+    width: 75%;
     max-width: 1600px;
     margin: 0 auto;
     padding: 24px 0;
-    @media screen and (max-width: 589px) {
+    @media screen and (max-width: 769px) {
       padding: 8px 0 2px 0;
       text-align: center;
     }
@@ -215,7 +215,7 @@
 
 
   &_bureau {
-    padding: 30px 0;
+    padding: 10px 0;
     @media screen and (max-width: 589px) {
       padding: 18px 0 12px 0;
     }
