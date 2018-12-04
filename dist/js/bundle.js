@@ -1236,7 +1236,7 @@ function display_form() {
 }
 
 function set_title() {
-	if (site_title.textContent === 'Interactive') site_title.textContent = 'YALI';
+	if (site_title.textContent === 'Interactive') site_title.textContent = 'Interactive';
 }
 
 function on_resize() {
@@ -1332,7 +1332,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
   nav.init($);
   footer.init();
   join_form.init();
-  search.init();
+  // search.init();
   cdp.init($);
   responsiveImages.init();
 
@@ -1393,7 +1393,7 @@ function set_title_text() {
 	if (window.innerWidth > 767) {
 		nav_text.innerHTML = 'Interactive';
 	} else {
-		if (localStorage.session !== 'new' || localStorage.scrolled == 'true') nav_text.innerHTML = 'YALI';
+		if (localStorage.session !== 'new' || localStorage.scrolled == 'true') nav_text.innerHTML = 'Interactive';
 	}
 }
 
