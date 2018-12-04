@@ -27,7 +27,7 @@ import show_more_posts from './show_more';
   nav.init($);
   footer.init();
   join_form.init();
-  search.init();
+  // search.init();
   cdp.init($);
   responsiveImages.init();
 
