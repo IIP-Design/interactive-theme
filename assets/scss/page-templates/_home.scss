@@ -19,6 +19,62 @@
 		}
 	}
 
+	&_contact {
+		width: 100%;
+		padding: 26px;
+		background-color: #046B99;
+		@media screen and (max-width: 933px) {
+			padding: 16px;
+		}
+
+		.feedback {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+    		width: 75%;
+    		max-width: 1600px;
+    		margin: 0 auto;
+			padding: 24px 0;
+			color: $white;
+    		@media screen and (max-width: 769px) {
+      			padding: 10px 0 10px 0;
+      			text-align: center;
+			} 
+			@media screen and (max-width: 425px) {
+				flex-wrap: wrap; 
+		  	} 
+		}
+		.header {
+			margin-bottom: 0;
+			width: auto;
+			@media screen and (max-width: 375px) {
+				font-size: 1.3em; 
+		  	} 
+		}
+		.join {
+			margin: 0 20px;
+			padding: 5px 30px;
+			width: max-content;
+    		border-style: solid;
+			border-color: $white;
+			border-width: 2px;
+   			color: $white;
+    		background-color: $blue-medium;
+    		cursor: pointer;
+    		transition: opacity 2s ease;
+    
+
+    		&:hover {
+      			@media screen and (min-width: 934px) {
+        		filter: brightness(.96);
+        		transform: translate(-1px, -1px);
+      		}
+      		color: $white;
+			background-color: $blue-navy;
+			border-color: $blue-navy;
+    		}		
+		}
+	}
 
 	.item {
 
