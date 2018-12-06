@@ -7,18 +7,24 @@
       srcset="{{ srcset }}">
     <div class="hero-inner bottom_padd bottom_padd--thick_home">
       <div class="hero-content ui container">
-        <h1 class="hero-h1">Interactive</h1>        
+        <h1 class="hero-h1">Interactive Hub</h1> 
+        <p>Interactive is a global outreach team that works to connect the world through engaging web chats.</p>       
       </div>
     </div>
   </section>
-  <section class="ui container title-overlay">    
-    <h1 class='title-overlay_title'>{{ page_data.title.rendered }}</h1> 
+  <section class="ui container title-overlay">     
     <div class='inner-container'>           
       <div class='home'>
         <section class='home_main'>          
           {{ page_data.content.rendered }}          
         </section>
       </div>
+    </div>
+  </section>
+  <section class='home_contact'>
+    <div class='home_contact feedback'>
+        <h3 class='home_contact header'>Questions or Feedback?</h3>
+        <p class='home_contact join'>Get in Touch!</p>
     </div>
   </section>
 {% endblock %}
