@@ -27,7 +27,7 @@
 			margin-left: -10px;
 			margin-right: -10px;
 			padding-left: 10px;
-			padding-right: 10px;
+      padding-right: 10px;
 		}
 
 		a {
@@ -35,13 +35,14 @@
 			position: relative;
 			padding: 10px;
 			font-weight: 600;
-			color: #fff;
+			color: $blue-navy;
 			@media screen and (max-width: 933px) {
 				font-size: em(14, $mobile);
       		}
 
 			&:hover {
-				text-decoration: none;
+        color: $white;
+        text-decoration: none;
 				border-bottom: none;
 			}
 
