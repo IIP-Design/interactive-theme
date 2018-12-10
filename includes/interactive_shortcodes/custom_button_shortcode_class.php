@@ -9,7 +9,7 @@ class Custom_Button_Shortcode {
   }
 
   public function __construct() {
-     add_shortcode( 'custom_button', array($this, 'render_custom_button') );
+    add_shortcode( 'custom_button', array($this, 'render_custom_button') );
   }
 
   // Renders custom button
