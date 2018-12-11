@@ -348,11 +348,6 @@ class Content_Block_Shortcode {
       $cat = get_category_by_slug($category_field);
       if ($cat) $category_field = wp_slash($cat->name);
     }
-    $series_field                               = get_post_meta( $id, 'yali_cdp_series', true);
-    if ($series_field) {
-      $term = get_term_by('slug', $series_field, 'series');
-      if ($term) $series_field = wp_slash($term->name);
-    }
     $tag_field                                  = get_post_meta( $id, 'yali_cdp_tag', true);
     if ($tag_field) {
       $term = get_term_by('slug', $tag_field, 'post_tag');
@@ -373,7 +368,6 @@ class Content_Block_Shortcode {
     $context['cdp_num_posts']                   = get_post_meta( $id, 'yali_cdp_num_posts', true );
 
     $context['cdp_category']                    = ( empty($category_field) || $category_field == 'select' ) ?  '' : $category_field;
-    $context['cdp_series']                      = ( empty($series_field) || $series_field == 'select' ) ?  '' : $series_field;
     $context['cdp_tag']                         = ( empty($tag_field) || $tag_field == 'select' ) ?  '' : $tag_field;
 
     $context['cdp_ui_layout']                   = get_post_meta( $id, 'yali_cdp_ui_layout', true);

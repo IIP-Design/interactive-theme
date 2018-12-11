@@ -67,10 +67,6 @@ class API {
 				$request->set_param('categories', $filter);
 				break;
 
-			case 'series':
-				$request->set_param('series', $filter);
-				break;
-
 			case 'content_type':
 				$request->set_param('content_type', $filter);
 				break;
@@ -119,18 +115,6 @@ class API {
 		$responseArr['data'] = $response->data;
 		$responseArr['total_pages'] = $response->headers['X-WP-TotalPages'];
 		return $responseArr;
-	}
-
-	public static function get_bio($id) {
-		$request = new WP_REST_Request('GET', '/wp/v2/bios/' . $id);
-		$response = rest_do_request($request);
-		return $response->data;	
-	}
-
-	public static function get_all_bios() {
-		$request = new WP_REST_Request('GET', '/wp/v2/bios');
-		$response = rest_do_request($request);		
-		return $response->data;;
 	}
 
 	public static function get_sidebar($sidebar) {

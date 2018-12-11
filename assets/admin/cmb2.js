@@ -15,7 +15,6 @@
       selectByContentType = $('.cdp-select-posts-by-content-type'),
       selectByTaxonomy = $('.cdp-select-posts-by-taxonomy'),
       selectByPostsCategory = $('.cmb2-id-yali-cdp-category'),
-      selectByPostsSeries = $('.cmb2-id-yali-cdp-series'),
       selectByPostsTags = $('.cmb2-id-yali-cdp-tag'),
       selectByPostsNum = $('.cmb2-id-yali-cdp-num-posts'),
       selectByPosts = $('.cmb-type-cdp-autocomplete.cmb-repeat'),
@@ -158,25 +157,16 @@
       switch (taxonomy) {
         case 'category':
           selectByPostsCategory.show();
-          selectByPostsSeries.hide();
-          selectByPostsTags.hide();
-          break;
-
-        case 'series':
-          selectByPostsCategory.hide();
-          selectByPostsSeries.show();
           selectByPostsTags.hide();
           break;
 
         case 'tag':
           selectByPostsCategory.hide();
-          selectByPostsSeries.hide();
           selectByPostsTags.show();
           break;
 
         default:
           selectByPostsCategory.hide();
-          selectByPostsSeries.hide();
           selectByPostsTags.hide();
       }
     }

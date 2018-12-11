@@ -387,7 +387,6 @@ var filterHash = {
 	type: 'types',
 	subject: 'categories',
 	language: 'langs',
-	series: 'series',
 	sort: 'sort'
 };
 
@@ -401,7 +400,6 @@ var defaultFilterConfig = {
 	sort: 'recent',
 	types: '',
 	langs: 'en-us',
-	series: '',
 	meta: ['date'],
 	categories: '',
 	ui: { openLinkInNewWin: 'no' }
@@ -514,10 +512,6 @@ function initializeDropDownSelects(filters, feed) {
 
 			case 'subject':
 				query.getCategories(filter, addOptions);
-				break;
-
-			case 'series':
-				query.getSeries(filter, addOptions);
 				break;
 
 			case 'language':
@@ -772,7 +766,6 @@ function renderArticleFeed(feed) {
 		ids: config.ids,
 		langs: config.langs === 'all' ? '' : config.langs,
 		tags: selectByTaxonomy === 'tag' ? config.tags : '',
-		series: selectByTaxonomy === 'series' ? config.series : '',
 		categories: selectByTaxonomy === 'category' ? config.categories : '',
 		meta: config.postMeta,
 		ui: {
@@ -791,8 +784,8 @@ function renderArticleFeed(feed) {
 
 	shouldDisplayRelatedLinks(config);
 
-	if (context || config.tags || config.series || config.categories) {
-		// Build query outside of cdp module, since using some YALI specific params, i.e.series
+	if (context || config.tags || config.categories) {
+		// Build query outside of cdp module
 		addFeed(query.builder(configObj, context));
 	} else {
 		// let module generate query since using standard params
@@ -1544,7 +1537,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 exports.getTypes = getTypes;
 exports.getCategories = getCategories;
-exports.getSeries = getSeries;
 exports.getLanguages = getLanguages;
 exports.builder = builder;
 
@@ -1590,18 +1582,6 @@ function getCategories(filter, cb) {
   });
 }
 
-function getSeries(filter, cb) {
-  _axios2.default.post(API, {
-    body: (0, _bodybuilder2.default)().size(0).query('terms', 'site', INDEXES).agg('terms', 'site_taxonomies.series.name.keyword', {
-      'size': 1000,
-      'order': { '_term': 'asc' }
-    }, 'distinct_series').build()
-  }).then(function (response) {
-    var data = formatResponse(response, 'distinct_series');
-    cb(filter, data);
-  });
-}
-
 function getLanguages(filter, cb) {
   _axios2.default.post(API, {
     body: (0, _bodybuilder2.default)().size(0).query('terms', 'site', INDEXES).notFilter('term', 'language.locale', 'es').agg('terms', 'language.locale.keyword', {
@@ -1627,7 +1607,6 @@ function builder(params, context) {
       categories: fetchQry('category', context, params.categories),
       tags: fetchQry('tag', context, params.tags),
       types: fetchQry('content_type', context, params.types),
-      series: fetchQry('series', context, params.series),
       from: params.from ? params.from : 0,
       size: params.size,
       sort: params.sort ? params.sort : 'recent'
@@ -1650,10 +1629,6 @@ var generateBodyQry = exports.generateBodyQry = function generateBodyQry(params,
       return f.notFilter('exists', 'branded');
     }).filterMinimumShouldMatch(1);
   });
-
-  if (params.series) {
-    appendFilter(body, params.series, 'site_taxonomies.series.name.keyword');
-  }
 
   if (params.tags) {
     appendFilter(body, params.tags, 'site_taxonomies.tags.name.keyword');

@@ -12,7 +12,6 @@ var filterHash = {
 	type: 'types',
 	subject: 'categories',
 	language: 'langs',
-	series: 'series',
 	sort: 'sort'
 };
 
@@ -26,7 +25,6 @@ var defaultFilterConfig = {
 	sort: 'recent',
 	types: '',
 	langs: 'en-us',
-	series: '',
 	meta: ['date'],
 	categories: '',
 	ui: { openLinkInNewWin: 'no' }
@@ -140,10 +138,6 @@ function initializeDropDownSelects(filters, feed) {
 
 		case 'subject':
 			query.getCategories(filter, addOptions);
-			break;
-
-		case 'series':
-			query.getSeries(filter, addOptions);
 			break;
 
 		case 'language':
@@ -407,7 +401,6 @@ function renderArticleFeed(feed) {
 		ids: config.ids,
 		langs: config.langs === 'all' ? '' : config.langs,
 		tags: selectByTaxonomy === 'tag' ? config.tags : '',
-		series: selectByTaxonomy === 'series' ? config.series : '',
 		categories: selectByTaxonomy === 'category' ? config.categories : '',
 		meta: config.postMeta,
 		ui: {
@@ -426,8 +419,8 @@ function renderArticleFeed(feed) {
 
 	shouldDisplayRelatedLinks(config);
 
-	if (context || config.tags || config.series || config.categories) {
-		// Build query outside of cdp module, since using some YALI specific params, i.e.series
+	if (context || config.tags || config.categories) {
+		// Build query outside of cdp module
 		addFeed(query.builder(configObj, context));
 	} else {
 		// let module generate query since using standard params

@@ -21,7 +21,6 @@ $sizes = wp_get_attachment_image_sizes($img_id, "full");
 
 // Taxonomy data
 $categories = Inter\API::get_category_list();
-$series = get_terms('series');
 
 // Data for certain pages or shared
 $social_block = do_shortcode("[content_block id='14264']");
@@ -84,7 +83,6 @@ $context = array(
   'social_block'  => $social_block,
   'formVar'       => $formVar,
   'category_list' => $categories,
-  'series_list'   => $series,
   'courses_faq'   => $courses_faq,
   'featured_course' => $featured_course,
   'campaign_materials_accordion'  => $campaign_materials_accordion,

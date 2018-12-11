@@ -12,10 +12,7 @@ use Inter\Content_Block as Content_Block;
 use Inter\Content_Block_Shortcode as Content_Block_Shortcode;
 use Inter\Custom_Button_Shortcode as Custom_Button_Shortcode;
 use Inter\Custom_Iframe_Shortcode as Custom_Iframe_Shortcode;
-use Inter\Bio as Bio;
 use Inter\Content_Type_Tax as Content_Type_Tax;
-use Inter\Series_Tax as Series_Tax;
-
 
 class InteractiveSite {
 
@@ -99,7 +96,6 @@ class InteractiveSite {
 	 */
 	function register_post_types() {
 		Content_Block::register();
-		Bio::register();
 	}
 
 	function register_taxonomies() {

@@ -13,12 +13,10 @@ $header_url = $feat_img_obj !== null ? $feat_img_obj['source_url'] : null;
 wp_reset_postdata();
 
 // Get all post taxonomy & remove default 'Uncategorized' category
-$taxonomy_terms = wp_get_post_terms($post->ID, array('category', 'post_tag', 'series'));
-$series_slug;
+$taxonomy_terms = wp_get_post_terms($post->ID, array('category', 'post_tag'));
 $category_slug;
 $tag_slug;
 $select_by_taxonomy;
-$series_slug_name;
 $category_slug_name;
 $tag_slug_name;
 
@@ -27,12 +25,7 @@ foreach($taxonomy_terms as $indx => $obj) {
     unset($taxonomy_terms[$indx]);
   }
 
-  if ( $obj->taxonomy === 'series' && !$series_slug ) {
-    $series_slug = $obj->slug;
-    $series_slug_name = $obj->name;
-    $select_by_taxonomy = $obj->taxonomy;
-    break;
-  } elseif ( $obj->taxonomy === 'category' && $obj->name !== 'Uncategorized' && !$category_slug ) {
+  if ( $obj->taxonomy === 'category' && $obj->name !== 'Uncategorized' && !$category_slug ) {
     $category_slug = $obj->slug;
     $category_slug_name = $obj->name;
     $select_by_taxonomy = $obj->taxonomy;
@@ -77,10 +70,8 @@ $context = array(
   'taxonomy_terms'  => $taxonomy_terms,
   'selector'				=> 'feed' . $post->ID,
   'select_by_taxonomy' => $select_by_taxonomy,
-  'series_slug'			=> $series_slug,
   'category_slug'		=> $category_slug,
   'tag_slug'				=> $tag_slug,
-  'series_slug_name' => $series_slug_name,
   'category_slug_name'		=> $category_slug_name,
   'tag_slug_name'				=> $tag_slug_name,
   'search_indexes'	=> $search_indexes
