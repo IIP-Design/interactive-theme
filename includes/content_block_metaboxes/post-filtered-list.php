@@ -19,7 +19,6 @@ $cb_box_filter->add_field( array(
 	'options' => array(
 		'type'      => 'Type',
 		'subject'   => 'Subject',
-    'series'    => 'Series',
     'language'  => 'Language',
     'sort'      => 'Sort',
 	),

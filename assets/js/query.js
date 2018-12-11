@@ -43,22 +43,6 @@ export function getCategories ( filter, cb ) {
   } );
 }
 
-export function getSeries ( filter, cb ) {
-  	axios.post( API, {
-    	body: bodybuilder()
-      .size( 0 )
-      .query( 'terms', 'site', INDEXES )
-      .agg( 'terms', 'site_taxonomies.series.name.keyword', {
-        	'size': 1000,
-        	'order': { '_term': 'asc' }
-      }, 'distinct_series' )
-      .build()
-  } ).then( ( response ) => {
-    	let data = formatResponse( response, 'distinct_series' );
-    	cb( filter, data );
-  } );
-}
-
 export function getLanguages ( filter, cb ) {
   	axios.post( API, {
     	body: bodybuilder()
@@ -91,7 +75,6 @@ export function builder ( params, context ) {
       	categories: fetchQry( 'category', context, params.categories ),
       	tags: fetchQry( 'tag', context, params.tags ),
       	types: fetchQry( 'content_type', context, params.types ),
-      	series: fetchQry( 'series', context, params.series ),
       	from: ( params.from ) ? params.from : 0,
       	size: params.size,
       	sort: ( params.sort ) ? params.sort : 'recent'
@@ -114,10 +97,6 @@ export const generateBodyQry = ( params, context ) => {
     .orFilter('bool', f => f.notFilter('exists', 'branded'))
     .filterMinimumShouldMatch( 1 )
   );
-
-  if ( params.series ) {
-    appendFilter( body, params.series, 'site_taxonomies.series.name.keyword');
-  }
 
   if ( params.tags ) {
     appendFilter( body, params.tags, 'site_taxonomies.tags.name.keyword');

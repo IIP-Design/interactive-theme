@@ -96,26 +96,6 @@ class Content_Block {
     return $cat_options;
   }
 
-  /**
-   * Fetch Wordpress series
-   * @todo fetch from CDP
-   *
-   * @return void
-   */
-  public function fetch_series() {
-    $series_options =  array();
-    $series = get_terms( 'series', array(
-      'hide_empty' => false,
-    ));
-
-    $series_options['select'] = 'Select';
-    foreach( $series as $s ) {
-      $series_options[$s->slug] = $s->name;
-    }
-
-    return $series_options;
-  }
-
     /**
    * Fetch Wordpress series
    * @todo fetch from CDP

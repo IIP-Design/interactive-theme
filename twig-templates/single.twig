@@ -69,8 +69,6 @@
 			<h3 class='archive_link'>
 				<a
 					class='cta_link'
-					{% if series_name is not empty %}
-					href='/{{ post_data.post_series_names[0].taxonomy }}/{{ post_data.post_series_names[0].slug }}'
 					{% elseif category_name is not empty and category_name != 'Uncategorized' %}
 					href='/{{ post_data.post_category_names[0].taxonomy }}/{{ post_data.post_category_names[0].slug }}'
 					{% elseif tag_name is not empty %}
@@ -79,7 +77,6 @@
 					href='/learning'
 					{% endif %}
 					>
-					More from &ldquo;{{ (series_name is not empty) ? series_name : (category_name is not empty and category_name != 'Uncategorized') ? category_name : (tag_name is not empty) ? tag_name : 'YALI Network in Action' }}&rdquo; <i class='angle right icon'></i>
 				</a>
 			</h3>
 		</section>
