@@ -15,7 +15,7 @@ $sizes = wp_get_attachment_image_sizes( $img_id, 'full' );
 
 $check_host = $_SERVER['SERVER_NAME'];
 
-$formVar = do_shortcode('[formidable id=6]');
+$formVar = do_shortcode('[formidable id=2]');
 
 $context = array(
   "check_host"  => $check_host,
