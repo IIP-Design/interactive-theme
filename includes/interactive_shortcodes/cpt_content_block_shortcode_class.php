@@ -190,15 +190,15 @@ class Content_Block_Shortcode {
 
   // FILTERED POST LIST CONTENT BLOCK (CDP)
   public function render_filtered_list( $atts ) {
-    $id                     = $atts['id'];
-    $context                = $this->fetch_base_config( $id, get_post( $id ) );
-    $context['selector']    = 'feed' . $id;
-    $context['cdp_indexes'] = cdp_get_option('cdp_indexes');
-    $context['filters']     = $this->fetch_filters( $atts );  // get_post_meta( $id, 'yali_list_filters', true);
-    $context['lang_key'] = get_post_meta( $id, 'yali_cb_lang_selection', true);
-    $context['types']       = $this->convert_to_str( get_post_meta( $id, 'yali_list_filters_types', true) );
+    $id                      = $atts['id'];
+    $context                 = $this->fetch_base_config( $id, get_post( $id ) );
+    $context['selector']     = 'feed' . $id;
+    $context['cdp_indexes']  = cdp_get_option('cdp_indexes');
+    $context['filters']      = $this->fetch_filters( $atts );  // get_post_meta( $id, 'yali_list_filters', true);
+    $context['lang_key']     = get_post_meta( $id, 'yali_cb_lang_selection', true);
+    $context['types']        = $this->convert_to_str( get_post_meta( $id, 'yali_list_filters_types', true) );
     $context['date_display'] = get_post_meta( $id, 'yali_filtered_list_date_display', true);
-    $context                = $this->fetch_btn_config( $context, $id, get_post_meta( $id ) );
+    $context                 = $this->fetch_btn_config( $context, $id, get_post_meta( $id ) );
 
     switch ( $context['lang_key'] ) {
       case 'en-us' :
@@ -253,6 +253,7 @@ class Content_Block_Shortcode {
   // TEXT CONTENT BLOCK
   public function render_text_block( $atts ) {
     global $wp_embed;
+    global $wp_iframe;
 
     $id = $atts['id'];
     $context = $this->fetch_base_config( $id, get_post($id) );
@@ -262,7 +263,7 @@ class Content_Block_Shortcode {
     $text_content = wpautop($text_content);
     $text_content = $wp_embed->autoembed( $text_content );
     $text_content = $wp_embed->run_shortcode( $text_content );
-    $context['text_content'] = do_shortcode($text_content);
+    $context['text_content'] = do_shortcode( $text_content );
     $context['font_color'] = get_post_meta( $id, 'yali_text_block_font_color', true );
 
     return Twig::render( 'content_blocks/text_block.twig', $context );
@@ -361,8 +362,8 @@ class Content_Block_Shortcode {
     $context['cdp_widget']                      = $module;
     $context['cdp_indexes']                     = cdp_get_option('cdp_indexes');
     $context['cdp_post_select_by']              = get_post_meta( $id, 'yali_cdp_select_type_posts', true );
-    $context['cdp_content_type']      = get_post_meta( $id, 'yali_cdp_select_content_type', true );
-    $context['cdp_language']      = get_post_meta( $id, 'yali_cdp_select_language', true );
+    $context['cdp_content_type']                = get_post_meta( $id, 'yali_cdp_select_content_type', true );
+    $context['cdp_language']                    = get_post_meta( $id, 'yali_cdp_select_language', true );
     $context['cdp_taxonomy_select_by']          = get_post_meta( $id, 'yali_cdp_select_taxonomy', true );
 
     $context['cdp_post_ids']                    = get_post_meta( $id, 'yali_cdp_autocomplete', true );
