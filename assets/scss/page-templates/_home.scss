@@ -14,7 +14,6 @@
           padding-left: 0 !important;
         }
       }
-
     }
   }
 
@@ -57,16 +56,26 @@
       }
     }
     .array_image{
-      padding: 5px;
+      padding: 0;
       max-width: 100%;
       height: auto;
       margin-top: 10px;
       border-radius: 50%;
+      box-shadow: 2px 2px 5px $blue-bright;
+        &:hover {
+          transform: scale(1.01);
+          @media screen and (max-width: 780px) {
+            transform: 0;
+        }
+      }
     }
     .array_text{
       text-align: center;
+        &:hover {
+          color: $red;
+        }
+      }
     }
-  }
 
   &_contact {
     width: 100%;
