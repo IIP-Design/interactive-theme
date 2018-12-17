@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+  <article class="iip-event-article">
+    <h2>{{ title }}</h2>
+    <div class="iip-event-hero">
+      <figure class="iip-event-featured-image">
+        <img src={{ thumbnail }} alt="" />
+      </figure>
+    </div>
+    <div class="iip-event-meta">
+      <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}
+      {{ language }}
+      {{ organizer }} 
+      {{ link }}
+    </div>
+    <section class="iip-event-body">
+      {{ description }}
+    </section>
+    <section class="iip-event-speakers">
+      {{ speakers }}
+    </section>
+    <section class="iip-event-materials">
+      {{ materials }}
+    </section>
+    <section class="iip-event-contact">
+      {{ contact }}
+    </section>
+  </article>
+
+{% endblock %}
