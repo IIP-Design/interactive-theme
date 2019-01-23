@@ -27,7 +27,7 @@ body {
 
 h1 {
   font-size: em(64);
-  font-weight: 900;
+  font-weight: 600;
   @media screen and (max-width: 933px) {
     font-size: em(34, $mobile);
   }
@@ -36,25 +36,30 @@ h1 {
 
 h2 {
   font-size: em(48);
-  font-weight: 900;
+  font-weight: 600;
   @media screen and (max-width: 933px) {
     font-size: em(28, $mobile);
   }
 }
 
 
+
 h3 {
   font-size: em(32);
-  font-weight: 700;
+  font-weight: 500;
   @media screen and (max-width: 933px) {
     font-size: em(24, $mobile);
+  }
+  &:before {
+    content: " > ";
+    color: $red;
   }
 }
 
 
 h4 {
   font-size: em(24);
-  font-weight: 700;
+  font-weight: 500;
   @media screen and (max-width: 933px) {
     font-size: em(20, $mobile);
   }
@@ -63,7 +68,7 @@ h4 {
 
 h5 {
   font-size: em(20);
-  font-weight: 700;
+  font-weight: 500;
   @media screen and (max-width: 933px) {
     font-size: em(18, $mobile);
   }
