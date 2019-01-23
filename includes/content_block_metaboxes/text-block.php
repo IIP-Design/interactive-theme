@@ -20,7 +20,7 @@ $text_block->add_field( array(
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
         'border'        => false,
-        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#25ace2', '#174f9f', '#192856' )
+        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#046b99', '#174f9f', '#192856' )
     ))
   )
 ));

@@ -92,8 +92,10 @@
     display: none;
     margin: 0 15px;
     padding: 7px 23px;
+    border-width: 2px;
     border-style: solid;
     border-color: $blue-navy;
+    border-radius: 4px;
     color: $blue-navy;
     background-color: $white;
     cursor: pointer;
@@ -110,7 +112,7 @@
     }
 
     p {
-      font-weight: 700;
+      font-weight: 600;
     }
 
     &--mobile {
