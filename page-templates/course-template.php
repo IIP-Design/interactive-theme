@@ -25,7 +25,7 @@ $sizes = wp_get_attachment_image_sizes($img_id, "full");
 // 'Join the Network' Form
 $formVar = do_shortcode('[formidable id=6]');
 
-$course_language = get_post_meta($post->ID, '_yali_course_lang_indicator', true);
+$course_language = get_post_meta($post->ID, '_inter_course_lang_indicator', true);
 
 // Data array for twig
 $context = array(

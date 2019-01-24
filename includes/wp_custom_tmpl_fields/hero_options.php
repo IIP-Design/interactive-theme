@@ -5,7 +5,7 @@
 
 add_action('cmb2_init', 'hero_title_option');
 function hero_title_option() {
-	$prefix = '_yali_';
+	$prefix = '_inter_';
 
 	$hero_title  = new_cmb2_box( array(
 		'id'           =>  'hero_title',

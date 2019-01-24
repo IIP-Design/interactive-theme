@@ -587,12 +587,12 @@ function initializeFeed(feed) {
 	cdpFilterFeedConfig[id].selector = '#' + id;
 
 	/**
-  * yaliCbLang_feed##### is declared in post-filtered-list.twig.
+  * interCbLang_feed##### is declared in post-filtered-list.twig.
   * Allows campaign team to create post-filtered-list
   * content blocks with a preselected language.
   * @see IIPNET-131
   */
-	var langObj = window['yaliCbLang_' + id];
+	var langObj = window['interCbLang_' + id];
 	if (langObj) {
 		cdpFilterFeedConfig[id].langs = langObj.key;
 	}
@@ -719,7 +719,7 @@ function filterSetSelected(filter, selected) {
 		var div = filter.querySelector('.text');
 		var dropdown = $(input).closest('.cb_dropdown.cb-cdp-filters');
 		var feedId = dropdown.data('target');
-		var langObj = window['yaliCbLang_' + feedId];
+		var langObj = window['interCbLang_' + feedId];
 		if (input) {
 			input.value = langObj && langObj.key || selected.key;
 		}
@@ -987,7 +987,7 @@ var forEach = function forEach(array, callback, scope) {
  * @param {*} feed  Either a feed id string or the feed DOM element itself
  *
  * @returns DOM data attributes of parent element with '.archive_posts' class. Data elements
- * contain data-filter and data-filter-value, i.e. data-filter="series", data-filter-value="YALI Voices"
+ * contain data-filter and data-filter-value, i.e. data-filter="series", data-filter-value="inter Voices"
  */
 var getFilterContext = function getFilterContext(feed) {
 	var el = typeof feed == 'string' ? document.getElementById(feed) : feed;
@@ -1554,7 +1554,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html
 
 var API = cdp.publicAPI ? cdp.publicAPI : 'https://api.america.gov/v1/search';
-var INDEXES = cdp.searchIndexes ? fetchArray(cdp.searchIndexes) : 'yali.dev.america.gov';
+var INDEXES = cdp.searchIndexes ? fetchArray(cdp.searchIndexes) : 'interactive.dev.america.gov';
 
 // Populate dropdown filters
 function getTypes(filter, cb) {

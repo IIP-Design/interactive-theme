@@ -40,7 +40,7 @@ class Content_Block_Shortcode {
    */
   public function render_content_block ( $atts ) {
     // check for content block id
-    $type = get_post_meta( $atts['id'], 'yali_cb_type', true );
+    $type = get_post_meta( $atts['id'], 'inter_cb_type', true );
     if( empty($type) ) {
       return;
     }
@@ -63,11 +63,11 @@ class Content_Block_Shortcode {
       $context["sizes"] = wp_get_attachment_image_sizes( $img_id, 'full' );
     }
 
-    $context["cb_layout_width"] = get_post_meta( $id, 'yali_cb_layout_width' );
-    $context["cta_buttons"] = get_post_meta( $id, 'yali_cta_button_repeat_group', true );
+    $context["cb_layout_width"] = get_post_meta( $id, 'inter_cb_layout_width' );
+    $context["cta_buttons"] = get_post_meta( $id, 'inter_cta_button_repeat_group', true );
 
     foreach ($context["cta_buttons"] as &$button) {
-      $button["yali_cta_button_link"]["url"] = $this->filter_link($button["yali_cta_button_link"]["url"]);
+      $button["inter_cta_button_link"]["url"] = $this->filter_link($button["inter_cta_button_link"]["url"]);
     }
     unset($button);
 
@@ -78,11 +78,11 @@ class Content_Block_Shortcode {
   public function render_social( $atts ) {
     $id = $atts['id'];
     $context = array(
-      "title"           => get_post_meta( $id, 'yali_cb_social_links_title', true ),
-      "facebook"        => get_post_meta( $id, 'yali_cb_social_links_facebook', true ),
-      "twitter"         => get_post_meta( $id, 'yali_cb_social_links_twitter', true ),
-      "linkedin"        => get_post_meta( $id, 'yali_cb_social_links_linkedin', true ),
-      "block_bg_color"  => get_post_meta( $id, 'yali_cb_bg_color', true ),
+      "title"           => get_post_meta( $id, 'inter_cb_social_links_title', true ),
+      "facebook"        => get_post_meta( $id, 'inter_cb_social_links_facebook', true ),
+      "twitter"         => get_post_meta( $id, 'inter_cb_social_links_twitter', true ),
+      "linkedin"        => get_post_meta( $id, 'inter_cb_social_links_linkedin', true ),
+      "block_bg_color"  => get_post_meta( $id, 'inter_cb_bg_color', true ),
     );
 
     return Twig::render( 'content_blocks/social.twig', $context );
@@ -112,9 +112,9 @@ class Content_Block_Shortcode {
 
     $context = array(
       'id'  => $slug,
-      'headline' => get_post_meta($id, 'yali_cb_accordion_headline', true),
-      'headline_alignment' => get_post_meta($id, 'yali_cb_accordion_headline_alignment', true),
-      'font_color' => get_post_meta($id, 'yali_cb_accordion_font_color', true),
+      'headline' => get_post_meta($id, 'inter_cb_accordion_headline', true),
+      'headline_alignment' => get_post_meta($id, 'inter_cb_accordion_headline_alignment', true),
+      'font_color' => get_post_meta($id, 'inter_cb_accordion_font_color', true),
       'items_array' => $items
     );
 
@@ -135,7 +135,7 @@ class Content_Block_Shortcode {
 
     foreach ($all_pages as $page) {
       // Get page ID from meta select dropdown
-      $page_id = $page['yali_select_page'];
+      $page_id = $page['inter_select_page'];
 
       // Get page data
       $listed_page = get_page($page_id);
@@ -151,19 +151,19 @@ class Content_Block_Shortcode {
       $listed_page->page_link = $this->filter_link($page_link);
 
       // Get related link and text add as prop to page object
-      $related_link = $page['yali_related_link']['link'];
+      $related_link = $page['inter_related_link']['link'];
       $listed_page->related_link = $this->filter_link($related_link);
 
-      $related_link_text = $page['yali_related_link']['label'];
+      $related_link_text = $page['inter_related_link']['label'];
       $listed_page->related_link_text = $related_link_text;
 
-      $context['links'] = get_post_meta( $id, 'yali_button_links_repeat_group', true );
+      $context['links'] = get_post_meta( $id, 'inter_button_links_repeat_group', true );
 
       array_push($page_list, $listed_page);
     }
 
     $context['page_list'] = $page_list;
-    $context['page_list_layout'] = get_post_meta( $id, 'yali_cdp_page_list_layout', true);
+    $context['page_list_layout'] = get_post_meta( $id, 'inter_cdp_page_list_layout', true);
     $context['selector'] = 'cb-' . get_the_ID();
     $context['num_pages'] = count($page_list);
 
@@ -181,7 +181,7 @@ class Content_Block_Shortcode {
     $context['selector']  = 'feed' . $id;
     $context              = $this->fetch_module_config( $context, $id );
     $context              = $this->fetch_btn_config( $context, $id, $meta );
-    $context['post_list_layout'] = get_post_meta( $id, 'yali_cdp_post_list_layout', true);
+    $context['post_list_layout'] = get_post_meta( $id, 'inter_cdp_post_list_layout', true);
 
     //$this->debug($context );
     return Twig::render( 'content_blocks/post-list.twig', $context );
@@ -194,10 +194,10 @@ class Content_Block_Shortcode {
     $context                 = $this->fetch_base_config( $id, get_post( $id ) );
     $context['selector']     = 'feed' . $id;
     $context['cdp_indexes']  = cdp_get_option('cdp_indexes');
-    $context['filters']      = $this->fetch_filters( $atts );  // get_post_meta( $id, 'yali_list_filters', true);
-    $context['lang_key']     = get_post_meta( $id, 'yali_cb_lang_selection', true);
-    $context['types']        = $this->convert_to_str( get_post_meta( $id, 'yali_list_filters_types', true) );
-    $context['date_display'] = get_post_meta( $id, 'yali_filtered_list_date_display', true);
+    $context['filters']      = $this->fetch_filters( $atts );  // get_post_meta( $id, 'inter_list_filters', true);
+    $context['lang_key']     = get_post_meta( $id, 'inter_cb_lang_selection', true);
+    $context['types']        = $this->convert_to_str( get_post_meta( $id, 'inter_list_filters_types', true) );
+    $context['date_display'] = get_post_meta( $id, 'inter_filtered_list_date_display', true);
     $context                 = $this->fetch_btn_config( $context, $id, get_post_meta( $id ) );
 
     switch ( $context['lang_key'] ) {
@@ -238,11 +238,11 @@ class Content_Block_Shortcode {
   // BUTTON LINKS CONTENT BLOCK
   public function render_button_links( $atts ) {
     $id = $atts['id'];
-    $context['headline'] = get_post_meta( $id, 'yali_button_links_headline', true );
-    $context['links'] = get_post_meta( $id, 'yali_button_links_repeat_group', true );
+    $context['headline'] = get_post_meta( $id, 'inter_button_links_headline', true );
+    $context['links'] = get_post_meta( $id, 'inter_button_links_repeat_group', true );
 
     foreach ($context['links'] as &$button) {
-      $button['yali_button_link']['url'] = $this->filter_link($button['yali_button_link']['url']);
+      $button['inter_button_link']['url'] = $this->filter_link($button['inter_button_link']['url']);
     }
     unset($button);
 
@@ -258,13 +258,13 @@ class Content_Block_Shortcode {
     $id = $atts['id'];
     $context = $this->fetch_base_config( $id, get_post($id) );
 
-    $text_content = get_post_meta( $id, 'yali_text_block_content', true );
+    $text_content = get_post_meta( $id, 'inter_text_block_content', true );
     $text_content = $this->filter_link( $text_content );
     $text_content = wpautop($text_content);
     $text_content = $wp_embed->autoembed( $text_content );
     $text_content = $wp_embed->run_shortcode( $text_content );
     $context['text_content'] = do_shortcode( $text_content );
-    $context['font_color'] = get_post_meta( $id, 'yali_text_block_font_color', true );
+    $context['font_color'] = get_post_meta( $id, 'inter_text_block_font_color', true );
 
     return Twig::render( 'content_blocks/text_block.twig', $context );
   }
@@ -281,7 +281,7 @@ class Content_Block_Shortcode {
 
     foreach ($campaigns_list as $campaign) {
       // Get Campaign ID from meta select dropdown
-      $campaign_id = $campaign['yali_select_campaign'];
+      $campaign_id = $campaign['inter_select_campaign'];
       // Get campaign page data
       $campaign_page = get_page($campaign_id);
 
@@ -318,22 +318,22 @@ class Content_Block_Shortcode {
   private function fetch_base_config ( $id, $post ) {
     //$this->debug( get_post_meta( $id));
 
-    $block_title = get_post_meta( $id, 'yali_block_title', true);
+    $block_title = get_post_meta( $id, 'inter_block_title', true);
 
     $context = array(
       "title"               => empty( $block_title ) ? $post->post_title : $block_title,
-      "title_size"          => get_post_meta($id, 'yali_cb_block_title_size', true),
-      "show_title"          => get_post_meta($id, 'yali_cb_show_title', true),
-      "title_underline"     => ( get_post_meta($id, 'yali_cb_title_underline', true) == 'yes' ) ? 'cb_h2_underline': '',
-      "title_color"         => get_post_meta( $id, 'yali_cb_title_color', true ),
-      "title_alignment"     => get_post_meta( $id, 'yali_cb_title_alignment', true ),
-      "full_screen_width"   => get_post_meta( $id, 'yali_cb_layout_width', true ),
-      "block_bg_color"      => get_post_meta( $id, 'yali_cb_bg_color', true ),
+      "title_size"          => get_post_meta($id, 'inter_cb_block_title_size', true),
+      "show_title"          => get_post_meta($id, 'inter_cb_show_title', true),
+      "title_underline"     => ( get_post_meta($id, 'inter_cb_title_underline', true) == 'yes' ) ? 'cb_h2_underline': '',
+      "title_color"         => get_post_meta( $id, 'inter_cb_title_color', true ),
+      "title_alignment"     => get_post_meta( $id, 'inter_cb_title_alignment', true ),
+      "full_screen_width"   => get_post_meta( $id, 'inter_cb_layout_width', true ),
+      "block_bg_color"      => get_post_meta( $id, 'inter_cb_bg_color', true ),
       "excerpt"             => $post->post_excerpt,
-      "excerpt_alignment"   => get_post_meta( $id, 'yali_cb_excerpt_alignment', true ),
-      "excerpt_color"       => get_post_meta( $id, 'yali_cb_excerpt_color', true ),
-      "excerpt_font_weight" => get_post_meta( $id, 'yali_cb_excerpt_font_weight', true ),
-      "text_alignment"      => get_post_meta( $id, 'yali_cb_text_alignment', true )
+      "excerpt_alignment"   => get_post_meta( $id, 'inter_cb_excerpt_alignment', true ),
+      "excerpt_color"       => get_post_meta( $id, 'inter_cb_excerpt_color', true ),
+      "excerpt_font_weight" => get_post_meta( $id, 'inter_cb_excerpt_font_weight', true ),
+      "text_alignment"      => get_post_meta( $id, 'inter_cb_text_alignment', true )
     );
 
     return $context;
@@ -343,12 +343,12 @@ class Content_Block_Shortcode {
     //$this->debug( get_post_meta( $id));exit;
 
     $module                                     = 'article-feed';
-    $category_field                             = get_post_meta( $id, 'yali_cdp_category', true);
+    $category_field                             = get_post_meta( $id, 'inter_cdp_category', true);
     if ($category_field) {
       $cat = get_category_by_slug($category_field);
       if ($cat) $category_field = wp_slash($cat->name);
     }
-    $tag_field                                  = get_post_meta( $id, 'yali_cdp_tag', true);
+    $tag_field                                  = get_post_meta( $id, 'inter_cdp_tag', true);
     if ($tag_field) {
       $term = get_term_by('slug', $tag_field, 'post_tag');
       if ($term) $tag_field = wp_slash($term->name);
@@ -356,23 +356,23 @@ class Content_Block_Shortcode {
 
     $context['cdp_widget']                      = $module;
     $context['cdp_indexes']                     = cdp_get_option('cdp_indexes');
-    $context['cdp_post_select_by']              = get_post_meta( $id, 'yali_cdp_select_type_posts', true );
-    $context['cdp_content_type']                = get_post_meta( $id, 'yali_cdp_select_content_type', true );
-    $context['cdp_language']                    = get_post_meta( $id, 'yali_cdp_select_language', true );
-    $context['cdp_taxonomy_select_by']          = get_post_meta( $id, 'yali_cdp_select_taxonomy', true );
+    $context['cdp_post_select_by']              = get_post_meta( $id, 'inter_cdp_select_type_posts', true );
+    $context['cdp_content_type']                = get_post_meta( $id, 'inter_cdp_select_content_type', true );
+    $context['cdp_language']                    = get_post_meta( $id, 'inter_cdp_select_language', true );
+    $context['cdp_taxonomy_select_by']          = get_post_meta( $id, 'inter_cdp_select_taxonomy', true );
 
-    $context['cdp_post_ids']                    = get_post_meta( $id, 'yali_cdp_autocomplete', true );
-    $context['cdp_posts_related']               = $this->filter_cdp_posts_related( get_post_meta( $id, 'yali_cdp_autocomplete_related', true ) );
-    $context['cdp_posts_related_link_display']  = get_post_meta( $id, 'yali_cdp_autocomplete_links_display', true );
-    $context['cdp_post_meta_fields_to_show']    = get_post_meta( $id, 'yali_cdp_fields', true );
-    $context['cdp_num_posts']                   = get_post_meta( $id, 'yali_cdp_num_posts', true );
+    $context['cdp_post_ids']                    = get_post_meta( $id, 'inter_cdp_autocomplete', true );
+    $context['cdp_posts_related']               = $this->filter_cdp_posts_related( get_post_meta( $id, 'inter_cdp_autocomplete_related', true ) );
+    $context['cdp_posts_related_link_display']  = get_post_meta( $id, 'inter_cdp_autocomplete_links_display', true );
+    $context['cdp_post_meta_fields_to_show']    = get_post_meta( $id, 'inter_cdp_fields', true );
+    $context['cdp_num_posts']                   = get_post_meta( $id, 'inter_cdp_num_posts', true );
 
     $context['cdp_category']                    = ( empty($category_field) || $category_field == 'select' ) ?  '' : $category_field;
     $context['cdp_tag']                         = ( empty($tag_field) || $tag_field == 'select' ) ?  '' : $tag_field;
 
-    $context['cdp_ui_layout']                   = get_post_meta( $id, 'yali_cdp_ui_layout', true);
-    $context['cdp_ui_direction']                = get_post_meta( $id, 'yali_cdp_ui_direction', true);
-    $context['cdp_image']                       = get_post_meta( $id, 'yali_cdp_image', true);
+    $context['cdp_ui_layout']                   = get_post_meta( $id, 'inter_cdp_ui_layout', true);
+    $context['cdp_ui_direction']                = get_post_meta( $id, 'inter_cdp_ui_direction', true);
+    $context['cdp_image']                       = get_post_meta( $id, 'inter_cdp_image', true);
 
     //$this->debug($context);exit;
 
@@ -396,7 +396,7 @@ class Content_Block_Shortcode {
   }
 
   private function fetch_btn_config ( &$context, $id, $meta ) {
-    $button = get_post_meta( $id, 'yali_cb_box_btn_link', true );
+    $button = get_post_meta( $id, 'inter_cb_box_btn_link', true );
 
     if( !$button ) {
       return $context;
@@ -404,9 +404,9 @@ class Content_Block_Shortcode {
     $context['btn_label']           = $button['text'];
     $context['btn_link']            = $this->filter_link( $button['url'] );
     $context['btn_new_win']         = ($button['blank'] == 'true') ? 'target="_blank"' : '';
-    $context['btn_bg_color']        = $meta['yali_cb_box_btn_bg_color'][0];
+    $context['btn_bg_color']        = $meta['inter_cb_box_btn_bg_color'][0];
     $context['btn_label_color']     = ($context['btn_bg_color'] == '#f2d400') ? '#192856': '#ffffff';
-    $context['btn_text_alignment']  = $meta['yali_cb_box_btn_h_alignment'][0];
+    $context['btn_text_alignment']  = $meta['inter_cb_box_btn_h_alignment'][0];
 
     return $context;
   }
@@ -429,14 +429,14 @@ class Content_Block_Shortcode {
 
   /**
    * Removes filter from filter group if on an archive page
-   * For example, if on the YALI Voices series page, remove series
-   * filter menu and limit search to series: YALI Voices
+   * For example, if on the inter Voices series page, remove series
+   * filter menu and limit search to series: inter Voices
    *
    * @param [array] $atts Shortcode attributes
    * @return updatedFilters Array with applicable filter removed
    */
   private function fetch_filters( $atts ) {
-    $filters = get_post_meta( $atts['id'], 'yali_list_filters', true);
+    $filters = get_post_meta( $atts['id'], 'inter_list_filters', true);
     if( !isset($atts['taxonomy']) ) {
       return $filters;
     }

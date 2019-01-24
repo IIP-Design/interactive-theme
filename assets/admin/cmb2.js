@@ -1,28 +1,28 @@
 (function($) {
   $(document).on('cmb_init', function() {
     // Metabox DOM Selections
-    var widgetMetabox = document.getElementById('yali_cb_box_cdp'),
-      socialMetabox = document.getElementById('yali_cb_social_links'),
-      accordionMetaBox = document.getElementById('yali_cb_accordion'),
-      filteredListMetaBox = document.getElementById('yali_cb_box_filter'),
-      mediaBlockMetabox = document.getElementById('yali_cb_media'),
-      buttonLinksMetabox = document.getElementById('yali_cb_button_links'),
-      ctaMetabox = document.getElementById('yali_cb_cta'),
-      pageListMetabox = document.getElementById('yali_cb_pages_list'),
-      genericButtonMetabox = document.getElementById('yali_cb_box_btn'),
-      textBlockMetaBox = document.getElementById('yali_cb_text_block'),
-      campaignListBlockMetaBox = document.getElementById('yali_cb_campaigns_list'),
+    var widgetMetabox = document.getElementById('inter_cb_box_cdp'),
+      socialMetabox = document.getElementById('inter_cb_social_links'),
+      accordionMetaBox = document.getElementById('inter_cb_accordion'),
+      filteredListMetaBox = document.getElementById('inter_cb_box_filter'),
+      mediaBlockMetabox = document.getElementById('inter_cb_media'),
+      buttonLinksMetabox = document.getElementById('inter_cb_button_links'),
+      ctaMetabox = document.getElementById('inter_cb_cta'),
+      pageListMetabox = document.getElementById('inter_cb_pages_list'),
+      genericButtonMetabox = document.getElementById('inter_cb_box_btn'),
+      textBlockMetaBox = document.getElementById('inter_cb_text_block'),
+      campaignListBlockMetaBox = document.getElementById('inter_cb_campaigns_list'),
       selectByContentType = $('.cdp-select-posts-by-content-type'),
       selectByTaxonomy = $('.cdp-select-posts-by-taxonomy'),
-      selectByPostsCategory = $('.cmb2-id-yali-cdp-category'),
-      selectByPostsTags = $('.cmb2-id-yali-cdp-tag'),
-      selectByPostsNum = $('.cmb2-id-yali-cdp-num-posts'),
+      selectByPostsCategory = $('.cmb2-id-inter-cdp-category'),
+      selectByPostsTags = $('.cmb2-id-inter-cdp-tag'),
+      selectByPostsNum = $('.cmb2-id-inter-cdp-num-posts'),
       selectByPosts = $('.cmb-type-cdp-autocomplete.cmb-repeat'),
-      selectByPostsLink = $('.cmb2-id-yali-cdp-autocomplete-related.cmb-repeat'),
-      selectByPostsDisplay = $('.cmb2-id-yali-cdp-autocomplete-links-display'),
+      selectByPostsLink = $('.cmb2-id-inter-cdp-autocomplete-related.cmb-repeat'),
+      selectByPostsDisplay = $('.cmb2-id-inter-cdp-autocomplete-links-display'),
       languageFilterOption = $('input[value="language"]'),
-      languageSelectionField = $('.cmb2-id-yali-cb-lang-selection'),
-      cdpLanguageSelectionField = $('.cmb2-id-yali-cdp-select-language');
+      languageSelectionField = $('.cmb2-id-inter-cb-lang-selection'),
+      cdpLanguageSelectionField = $('.cmb2-id-inter-cdp-select-language');
 
     // Metabox Object store for iterating
     var conditionalMetaboxes = {
@@ -69,7 +69,7 @@
     }
 
     // Hide Conditional Boxes based on initial content type selection
-    var init_content_type_selection = $("#yali_cb_type").val();
+    var init_content_type_selection = $("#inter_cb_type").val();
     if( init_content_type_selection === undefined ) {
       return;
     }
@@ -81,7 +81,7 @@
     }
 
     // Toggle Metabox display on content type selection
-    $('#yali_cb_type').change(function() {
+    $('#inter_cb_type').change(function() {
       var blockTypeSelection = $(this).val();
 
       console.log('blockTypeSelection: ', blockTypeSelection);
@@ -183,9 +183,9 @@
     /** @todo toggle bind related links to its correpsonding post
      * Add a corresponding link chooser if a post autocomplete field is added
      */
-    // $('.cmb2-id-yali-cdp-autocomplete').on('cmb2_add_row', function(e) {
+    // $('.cmb2-id-inter-cdp-autocomplete').on('cmb2_add_row', function(e) {
     //   var selector = $(
-    //     'button[data-selector="yali_cdp_autocomplete_links_repeat"]'
+    //     'button[data-selector="inter_cdp_autocomplete_links_repeat"]'
     //   );
     //   if (selector) {
     //     selector.trigger('click');
@@ -195,14 +195,14 @@
     // /**
     //  * Delete the corresponding link picker if a post autocomplete is deleted
     //  */
-    // $('.cmb2-id-yali-cdp-autocomplete').on('click', function(e) {
+    // $('.cmb2-id-inter-cdp-autocomplete').on('click', function(e) {
     //   if (e.target.className === 'button-secondary cmb-remove-row-button') {
     //     var removeBtn = $(e.target);
 
     //     if (removeBtn instanceof jQuery) {
     //       // get the list of external post links (likn_picker cmb2 fields)
     //       var links = $(
-    //         '.cmb2-id-yali-cdp-autocomplete-links.cmb-repeat .cmb-repeat-row'
+    //         '.cmb2-id-inter-cdp-autocomplete-links.cmb-repeat .cmb-repeat-row'
     //       );
 
     //       // get the index position of the autocomplete post field row that contains the button

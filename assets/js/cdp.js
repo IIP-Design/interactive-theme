@@ -216,12 +216,12 @@ function initializeFeed(feed) {
 	cdpFilterFeedConfig[id].selector = `#${id}`;
 
 	/**
-	 * yaliCbLang_feed##### is declared in post-filtered-list.twig.
+	 * interCbLang_feed##### is declared in post-filtered-list.twig.
 	 * Allows campaign team to create post-filtered-list
 	 * content blocks with a preselected language.
 	 * @see IIPNET-131
 	 */
-	let langObj = window[`yaliCbLang_${id}`];
+	let langObj = window[`interCbLang_${id}`];
 	if (langObj) {
 		cdpFilterFeedConfig[id].langs = langObj.key;
 	}
@@ -352,7 +352,7 @@ function filterSetSelected(filter, selected) {
 		let div = filter.querySelector('.text');
 		let dropdown = $(input).closest('.cb_dropdown.cb-cdp-filters');
 		let feedId = dropdown.data('target');
-		let langObj = window[`yaliCbLang_${feedId}`];
+		let langObj = window[`interCbLang_${feedId}`];
 		if (input) {
 			input.value = (langObj && langObj.key) || selected.key;
 		}
@@ -621,7 +621,7 @@ const forEach = function(array, callback, scope) {
  * @param {*} feed  Either a feed id string or the feed DOM element itself
  *
  * @returns DOM data attributes of parent element with '.archive_posts' class. Data elements
- * contain data-filter and data-filter-value, i.e. data-filter="series", data-filter-value="YALI Voices"
+ * contain data-filter and data-filter-value, i.e. data-filter="series", data-filter-value="inter Voices"
  */
 const getFilterContext = feed => {
 	let el = typeof feed == 'string' ? document.getElementById(feed) : feed;

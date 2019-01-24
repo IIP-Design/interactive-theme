@@ -35,15 +35,15 @@ class InteractiveSite {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 5 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'pre_get_posts', array( $this, 'search_filter') );
-		add_filter( 'frm_notification_attachment', array( $this, 'yali_add_attachment'), 10, 3 );
+		add_filter( 'frm_notification_attachment', array( $this, 'inter_add_attachment'), 10, 3 );
 		add_filter( 'frm_encode_subject', array( $this, 'frm_encode_subject') );
     // add_action( 'wp_head', array( $this, 'insert_gtm_head') );
 		// add_action( 'tha_body_top', array( $this, 'insert_gtm_body') );
 		// add_action( 'wp_head', array( $this, 'insert_dap') );
 		// add_action( 'wp_head', array( $this, 'insert_hotjar') );
-		add_filter( 'attachment_fields_to_edit', array( $this, 'yali_attachment_fields' ), 10, 2 );
-		add_action( 'edit_attachment', array( $this, 'yali_update_attachment_meta' ) );
-		add_action( 'wp_ajax_save-attachment-compat', array( $this, 'yali_media_custom_fields' ) );
+		add_filter( 'attachment_fields_to_edit', array( $this, 'inter_attachment_fields' ), 10, 2 );
+		add_action( 'edit_attachment', array( $this, 'inter_update_attachment_meta' ) );
+		add_action( 'wp_ajax_save-attachment-compat', array( $this, 'inter_media_custom_fields' ) );
 		
 		$this->twig_init();
 
@@ -219,7 +219,7 @@ class InteractiveSite {
 	function insert_dap(){
 		?>
 		  <!-- Digital Analytics Program -->
-			<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOS&siteplatform=YALI" id="_fed_an_ua_tag"></script>
+			<script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOS&siteplatform=inter" id="_fed_an_ua_tag"></script>
 			<!-- End Digital Analytics Program -->
 		<?php
 	}
@@ -246,7 +246,7 @@ class InteractiveSite {
 	/**
 	 * Add custom attribution field to media attachments
 	 */
-	function yali_attachment_fields( $fields, $post ) {
+	function inter_attachment_fields( $fields, $post ) {
 		$attribution_value = get_post_meta($post->ID, '_attribution', true);
 		$fields['attribution'] = array(
 			'label' => __( 'Attribution' ),
@@ -260,7 +260,7 @@ class InteractiveSite {
 	/**
 	 * Update custom attribution field on save
 	 */
-	function yali_update_attachment_meta( $attachment ) {
+	function inter_update_attachment_meta( $attachment ) {
 		$attribution = isset( $_POST['attachments'][$attachment]['attribution'] ) ? $_POST['attachments'][$attachment]['attribution'] : false;
 		update_post_meta($attachment, '_attribution', $attribution);
 		return;
@@ -269,7 +269,7 @@ class InteractiveSite {
 	/**
    * Update custom attribution field via ajax
 	 */
-	function yali_media_custom_fields() {
+	function inter_media_custom_fields() {
 		$post_id = $_POST['id'];
 		$meta = $_POST['attachments'][$post_id]['attribution'];
 		update_post_meta($post_id, '_attribution', $meta);

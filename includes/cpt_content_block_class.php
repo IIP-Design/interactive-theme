@@ -25,16 +25,16 @@ class Content_Block {
    */
   public static function register() {
     $labels = array(
-      'name'                => _x('Content Blocks', 'post type general name'),
-      'singular_name'       => _x('Content Block', 'post type singular name'),
-      'add_new'             => _x('Add New', 'Content Block'),
-      'add_new_item'        => __('Add New Content Block'),
-      'edit_item'           => __('Edit Content Block'),
-      'new_item'            => __('New Content Block'),
-      'view_item'           => __('View Content Block'),
-      'search_items'        => __('Search Content Blocks'),
-      'not_found'           =>  __('No Content Block found'),
-      'not_found_in_trash'  => __('No Content Blocks found in Trash'),
+      'name'                => _x( 'Content Blocks', 'post type general name', 'inter' ),
+      'singular_name'       => _x( 'Content Block', 'post type singular name', 'inter' ),
+      'add_new'             => _x( 'Add New', 'Content Block', 'inter' ),
+      'add_new_item'        => __( 'Add New Content Block', 'inter' ),
+      'edit_item'           => __( 'Edit Content Block', 'inter' ),
+      'new_item'            => __( 'New Content Block', 'inter' ),
+      'view_item'           => __( 'View Content Block', 'inter' ),
+      'search_items'        => __( 'Search Content Blocks', 'inter' ),
+      'not_found'           => __( 'No Content Block found', 'inter' ),
+      'not_found_in_trash'  => __( 'No Content Blocks found in Trash', 'inter' ),
       'parent_item_colon'   => ''
     );
 
@@ -63,7 +63,7 @@ class Content_Block {
    */
   public function content_block_fields() {
 
-    $prefix = 'yali_';
+    $prefix = 'inter_';
   
     /****************************************************************
       Include Content Block Metaboxes
@@ -123,11 +123,11 @@ class Content_Block {
    */
   public function edit_content_block_post_columns( $columns ) {
     $columns = array(
-        'cb' => '<input type="checkbox" />',
-        'title' => __('Content Block'),
-        'author' => __('Author'),
-        'date' => __('Date'),
-        'display_shortcode' => __('Display Shortcode')
+        'cb'                => '<input type="checkbox" />',
+        'title'             => __( 'Content Block', 'inter' ),
+        'author'            => __( 'Author', 'inter' ),
+        'date'              => __( 'Date', 'inter' ),
+        'display_shortcode' => __( 'Display Shortcode', 'inter' )
     );
 
     return $columns;

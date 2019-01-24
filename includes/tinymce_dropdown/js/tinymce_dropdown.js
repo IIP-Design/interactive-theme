@@ -1,9 +1,9 @@
 (function($) {
 
-	tinymce.PluginManager.add('yali_shortcode_dropdown', function(editor, url) {
+	tinymce.PluginManager.add('inter_shortcode_dropdown', function(editor, url) {
 
-		editor.addButton('yali_shortcode_dropdown', {
-			id: 'yali_shortcode_dropdown',
+		editor.addButton('inter_shortcode_dropdown', {
+			id: 'inter_shortcode_dropdown',
 			text: 'Add a Shortcode',
 			icon: false,
       type: 'menubutton',
@@ -77,7 +77,7 @@
           onClick: function() {
     				editor.windowManager.open({
     					title: 'Add Content Block',
-    					url: yaliContentBlocks.contentBlockHtml,
+    					url: interContentBlocks.contentBlockHtml,
     					width: 500,
     					height: 420,
     					buttons: [{
@@ -94,7 +94,7 @@
     					}]
     				},
     				{
-    					listItems: yaliContentBlocks.updatedBlocksArray
+    					listItems: interContentBlocks.updatedBlocksArray
     				});
     			}
       }, {

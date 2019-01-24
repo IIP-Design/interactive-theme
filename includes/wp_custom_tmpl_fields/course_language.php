@@ -4,7 +4,7 @@
 
 add_action('cmb2_init', 'course_lang_indicator');
 function course_lang_indicator() {
-	$prefix = '_yali_';
+	$prefix = '_inter_';
 
 	$course_lang = new_cmb2_box( array(
 		'id'           => 'course_lang',

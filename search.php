@@ -12,7 +12,7 @@ $search_results = $wp_query->posts;
 // exclusive of shortcodes, images
 foreach ($search_results as $post) {
 	$content = $post->post_content;
-	$post->yali_excerpt = formatted_excerpt($content);
+	$post->inter_excerpt = formatted_excerpt($content);
 }
 
 function formatted_excerpt($post_content) {

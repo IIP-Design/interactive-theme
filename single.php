@@ -47,13 +47,13 @@ $formVar = do_shortcode('[formidable id=6]');
 $related_content_display = get_post_meta($post->ID, 'related_content_option', true);
 
 // Hero Title Display
-$hero_title_display = get_post_meta($post->ID, '_yali_hero_title_option', true);
+$hero_title_display = get_post_meta($post->ID, '_inter_hero_title_option', true);
 if( empty($hero_title_display) ) {
-  update_post_meta($post->ID, '_yali_hero_title_option', 'hide');
-  $hero_title_display = get_post_meta($post->ID, '_yali_hero_title_option', true);
+  update_post_meta($post->ID, '_inter_hero_title_option', 'hide');
+  $hero_title_display = get_post_meta($post->ID, '_inter_hero_title_option', true);
 }
-$hero_subtitle = get_post_meta($post->ID, '_yali_hero_subtitle_option', true);
-$hero_attribution_display = get_post_meta($post->ID, '_yali_hero_attribution_option', true );
+$hero_subtitle = get_post_meta($post->ID, '_inter_hero_subtitle_option', true);
+$hero_attribution_display = get_post_meta($post->ID, '_inter_hero_attribution_option', true );
 $hero_attribution_value = get_post_meta($feat_img_obj['id'], '_attribution', true );
 
 $context = array(

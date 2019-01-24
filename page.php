@@ -37,9 +37,9 @@ $action_fellowship = do_shortcode("[content_block id='16109']");
 $formVar = do_shortcode('[formidable id=6]');
 
 // Hero Title Display
-$hero_title_display = get_post_meta($post->ID, '_yali_hero_title_option', true);
-$hero_subtitle = get_post_meta($post->ID, '_yali_hero_subtitle_option', true);
-$hero_attribution_display = get_post_meta($post->ID, '_yali_hero_attribution_option', true );
+$hero_title_display = get_post_meta($post->ID, '_inter_hero_title_option', true);
+$hero_subtitle = get_post_meta($post->ID, '_inter_hero_subtitle_option', true);
+$hero_attribution_display = get_post_meta($post->ID, '_inter_hero_attribution_option', true );
 $hero_attribution_value = get_post_meta($feat_img_obj['id'], '_attribution', true );
 
 // Query for all Campaign Pages

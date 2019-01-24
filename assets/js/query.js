@@ -5,7 +5,7 @@ import axios from 'axios';
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html
 
 const API = ( cdp.publicAPI ) ? cdp.publicAPI : 'https://api.america.gov/v1/search';
-const INDEXES = ( cdp.searchIndexes ) ? fetchArray( cdp.searchIndexes ) : 'yali.dev.america.gov';
+const INDEXES = ( cdp.searchIndexes ) ? fetchArray( cdp.searchIndexes ) : 'interactive.dev.america.gov';
 
 // Populate dropdown filters
 export function getTypes ( filter, cb ) {

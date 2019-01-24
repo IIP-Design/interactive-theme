@@ -6,14 +6,14 @@
 
 		{% for link in links %}
 
-			{% if link.yali_button_file is  not empty %}
-			<a href='{{ link.yali_button_file }}' target='_blank' class='cta_link'>{{ link.yali_button_file_text }}</a>
+			{% if link.inter_button_file is  not empty %}
+			<a href='{{ link.inter_button_file }}' target='_blank' class='cta_link'>{{ link.inter_button_file_text }}</a>
 			{% endif %}
 
-			{% if link.yali_button_link.url is not empty %}
-			<a  href='{{ link.yali_button_link.url }}'
-				class='cta_link {% if link.yali_button_link_scroll == "on" %}scroll_link{% endif %}'>
-				{{ link.yali_button_link.text }}
+			{% if link.inter_button_link.url is not empty %}
+			<a  href='{{ link.inter_button_link.url }}'
+				class='cta_link {% if link.inter_button_link_scroll == "on" %}scroll_link{% endif %}'>
+				{{ link.inter_button_link.text }}
 			</a>			
 			
 			{% endif %}
