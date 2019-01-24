@@ -2,14 +2,15 @@
   $(document).on('cmb_init', function() {
     // Metabox DOM Selections
     var widgetMetabox = document.getElementById('inter_cb_box_cdp'),
-      socialMetabox = document.getElementById('inter_cb_social_links'),
       accordionMetaBox = document.getElementById('inter_cb_accordion'),
-      filteredListMetaBox = document.getElementById('inter_cb_box_filter'),
-      mediaBlockMetabox = document.getElementById('inter_cb_media'),
       buttonLinksMetabox = document.getElementById('inter_cb_button_links'),
       ctaMetabox = document.getElementById('inter_cb_cta'),
-      pageListMetabox = document.getElementById('inter_cb_pages_list'),
+      eventListMetabox = document.getElementById('inter_cb_events_list'),
+      filteredListMetaBox = document.getElementById('inter_cb_box_filter'),
       genericButtonMetabox = document.getElementById('inter_cb_box_btn'),
+      mediaBlockMetabox = document.getElementById('inter_cb_media'),
+      pageListMetabox = document.getElementById('inter_cb_pages_list'),
+      socialMetabox = document.getElementById('inter_cb_social_links'),
       textBlockMetaBox = document.getElementById('inter_cb_text_block'),
       selectByContentType = $('.cdp-select-posts-by-content-type'),
       selectByTaxonomy = $('.cdp-select-posts-by-taxonomy'),
@@ -25,14 +26,15 @@
 
     // Metabox Object store for iterating
     var conditionalMetaboxes = {
-      filtered_list: filteredListMetaBox,
-      post_list: widgetMetabox,
-      page_list: pageListMetabox,
-      social: socialMetabox,
       accordion: accordionMetaBox,
-      media_block: mediaBlockMetabox,
       button_links: buttonLinksMetabox,
       cta: ctaMetabox,
+      event_list: eventListMetabox,
+      filtered_list: filteredListMetaBox,
+      media_block: mediaBlockMetabox,
+      page_list: pageListMetabox,
+      post_list: widgetMetabox,
+      social: socialMetabox,
       text_block: textBlockMetaBox
     };
 

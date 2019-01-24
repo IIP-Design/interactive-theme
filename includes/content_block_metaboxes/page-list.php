@@ -5,11 +5,11 @@
  *************************************************************************************************/
  // Query Pages
  $args = array(
- 	'post_type' => 'page',
+ 	'post_type'  => 'page',
   'meta_query' => array(
     array(
-      'key' => '_wp_page_template',
-      'value' => 'page-templates/course-template.php',
+      'key'     => '_wp_page_template',
+      'value'   => 'page-templates/course-template.php',
       'compare' => '!='
     )
   ),
@@ -38,7 +38,7 @@ $cb_pages_list->add_field( array(
   'name'    => __( 'Layout', 'america' ),
   'desc'    => 'Layout patterns for the list of pages',
   'type'    => 'radio',
-  'default'           => '3_column_grid',
+  'default' => '3_column_grid',
   'options' => array(
     '3_column_grid'     => __( 'Three column grid of pages', 'america' ),
     'featured_vertical' => __( 'Featured page with a vertical list of additional page titles', 'america' ),
@@ -48,14 +48,14 @@ $cb_pages_list->add_field( array(
 ));
 
 $cb_pages_list_group = $cb_pages_list->add_field( array(
-	'id' => 'cb_pages_list_repeat_group',
-	'type' => 'group',
-	'description'   => __( 'Select Pages To be Displayed' ),
-  	'options'       => array(
-		'group_title'     => __( 'Page {#}', 'inter' ),
-		'add_button'      => __( 'Add Another Page', 'inter' ),
-		'remove_button'   => __( 'Remove Page', 'inter' ),
-		'sortable'        => true
+	'id'          => 'cb_pages_list_repeat_group',
+	'type'        => 'group',
+	'description' => __( 'Select Pages To be Displayed' ),
+  'options'     => array(
+		'group_title'   => __( 'Page {#}', 'inter' ),
+		'add_button'    => __( 'Add Another Page', 'inter' ),
+		'remove_button' => __( 'Remove Page', 'inter' ),
+		'sortable'      => true
 	),
 ));
 

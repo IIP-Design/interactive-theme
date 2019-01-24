@@ -202,6 +202,7 @@ class Content_Block {
         'Accordion' => 'accordion',
         'Button Links' => 'button_links',
         'Call to Action' => 'cta',
+        'Event List' => 'event',
         'Media Block' => 'media_block',
         'Page List' => 'page_list',
         'Post List' => 'post_list',
