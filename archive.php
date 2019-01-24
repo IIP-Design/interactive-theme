@@ -14,12 +14,13 @@ if( isset($taxonomy) ) {
 
 // A post list content block was created and referenced here
 // Need to do this differently as it is referecing a hard coded value
-$filtered_post_block = do_shortcode("[content_block id='16219' taxonomy='$taxonomy' term='$term']"); // dev: 13979, prod: 16219
+$filtered_post_block = do_shortcode( "[content_block id='16219' taxonomy='$taxonomy' term='$term']" ); // dev: 13979, prod: 16219
 
 // TEMP
 $check_host = $_SERVER['SERVER_NAME'];
 
-$formVar = do_shortcode('[formidable id=6]');
+$formidable_id = get_option( 'inter-joinus-form-id' );
+$formVar = do_shortcode( $formidable_id );
 
 $context = array(
 	'check_host'      		=> $check_host,
@@ -32,4 +33,4 @@ $context = array(
 	'header_url'	  			=> get_stylesheet_directory_uri() . '/assets/img/default_background.jpg'
 );
 
-echo Twig::render('archive.twig', $context);
+echo Twig::render( 'archive.twig', $context );

@@ -32,8 +32,9 @@ function formatted_excerpt($post_content) {
 	return $the_excerpt;
 }
 
-// 'Join the Network' Form
-$formVar = do_shortcode('[formidable id=6]');
+// 'Get in Touch' Form
+$formidable_id = get_option( 'inter-joinus-form-id' );
+$formVar = do_shortcode( $formidable_id );
 
 // Data array for twig
 $context = array(

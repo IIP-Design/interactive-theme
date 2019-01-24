@@ -22,8 +22,9 @@ $sizes = wp_get_attachment_image_sizes($img_id, "full");
 // Taxonomy data
 $categories = Inter\API::get_category_list();
 
-// 'Join the Network' Form
-$formVar = do_shortcode('[formidable id=6]');
+// 'Get in Touch' Form
+$formidable_id = get_option( 'inter-joinus-form-id' );
+$formVar = do_shortcode( $formidable_id );
 
 // Hero Title Display
 $hero_title_display = get_post_meta($post->ID, '_inter_hero_title_option', true);

@@ -42,7 +42,8 @@ $search_indexes = InteractiveSite::cdp_get_option('cdp_indexes');
 // TEMP
 $check_host = $_SERVER['SERVER_NAME'];
 
-$formVar = do_shortcode('[formidable id=6]');
+$formidable_id = get_option( 'inter-joinus-form-id' );
+$formVar = do_shortcode( $formidable_id );
 $related_content_display = get_post_meta($post->ID, 'related_content_option', true);
 
 // Hero Title Display
