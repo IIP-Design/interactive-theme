@@ -322,7 +322,9 @@ class Content_Block_Shortcode {
     global $wp_iframe;
 
     $id = $atts['id'];
-    $context = $this->fetch_base_config( $id, get_post($id) );
+    $meta = get_post_meta( $id );
+    $context = $this->fetch_base_config( $id, get_post( $id ) );
+    $context = $this->fetch_btn_config( $context, $id, $meta );
 
     $text_content = get_post_meta( $id, 'inter_text_block_content', true );
     $text_content = $this->filter_link( $text_content );
