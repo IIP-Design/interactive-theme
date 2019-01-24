@@ -126,46 +126,64 @@ class Content_Block_Shortcode {
   public function render_event_list( $atts ) {
     $id = $atts['id'];
     $meta = get_post_meta( $id );
-    $context = $this->fetch_base_config( $id, get_post($id) );
+    $context = $this->fetch_base_config( $id, get_post( $id ) );
     $context = $this->fetch_btn_config( $context, $id, $meta );
 
     // Events to be included
     $event_list = array();
-    $all_events = get_post_meta($id, 'cb_events_list_repeat_group', true);
+    $event_ids = array();
 
-    foreach ($all_events as $event) {
-      // Get event ID from meta select dropdown
-      $event_id = $event['inter_select_event'];
+    if ( get_post_meta( $id, 'inter_select_type_events', true ) == 'custom' ) { 
+      $events = get_post_meta( $id, 'cb_events_list_repeat_group', true );
 
+      foreach ( $events as $event ) {
+        $event_id = $event['inter_select_event'];
+        array_push( $event_ids, $event_id );
+      }
+    } else {
+      $event_number = get_post_meta( $id, 'inter_num_events', true );
+      
+      $args = array(
+        'post_type'      => 'iip_event',
+        'fields'         => 'ids',
+        'order'          => 'DESC',
+        'orderby'        => 'date',
+        'posts_per_page' => $event_number
+         );
+      
+      $event_ids = get_posts( $args );
+    }
+
+    foreach ( $event_ids as $event_id ) {
       // Get event data
       $listed_event = get_post( $event_id );
 
       // Get event imgage and add as prop to event object
-      $event_img = get_the_post_thumbnail_url($event_id, 'full');
-      if( !empty($event_img) ) {
+      $event_img = get_the_post_thumbnail_url( $event_id, 'full' );
+      if( !empty( $event_img ) ) {
         $listed_event->event_img = $event_img;
       }
 
       // Get event link and add as prop to event object
-      $event_link = get_permalink($event_id);
-      $listed_event->event_link = $this->filter_link($event_link);
+      $event_link = get_permalink( $event_id) ;
+      $listed_event->event_link = $this->filter_link( $event_link );
 
       // Get related link and text add as prop to event object
       $related_link = $event['inter_related_link']['link'];
-      $listed_event->related_link = $this->filter_link($related_link);
+      $listed_event->related_link = $this->filter_link( $related_link) ;
 
       $related_link_text = $event['inter_related_link']['label'];
       $listed_event->related_link_text = $related_link_text;
 
       $context['links'] = get_post_meta( $id, 'inter_button_links_repeat_group', true );
 
-      array_push($event_list, $listed_event);
+      array_push( $event_list, $listed_event );
     }
 
     $context['event_list'] = $event_list;
     $context['event_list_layout'] = get_post_meta( $id, 'inter_cdp_event_list_layout', true);
     $context['selector'] = 'cb-' . get_the_ID();
-    $context['num_events'] = count($event_list);
+    $context['num_events'] = count( $event_list );
 
     return Twig::render( 'content_blocks/event-list.twig', $context );
   }

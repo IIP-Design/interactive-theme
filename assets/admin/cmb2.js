@@ -14,9 +14,11 @@
       textBlockMetaBox = document.getElementById('inter_cb_text_block'),
       selectByContentType = $('.cdp-select-posts-by-content-type'),
       selectByTaxonomy = $('.cdp-select-posts-by-taxonomy'),
+      selectByEventsNum = $('.cmb2-id-inter-num-events'),
+      selectByIndividualEvents = $('.cmb2-id-cb-events-list-repeat-group'),
       selectByPostsCategory = $('.cmb2-id-inter-cdp-category'),
       selectByPostsTags = $('.cmb2-id-inter-cdp-tag'),
-      selectByPostsNum = $('.cmb2-id-inter-cdp-num-posts'),
+      selectByPostsNum = $('.cmb2-id-inter-num-events'),
       selectByPosts = $('.cmb-type-cdp-autocomplete.cmb-repeat'),
       selectByPostsLink = $('.cmb2-id-inter-cdp-autocomplete-related.cmb-repeat'),
       selectByPostsDisplay = $('.cmb2-id-inter-cdp-autocomplete-links-display'),
@@ -81,12 +83,13 @@
     }
 
     // Toggle Metabox display on content type selection
+    /* eslint-disable no-console */
     $('#inter_cb_type').change(function() {
       var blockTypeSelection = $(this).val();
 
       console.log('blockTypeSelection: ', blockTypeSelection);
       console.log('**** Meta Object ****');
-      console.log(conditionalMetaboxes[blockTypeSelection])
+      console.log(conditionalMetaboxes[blockTypeSelection]);
       console.log('**********************');
 
       try {
@@ -100,10 +103,15 @@
         console.log('Unable to update the view');
       }
     });
-
+    /* eslint-enable no-console */
+    
     // Set initial state of post list selection type within the Post List meta box
     var select = $('.cdp-select-posts-by input[type=radio]:checked').val();
     togglePostListFields( select );
+
+    // Set initial state of event list selection type within the Event List meta box
+    var selectEvents = $('.select-events-by input[type=radio]:checked').val();
+    toggleEventListFields( selectEvents );
 
     // Set initial state of taxonomy selection within the Post List meta box
     var selectTax = $('.cdp-select-posts-by-taxonomy input[type=radio]:checked').val();
@@ -116,6 +124,12 @@
     $('.cdp-select-posts-by input[type=radio]').change(function() {
       var selectBy = $(this).val();
       togglePostListFields( selectBy );
+    });
+
+    // Toggle event list selection type (by recent or custom) when selection is changed
+    $('.select-events-by input[type=radio]').change(function() {
+      var selectBy = $(this).val();
+      toggleEventListFields( selectBy );
     });
 
     // Toggle taxonomy selection when selection is changed
@@ -153,21 +167,35 @@
       }
     }
 
+    /**
+     *
+     * @param {string} selectBy  how will posts be queried, either by most recent or by individual post selections
+     */
+    function toggleEventListFields( selectBy ) {
+      if (selectBy === 'custom') {
+        selectByEventsNum.hide();
+        selectByIndividualEvents.show();
+      } else {
+        selectByEventsNum.show();
+        selectByIndividualEvents.hide();
+      }
+    }
+
     function toggleTaxonomyFields( taxonomy ) {
       switch (taxonomy) {
-        case 'category':
-          selectByPostsCategory.show();
-          selectByPostsTags.hide();
-          break;
+      case 'category':
+        selectByPostsCategory.show();
+        selectByPostsTags.hide();
+        break;
 
-        case 'tag':
-          selectByPostsCategory.hide();
-          selectByPostsTags.show();
-          break;
+      case 'tag':
+        selectByPostsCategory.hide();
+        selectByPostsTags.show();
+        break;
 
-        default:
-          selectByPostsCategory.hide();
-          selectByPostsTags.hide();
+      default:
+        selectByPostsCategory.hide();
+        selectByPostsTags.hide();
       }
     }
 

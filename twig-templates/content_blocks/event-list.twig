@@ -15,12 +15,12 @@
         {% endif %}
 
         {% if event_list_layout == 'featured_sidebar' %}
-          {% set feature_row_span = num_pages %}
+          {% set feature_row_span = num_events %}
           {% include 'partials/post-list-featured-sidebar-layout.twig' ignore missing %}
         {% endif %}
 
         {% if event_list_layout == 'featured_block' %}
-          {% set num_rows = ((num_pages//2))|round(1, 'ceil') + 1 %}
+          {% set num_rows = ((num_events//2))|round(1, 'ceil') + 1 %}
           {% include 'partials/post-list-featured-block-layout.twig' ignore missing %}
         {% endif %}
         </style>

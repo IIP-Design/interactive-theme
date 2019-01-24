@@ -25,22 +25,32 @@ $cb_events_list = new_cmb2_box( array(
   'title'        => __( 'Event List', 'inter' ),
   'object_types' => array( 'content_block' ),
   'priority'     => 'low'
-));
+) );
 
-$cb_events_list->add_field( array(
-  'id'      => $prefix . 'cdp_event_list_layout',
-  'name'    => __( 'Layout', 'inter' ),
-  'desc'    => 'Layout patterns for the list of events',
-  'type'    => 'radio',
-  'default' => '3_column_grid',
-  'options' => array(
-    '3_column_grid'     => __( 'Three column grid of events', 'inter' ),
-    'featured_vertical' => __( 'Featured event with a vertical list of additional event titles', 'inter' ),
-    'featured_sidebar'  => __( 'Featured event with a right sidebar of additional event titles (best with 6 to 9 events)', 'inter' ),
-    'featured_block'    => __( 'Featured event with a right sidebar of two smaller featured events', 'inter' )
+// Select events by
+$cb_events_list->add_field(  array(
+  'name'             => __( 'Select events by:', 'inter' ),
+  'id'               => $prefix . 'select_type_events',
+  'type'             => 'radio',
+  'default'          => 'recent',
+  'classes'          => 'select-events-by',
+  'show_option_none' => false,
+  'options'          => array(
+    'recent'         => __( 'Display the most recent events', 'inter' ),
+    'custom'         => __( 'Choose specific events to display', 'inter' )
   ),
-));
+  'desc'             =>  __( '', 'inter' )
+) );
 
+// Number of events
+$cb_events_list->add_field(  array(
+  'name'             => __( 'Number events to show', 'inter' ),
+  'id'               => $prefix . 'num_events',
+  'type'             => 'text_small',
+  'default'          => 3
+) );
+
+// Manage events (if selecting specific ones)
 $cb_events_list_group = $cb_events_list->add_field( array(
 	'id'          => 'cb_events_list_repeat_group',
 	'type'        => 'group',
@@ -66,4 +76,19 @@ $cb_events_list->add_group_field( $cb_events_list_group, array(
 	'id'  => $prefix . 'related_link',
 	'type' => 'related_link',
 	'options' => $events_select_menu
+) );
+
+// Select layout
+$cb_events_list->add_field( array(
+  'id'      => $prefix . 'event_list_layout',
+  'name'    => __( 'Layout', 'inter' ),
+  'desc'    => 'Layout patterns for the list of events',
+  'type'    => 'radio',
+  'default' => '3_column_grid',
+  'options' => array(
+    '3_column_grid'     => __( 'Three column grid of events', 'inter' ),
+    'featured_vertical' => __( 'Featured event with a vertical list of additional event titles', 'inter' ),
+    'featured_sidebar'  => __( 'Featured event with a right sidebar of additional event titles (best with 6 to 9 events)', 'inter' ),
+    'featured_block'    => __( 'Featured event with a right sidebar of two smaller featured events', 'inter' )
+  ),
 ) );
