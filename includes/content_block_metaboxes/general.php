@@ -43,7 +43,6 @@ $cb_box->add_field( array(
   'options'          => array(
     'accordion'      => __( 'Accordion', 'inter' ),
     'button_links'   => __( 'Button Links', 'inter' ),
-    'campaigns_list' => __( 'Campaigns List', 'inter' ),
     'cta'            => __( 'Call To Action', 'inter' ),
     'media_block'    => __( 'Media Block', 'inter' ),
     'page_list'      => __( 'Page List', 'inter' ),

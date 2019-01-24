@@ -270,41 +270,6 @@ class Content_Block_Shortcode {
   }
 
 
-  // CAMPAIGNS LIST CONTENT BLOCK
-  public function render_campaigns_list( $atts ) {
-    $id = $atts['id'];
-    $context = $this->fetch_base_config( $id, get_post($id) );
-
-    // Campaigns to be included
-    $campaign_pages = array();
-    $campaigns_list = get_post_meta($id, 'campaigns_list_repeat_group', true);
-
-    foreach ($campaigns_list as $campaign) {
-      // Get Campaign ID from meta select dropdown
-      $campaign_id = $campaign['inter_select_campaign'];
-      // Get campaign page data
-      $campaign_page = get_page($campaign_id);
-
-      // Add campaign page img from page custom field
-      // add prop to campaign page obj
-      $campaign_img = get_post_meta($campaign_id, 'campaigns_list_img', true);
-      if( !empty($campaign_img) ) {
-        $campaign_page->campaign_img = $campaign_img;
-      }
-
-      // Get campaign page link and add to page obj as prop
-      $campaign_page_link = get_permalink($campaign_id);
-      $campaign_page->campaign_page_link = $this->filter_link($campaign_page_link);
-
-      array_push($campaign_pages, $campaign_page);
-    }
-
-    $context['campaign_pages'] = $campaign_pages;
-
-    return Twig::render( 'content_blocks/campaigns-list.twig', $context );
-  }
-
-
   // Helpers
    /**
    * Wrapper function around cmb2_get_option

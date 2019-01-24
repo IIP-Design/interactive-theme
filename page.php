@@ -22,17 +22,6 @@ $sizes = wp_get_attachment_image_sizes($img_id, "full");
 // Taxonomy data
 $categories = Inter\API::get_category_list();
 
-// Data for certain pages or shared
-$social_block = do_shortcode("[content_block id='14264']");
-$courses_faq = do_shortcode("[content_block id='13942']");
-$featured_course = do_shortcode("[content_block id='13772']");
-$campaign_materials_accordion = do_shortcode("[content_block id='13615']");
-
-// Action page shortcodes
-$action_postlist = do_shortcode("[content_block id='16105']");
-$action_course = do_shortcode("[content_block id='16106']");
-$action_fellowship = do_shortcode("[content_block id='16109']");
-
 // 'Join the Network' Form
 $formVar = do_shortcode('[formidable id=6]');
 
@@ -41,30 +30,6 @@ $hero_title_display = get_post_meta($post->ID, '_inter_hero_title_option', true)
 $hero_subtitle = get_post_meta($post->ID, '_inter_hero_subtitle_option', true);
 $hero_attribution_display = get_post_meta($post->ID, '_inter_hero_attribution_option', true );
 $hero_attribution_value = get_post_meta($feat_img_obj['id'], '_attribution', true );
-
-// Query for all Campaign Pages
-if( $pagename === 'action' || $pagename === 'network' ) {
-  $args = array(
-    'post_type' => 'page',
-    'meta_key' => 'campaign_page',
-    'meta_value' => 'true'
-  );
-
-  $get_campaign_pages = new WP_Query($args);
-  wp_reset_postdata();
-}
-
-$campaign_pages = $get_campaign_pages->posts;
-if( !empty($campaign_pages) ) {
-  foreach ($campaign_pages as $item) {
-    $item_id = $item->ID;
-
-    $list_img = get_post_meta($item_id, 'campaigns_list_img', true);
-    if( !empty($list_img) ) {
-      $item->campaigns_list_img = $list_img;
-    }
-  }
-}
 
 // Data array for twig
 $context = array(
@@ -80,16 +45,8 @@ $context = array(
   'hero_subtitle' => $hero_subtitle,
   'hero_attribution_display' =>$hero_attribution_display,
   'hero_attribution_value' => $hero_attribution_value,
-  'social_block'  => $social_block,
   'formVar'       => $formVar,
-  'category_list' => $categories,
-  'courses_faq'   => $courses_faq,
-  'featured_course' => $featured_course,
-  'campaign_materials_accordion'  => $campaign_materials_accordion,
-  'action_postlist' => $action_postlist,
-  'action_course' => $action_course,
-  'action_fellowship' => $action_fellowship,
-  'campaign_pages'       => ( $pagename === 'action' || $pagename === 'network' ) ? $campaign_pages : null
+  'category_list' => $categories
 );
 
 echo Twig::render( array( "pages/page-" . $pagename . ".twig", "page.twig" ), $context );

@@ -41,7 +41,6 @@ $search_indexes = InteractiveSite::cdp_get_option('cdp_indexes');
 
 // TEMP
 $check_host = $_SERVER['SERVER_NAME'];
-$social_block = do_shortcode("[content_block id='14264']");
 
 $formVar = do_shortcode('[formidable id=6]');
 $related_content_display = get_post_meta($post->ID, 'related_content_option', true);
@@ -66,7 +65,6 @@ $context = array(
   'hero_attribution_value' => $hero_attribution_value,
   'post_data'       => $post_data,
   'header_url'      => $header_url,
-  'social_block'    => $social_block,
   'taxonomy_terms'  => $taxonomy_terms,
   'selector'				=> 'feed' . $post->ID,
   'select_by_taxonomy' => $select_by_taxonomy,

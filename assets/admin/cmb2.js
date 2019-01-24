@@ -11,7 +11,6 @@
       pageListMetabox = document.getElementById('inter_cb_pages_list'),
       genericButtonMetabox = document.getElementById('inter_cb_box_btn'),
       textBlockMetaBox = document.getElementById('inter_cb_text_block'),
-      campaignListBlockMetaBox = document.getElementById('inter_cb_campaigns_list'),
       selectByContentType = $('.cdp-select-posts-by-content-type'),
       selectByTaxonomy = $('.cdp-select-posts-by-taxonomy'),
       selectByPostsCategory = $('.cmb2-id-inter-cdp-category'),
@@ -34,8 +33,7 @@
       media_block: mediaBlockMetabox,
       button_links: buttonLinksMetabox,
       cta: ctaMetabox,
-      text_block: textBlockMetaBox,
-      campaigns_list: campaignListBlockMetaBox
+      text_block: textBlockMetaBox
     };
 
 

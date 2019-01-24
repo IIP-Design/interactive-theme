@@ -6,7 +6,7 @@ use Inter\Twig as Twig;
 global $post;
 
 $post_data = Inter\API::get_contentblock($post->ID);
-$content_block = do_shortcode($post_data['display_shortcode']);
+$content_block = do_shortcode( $post_data['display_shortcode'] );
 
 
 $context = array(  
@@ -15,4 +15,4 @@ $context = array(
 );
 
 // Render template passing in data array
-echo Twig::render('single-content_block.twig', $context);
+echo Twig::render( 'single-content_block.twig', $context );
