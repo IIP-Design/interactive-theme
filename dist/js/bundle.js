@@ -1020,7 +1020,7 @@ function init(jQuery) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 exports.init = init;
 var search_input_div = document.querySelector('.footer_list_item--search .search_input_wrapper'),
@@ -1031,59 +1031,59 @@ var search_input_div = document.querySelector('.footer_list_item--search .search
     footer_list_items = document.querySelectorAll('.footer_list .ui.item');
 
 function footer_search_display() {
-	try {
-		search_open.addEventListener('click', function () {
-			search_input_div.classList.remove('hide');
+  try {
+    search_open.addEventListener('click', function () {
+      search_input_div.classList.remove('hide');
 
-			search_submit.style.zIndex = '2';
+      search_submit.style.zIndex = '2';
 
-			setTimeout(function () {
-				search_input_div.style.opacity = 1;
-				search_input.classList.remove('inactive');
-				search_input.classList.add('active');
-				search_open.classList.add('active');
+      setTimeout(function () {
+        search_input_div.style.opacity = 1;
+        search_input.classList.remove('inactive');
+        search_input.classList.add('active');
+        search_open.classList.add('active');
 
-				footer_phablet_display();
-			}, 0);
-		});
-	} catch (e) {
-		console.log('DOM element search_open is not defined');
-	}
+        footer_phablet_display();
+      }, 0);
+    });
+  } catch (e) {
+    console.log('DOM element search_open is not defined');
+  }
 }
 
 function footer_search_close() {
-	try {
-		search_close.addEventListener('click', function () {
-			search_input.classList.remove('active');
-			search_input.classList.add('inactive');
+  try {
+    search_close.addEventListener('click', function () {
+      search_input.classList.remove('active');
+      search_input.classList.add('inactive');
 
-			search_submit.style.zIndex = '-1';
+      search_submit.style.zIndex = '-1';
 
-			setTimeout(function () {
-				search_input_div.style.opacity = 0;
-				search_input_div.classList.add('hide');
-				search_open.classList.remove('active');
-			}, 250);
-		});
-	} catch (e) {
-		console.log('DOM element search_close is not defined');
-	}
+      setTimeout(function () {
+        search_input_div.style.opacity = 0;
+        search_input_div.classList.add('hide');
+        search_open.classList.remove('active');
+      }, 250);
+    });
+  } catch (e) {
+    console.log('DOM element search_close is not defined');
+  }
 }
 
 function footer_phablet_display() {
-	if (window.innerWidth > 589 && window.innerWidth < 934) {
-		var totalListWidth = 0;
-		footer_list_items.forEach(function (item, index) {
-			if (index !== footer_list_items.length - 1) totalListWidth += Math.ceil(Number(item.getBoundingClientRect().width));
-		});
+  if (window.innerWidth > 589 && window.innerWidth < 934) {
+    var totalListWidth = 0;
+    footer_list_items.forEach(function (item, index) {
+      if (index !== footer_list_items.length - 1) totalListWidth += Math.ceil(Number(item.getBoundingClientRect().width));
+    });
 
-		search_input.style.width = totalListWidth + 'px';
-	}
+    search_input.style.width = totalListWidth + 'px';
+  }
 }
 
 function init() {
-	footer_search_display();
-	footer_search_close();
+  footer_search_display();
+  footer_search_close();
 }
 
 },{}],6:[function(require,module,exports){
@@ -1151,7 +1151,7 @@ exports.default = function () {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
 exports.init = init;
 
@@ -1166,92 +1166,93 @@ var form = document.querySelector('.join'),
     nav_join_desktop = document.querySelector('.nav_join--desktop'),
     nav_join_mobile = document.querySelector('.nav_join--mobile'),
     nav_items = document.querySelectorAll('.nav_menu_item:not(.nav_menu_item--social)'),
+    footer_join = document.querySelector('.home_contact--join'),
     site_title = document.querySelector('.nav_siteurl span');
 
 function check_session_data() {
-	var session = localStorage.session;
+  var session = localStorage.session;
 
-	if (session == null || session == 'new') {
-		localStorage.session = 'new';
-		form.style.display = 'block';
+  if (session == null || session == 'new') {
+    localStorage.session = 'new';
+    form.style.display = 'block';
 
-		site_title.textContent === 'Interactive';
-	}
+    site_title.textContent === 'Interactive';
+  }
 
-	if (session == 'returning') {
-		form.style.display = 'none';
+  if (session == 'returning') {
+    form.style.display = 'none';
 
-		if (window.innerWidth > 933) {
-			nav_join_desktop.style.display = 'inline-block';
-		} else {
-			nav_join_mobile.style.display = 'inline-block';
-		}
+    if (window.innerWidth > 933) {
+      nav_join_desktop.style.display = 'inline-block';
+    } else {
+      nav_join_mobile.style.display = 'inline-block';
+    }
 
-		nav_items.forEach(function (item) {
-			if (item.classList.contains('initial_wide')) item.classList.remove('initial_wide');
-		});
-	}
+    nav_items.forEach(function (item) {
+      if (item.classList.contains('initial_wide')) item.classList.remove('initial_wide');
+    });
+  }
 }
 
 function close_form() {
-	form_close.addEventListener('click', function () {
-		localStorage.session = 'returning';
-		form.style.display = 'none';
+  form_close.addEventListener('click', function () {
+    localStorage.session = 'returning';
+    form.style.display = 'none';
 
-		nav_items.forEach(function (item) {
-			if (item.classList.contains('initial_wide')) item.classList.remove('initial_wide');
-		});
+    nav_items.forEach(function (item) {
+      if (item.classList.contains('initial_wide')) item.classList.remove('initial_wide');
+    });
 
-		if (window.innerWidth > 933) {
-			nav_join_desktop.style.display = 'inline-block';
-		} else {
-			nav_join_mobile.style.display = 'inline-block';
-			set_title();
-		}
-	});
+    if (window.innerWidth > 933) {
+      nav_join_desktop.style.display = 'inline-block';
+    } else {
+      nav_join_mobile.style.display = 'inline-block';
+      set_title();
+    }
+  });
 }
 
 function display_form() {
-	// Display form and set formScrollPos
-	[nav_join_desktop, nav_join_mobile].forEach(function (item) {
-		item.addEventListener('click', function () {
-			form.style.display = 'block';
-			[].concat(_toConsumableArray(formHiddenFields)).forEach(function (field) {
-				return field.classList.remove('hide_on_init');
-			});
+  // Display form and set formScrollPos
+  [nav_join_desktop, nav_join_mobile, footer_join].forEach(function (item) {
+    item.addEventListener('click', function () {
+      form.style.display = 'block';
+      [].concat(_toConsumableArray(formHiddenFields)).forEach(function (field) {
+        return field.classList.remove('hide_on_init');
+      });
 
-			formScrollPos = window.pageYOffset;
-			formPointer.style.display = 'block';
-		});
-	});
+      formScrollPos = window.pageYOffset;
+      formPointer.style.display = 'block';
+    });
+  });
 
-	close_form();
+  close_form();
 }
 
 function set_title() {
-	if (site_title.textContent === 'Interactive') site_title.textContent = 'Interactive';
+  if (site_title.textContent === 'Interactive') site_title.textContent = 'Interactive';
 }
 
 function on_resize() {
-	var resized;
-	window.addEventListener('resize', function () {
-		clearTimeout(resized);
-		resized = setTimeout(function () {
-			if (window.innerWidth < 934) {
-				if (localStorage.session == 'returning' || localStorage.scrolled == 'true') {
-					nav_join_mobile.style.display = 'inline-block';
-				}
-			} else {
-				if (localStorage.session == 'returning') nav_join_desktop.style.display = 'inline-block';
-			}
-		});
-	});
+  var resized;
+  window.addEventListener('resize', function () {
+    clearTimeout(resized);
+    resized = setTimeout(function () {
+      if (window.innerWidth < 934) {
+        if (localStorage.session == 'returning' || localStorage.scrolled == 'true') {
+          nav_join_mobile.style.display = 'inline-block';
+        }
+      } else {
+        if (localStorage.session == 'returning') nav_join_desktop.style.display = 'inline-block';
+      }
+    });
+  });
 }
 
 function init() {
-	check_session_data();
-	display_form();
-	on_resize();
+  check_session_data();
+  display_form();
+  on_resize();
 }
 
 },{}],8:[function(require,module,exports){
