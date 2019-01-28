@@ -32,7 +32,7 @@
 		}
 		
 		h1 {
-      font-size: em(112);
+      font-size: em(95);
       line-height: 1;
       color: #fff;
       @media screen and (max-width: 933px) {
@@ -44,7 +44,7 @@
       @media screen and (max-width: 375px) {
         font-size: em(39, $mobile);
       }			
-		}	
+    }	
 
 		p {		
 			font-weight: 300;				

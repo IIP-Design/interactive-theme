@@ -50,16 +50,19 @@ h3 {
   @media screen and (max-width: 933px) {
     font-size: em(24, $mobile);
   }
-  &:before {
-    content: " > ";
-    color: $red;
+  &.right-arrow {
+    &:before {
+      content: " > ";
+      color: $red;
+    }
   }
 }
 
 
 h4 {
-  font-size: em(24);
+  font-size: em(22);
   font-weight: 500;
+  color: $blue-medium;
   @media screen and (max-width: 933px) {
     font-size: em(20, $mobile);
   }
