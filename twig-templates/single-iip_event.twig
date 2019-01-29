@@ -13,18 +13,24 @@
     </div>
     {% endif %}
 
-    <div class="iip-event-meta">
-      <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}
-      {% if language %}
-        <p><strong>Language: </strong> {{ language }} </p>
-      {% endif %}
-      {% if organizer %}
-        <p><strong>Organizer: </strong> {{ organizer }} </p>
-      {% endif %}
-      {% if link %}
-        <p><strong>Link: </strong> <a href={{ link }} target="_blank"> {{ link }} </a> </p>
-      {% endif %}
-    </div>
+    <section class="iip-event-meta-container">
+      <div class="iip-event-meta">
+        <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}
+        {% if language %}
+          <p><strong>Language: </strong> {{ language }} </p>
+        {% endif %}
+        {% if organizer %}
+          <p><strong>Organizer: </strong> {{ organizer }} </p>
+        {% endif %}
+        {% if link %}
+          <p><strong>Link: </strong> <a href={{ link }} target="_blank"> {{ link }} </a> </p>
+        {% endif %}
+      </div>
+
+      <div class="iip-event-add-to-cal">
+        <div id="iip-events-front"></div>
+      </div>
+    </section>
 
     {% if speakers %}
       <section class="iip-event-body">
