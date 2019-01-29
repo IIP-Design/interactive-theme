@@ -4,29 +4,61 @@
 
   <article class="iip-event-article">
     <h2>{{ title }}</h2>
+
+    {% if thumbnail %}
     <div class="iip-event-hero">
       <figure class="iip-event-featured-image">
         <img src={{ thumbnail }} alt="" />
       </figure>
     </div>
+    {% endif %}
+
     <div class="iip-event-meta">
       <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}
-      {{ language }}
-      {{ organizer }} 
-      {{ link }}
+      {% if language %}
+        <p><strong>Language: </strong> {{ language }} </p>
+      {% endif %}
+      {% if organizer %}
+        <p><strong>Organizer: </strong> {{ organizer }} </p>
+      {% endif %}
+      {% if link %}
+        <p><strong>Link: </strong> <a href={{ link }} target="_blank"> {{ link }} </a> </p>
+      {% endif %}
     </div>
-    <section class="iip-event-body">
-      {{ description }}
-    </section>
-    <section class="iip-event-speakers">
-      {{ speakers }}
-    </section>
-    <section class="iip-event-materials">
-      {{ materials }}
-    </section>
-    <section class="iip-event-contact">
-      {{ contact }}
-    </section>
+
+    {% if speakers %}
+      <section class="iip-event-body">
+        <h3>Description:</h3>
+        <p>{{ description }}</p>
+      </section>
+    {% endif %}
+
+    {% if speakers %}
+      <section class="iip-event-speakers">
+        <h3>Speakers:</h3>
+        {% for speaker in speakers %}
+          <strong>{{ speaker.name }}</strong><br />
+          <strong>{{ speaker.title }}</strong>
+          <p>{{ speaker.bio }}</p>
+        {% endfor %}
+      </section>
+    {% endif %}
+
+    {% if materials %}
+      <section class="iip-event-materials">
+        <h3>Promotional Materials:</h3>
+        <a class="ui button" href={{ materials }} target="_blank">
+          See all materials on Box >
+        </a>
+      </section>
+    {% endif %}
+
+    {% if contact.name %}
+      <section class="iip-event-contact">
+        <strong>Questions about this event?</strong>
+        <strong>Reach out to {{ contact.name }} {{ contact.method }} </strong>
+      </section>
+    {% endif %}
   </article>
 
 {% endblock %}
