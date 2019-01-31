@@ -18,11 +18,26 @@ $check_host = $_SERVER['SERVER_NAME'];
 $formidable_id = get_option( 'inter-joinus-form-id' );
 $formVar = do_shortcode( $formidable_id );
 
+$resource_pages = array( '/tech-recommendations', '/webchat-tips', '/viewing-groups' );
+$resources = [];
+
+foreach ( $resource_pages as $page ) {
+  $link = get_home_url() . $page;
+  $id = url_to_postid( $link );
+  
+  $data['image'] = get_the_post_thumbnail_url( $id, 'full' );
+  $data['title'] = get_the_title( $id );
+  $data['link'] = $link;
+
+  array_push($resources, $data);
+}
+
 $context = array(
   "check_host"  => $check_host,
   "page_data"   => $page_data,
   "header_url"  => $header_url,
   "feat_img"    => $feat_img_obj,
+  "resources"   => $resources,
   "srcset"      => $srcset,
   "sizes"       => $sizes,
   "formVar"     => $formVar

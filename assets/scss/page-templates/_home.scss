@@ -44,7 +44,7 @@
       }
     }
   
-    .array_item{
+    .array_item {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -54,15 +54,20 @@
       max-width: 25%;
       justify-content: space-evenly;
 
-      @media screen and (max-width: 780px) {
+      @media screen and (max-width: 1024px) {
         max-width: 100%;
         flex-basis: 100%;
       }
+
+      > a:hover {
+        border-bottom: none;
+      }
     }
+
     .array_image{
       padding: 0;
-      max-width: 100%;
-      height: auto;
+      width: 225px;
+      height: 225px;
       margin-top: 10px;
       border-radius: 50%;
       box-shadow: 1px 3px 3px rgba(0,0,0,0.2);
@@ -73,6 +78,7 @@
         }
       }
     }
+
     .array_text{
       text-align: center;
         &:hover {

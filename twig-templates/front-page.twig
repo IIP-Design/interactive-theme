@@ -21,28 +21,17 @@
       </div>
     </div>
   </section>
-  <section class='home_resources'>
+  <section class="home_resources">
     <h2>Resources</h2>
     <p>Download and share tips and recommendations for hosting viewing parties.</p>
-      <div class='home_resources array'>
-        <div class='home_resources array_item'>
-            <img class="home_resources array_image" src="https://placeimg.com/225/225/tech" alt="Image">
-            <h4 class='home_resources array_text'>Platforms + Equipment Recommendations</h4>
+    <div class="home_resources array">
+      {% for resource in resources %}
+        <div class="home_resources array_item">
+          <a href={{ resource.link }}><img class="home_resources array_image" src={{ resource.image }}></img></a>
+          <a href={{ resource.link }}><h4 class="home_resources array_text">{{ resource.title }}</h4></a>
         </div>
-        <div class='home_resources array_item'>
-            <img class="home_resources array_image" src="https://placeimg.com/225/225/nature" alt="Image">
-            <h4 class='home_resources array_text'>Video Conferencing Tips</h4>
-        </div>
-        <div class='home_resources array_item'>
-            <img class="home_resources array_image" src="https://placeimg.com/225/225/animals" alt="Image">
-            <h4 class='home_resources array_text'>Viewing Group Tips</h4>
-        </div>
-      </div>
-  </section>
-  <section class='home_contact'>
-    <div class='home_contact feedback'>
-      <p class='home_contact header'>Questions or Feedback?</p>
-      <p class='home_contact home_contact--join join'>Get in Touch!</p>
+      {% endfor %}
     </div>
   </section>
+  
 {% endblock %}
