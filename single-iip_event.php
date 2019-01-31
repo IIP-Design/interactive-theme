@@ -12,10 +12,11 @@ use Inter\Twig as Twig;
 
 $id = get_the_ID();
 $meta_array = get_post_meta( $id, '_iip_event_meta' );
+$event_thumbnail = get_the_post_thumbnail_url( $id, 'full' );
 $post_meta = $meta_array[0];
 
 $title = $post_meta['title'];
-$thumbnail = ( $post_meta['thumbnail'] ) ? $post_meta['thumbnail'] : '';
+$thumbnail = !empty( $event_thumbnail ) ? $event_thumbnail : '';
 $date = date( 'l, M. j, Y', strtotime( $post_meta['date'] ) );
 $end_date = ( $post_meta['multiDay'] == true ) ? ' - ' . date( 'l, M. j, Y', strtotime( $post_meta['endDate'] ) ) : '';
 $timezone = ( $post_meta['timezone'] ) ? ' ' . $post_meta['timezone'] : '';
