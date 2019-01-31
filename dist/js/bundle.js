@@ -1215,15 +1215,17 @@ function close_form() {
 function display_form() {
   // Display form and set formScrollPos
   [nav_join_desktop, nav_join_mobile, footer_join].forEach(function (item) {
-    item.addEventListener('click', function () {
-      form.style.display = 'block';
-      [].concat(_toConsumableArray(formHiddenFields)).forEach(function (field) {
-        return field.classList.remove('hide_on_init');
-      });
+    if (item) {
+      item.addEventListener('click', function () {
+        form.style.display = 'block';
+        [].concat(_toConsumableArray(formHiddenFields)).forEach(function (field) {
+          return field.classList.remove('hide_on_init');
+        });
 
-      formScrollPos = window.pageYOffset;
-      formPointer.style.display = 'block';
-    });
+        formScrollPos = window.pageYOffset;
+        formPointer.style.display = 'block';
+      });
+    }
   });
 
   close_form();
@@ -1806,7 +1808,7 @@ var appendFilter = function appendFilter(body, vals, keys) {
 // };
 
 },{"axios":16,"bodybuilder":43}],11:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -1825,10 +1827,10 @@ var ResponsiveBackgroundImage = function () {
     _classCallCheck(this, ResponsiveBackgroundImage);
 
     this.element = element;
-    this.img = element.querySelector("img");
-    this.src = "";
+    this.img = element.querySelector('img');
+    this.src = '';
 
-    this.img.addEventListener("load", function () {
+    this.img.addEventListener('load', function () {
       _this.update();
     });
 
@@ -1838,9 +1840,10 @@ var ResponsiveBackgroundImage = function () {
   }
 
   _createClass(ResponsiveBackgroundImage, [{
-    key: "update",
+    key: 'update',
     value: function update() {
-      var src = typeof this.img.currentSrc !== "undefined" ? this.img.currentSrc : this.img.src;
+      var src = typeof this.img.currentSrc !== 'undefined' ? this.img.currentSrc : this.img.src;
+
       if (this.src !== src) {
         this.src = src;
         this.element.style.backgroundImage = 'url("' + this.src + '")';

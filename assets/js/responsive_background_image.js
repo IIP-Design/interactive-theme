@@ -2,10 +2,10 @@ class ResponsiveBackgroundImage {
 
   constructor(element) {
     this.element = element;
-    this.img = element.querySelector("img");
-    this.src = "";
+    this.img = element.querySelector('img');
+    this.src = '';
 
-    this.img.addEventListener("load", () => {
+    this.img.addEventListener('load', () => {
       this.update();
     });
 
@@ -16,9 +16,10 @@ class ResponsiveBackgroundImage {
 
   update() {
     let src =
-      typeof this.img.currentSrc !== "undefined"
+      typeof this.img.currentSrc !== 'undefined'
         ? this.img.currentSrc
         : this.img.src;
+
     if (this.src !== src) {
       this.src = src;
       this.element.style.backgroundImage = 'url("' + this.src + '")';
@@ -26,11 +27,10 @@ class ResponsiveBackgroundImage {
   }
 }
 
-
 export function init() {
-    // Initialize responsive background images
-    let elements = document.querySelectorAll('[data-responsive-background-image]');   
-    for ( let i = 0; i < elements.length; i++ ) {  
-      new ResponsiveBackgroundImage( elements[i] );
-    }
+  // Initialize responsive background images
+  const elements = document.querySelectorAll('[data-responsive-background-image]');   
+  for ( let i = 0; i < elements.length; i++ ) {  
+    new ResponsiveBackgroundImage( elements[i] );
+  }
 }

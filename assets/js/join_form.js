@@ -56,13 +56,15 @@ function close_form() {
 function display_form() {
   // Display form and set formScrollPos
   [nav_join_desktop, nav_join_mobile, footer_join].forEach(item => {
-    item.addEventListener('click', function() {
-      form.style.display = 'block';
-      [...formHiddenFields].forEach(field => field.classList.remove('hide_on_init'));
+    if ( item ) {
+      item.addEventListener('click', function() {
+        form.style.display = 'block';
+        [...formHiddenFields].forEach(field => field.classList.remove('hide_on_init'));
 
-      formScrollPos = window.pageYOffset;
-      formPointer.style.display = 'block';
-    });
+        formScrollPos = window.pageYOffset;
+        formPointer.style.display = 'block';
+      });
+    }
   });		
   
   close_form();

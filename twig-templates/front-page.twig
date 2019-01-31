@@ -2,9 +2,7 @@
 
 {% block content %}
   <section class="hero hero--bg_img" data-responsive-background-image>    
-    <img src="{{ header_url }}"
-      sizes="{{ sizes }}"
-      srcset="{{ srcset }}">
+    <img src={{ header_url }} sizes="{{ sizes }}" srcset="{{ srcset }}">
     <div class="hero-inner bottom_padd bottom_padd--thick_home">
       <div class="hero-content ui container">
         <h1 class="hero-h1">Interactive Hub</h1> 
@@ -31,6 +29,12 @@
           <a href={{ resource.link }}><h4 class="home_resources array_text">{{ resource.title }}</h4></a>
         </div>
       {% endfor %}
+    </div>
+  </section>
+  <section class='home_contact'>
+    <div class='home_contact feedback'>
+      <p class='home_contact header'>Questions or Feedback?</p>
+      <p class='home_contact home_contact--join join'>Get in Touch!</p>
     </div>
   </section>
   
