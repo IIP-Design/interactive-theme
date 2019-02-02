@@ -11,9 +11,8 @@
 use Inter\Twig as Twig;
 
 $id = get_the_ID();
-$meta_array = get_post_meta( $id, '_iip_event_meta' );
+$post_meta = unserialize( get_post_meta( $id, '_iip_event_meta', true ) );
 $event_thumbnail = get_the_post_thumbnail_url( $id, 'full' );
-$post_meta = $meta_array[0];
 
 $title = $post_meta['title'];
 $thumbnail = !empty( $event_thumbnail ) ? $event_thumbnail : '';
