@@ -157,7 +157,7 @@ class Content_Block_Shortcode {
     foreach ( $event_ids as $event_id ) {
       // Get event data
       $listed_event = get_post( $event_id );
-      $listed_event_meta = get_post_meta( $event_id , '_iip_event_meta', true );
+      $listed_event_meta = unserialize( get_post_meta( $event_id , '_iip_event_meta', true ) );
 
       // Get event image and add as prop to event object
       $featured_img = get_the_post_thumbnail_url( $event_id, 'full' );
