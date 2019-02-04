@@ -3,9 +3,8 @@
 
 
 	&--bg_img {
-		padding-top: 10%;
+    padding-top: 10%;
 	}
-
 
 	&-inner {		
 		color: #fff;
@@ -51,6 +50,21 @@
 		}
 	}
 
+  .hero-centered {
+    font-size: em(80);
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      @media screen and (max-width: 933px) {
+        font-size: em(65, $mobile);
+      }
+      @media screen and (max-width: 415px) {
+        font-size: em(45, $mobile);
+      }
+      @media screen and (max-width: 375px) {
+        font-size: em(30, $mobile);
+      }		
+  }
 	.hero-attribution {
 		position: absolute;
 		bottom: 0;
@@ -58,5 +72,5 @@
 		padding: .5em .875em;
 		font-size: .875em;
 		background-color: rgba(0, 0, 0, .4);
-	}
+  }
 }
