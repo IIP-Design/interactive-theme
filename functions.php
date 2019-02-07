@@ -71,11 +71,6 @@ class InteractiveSite {
     */
     add_post_type_support( 'page', 'excerpt' );
 
-    /*
-    * IIP Interactive Plugin Edits
-    */
-    require_once get_stylesheet_directory() . '/includes/edit-iip-interactive-plugin/edit-iip-interactive.php';
-
   }
 
   function twig_init() {
