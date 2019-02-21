@@ -13,12 +13,14 @@ use Inter\Twig as Twig;
 $id = get_the_ID();
 $post_meta = unserialize( get_post_meta( $id, '_iip_event_meta', true ) );
 $event_thumbnail = get_the_post_thumbnail_url( $id, 'full' );
+$timezone_obj = ( $post_meta['timezone'] );
+$timezone_abbrev = $timezone_obj->abbreviation;
 
 $title = $post_meta['title'];
 $thumbnail = !empty( $event_thumbnail ) ? $event_thumbnail : '';
 $date = date( 'l, M. j, Y', strtotime( $post_meta['date'] ) );
 $end_date = ( $post_meta['multiDay'] == true ) ? ' - ' . date( 'l, M. j, Y', strtotime( $post_meta['endDate'] ) ) : '';
-$timezone = ( $post_meta['timezone'] ) ? ' ' . $post_meta['timezone'] : '';
+$timezone = ( $timezone_abbrev ) ? ' ' . $timezone_abbrev : '';
 $time = ( $post_meta['hasTime'] == true ) ? ' at ' . $post_meta['time'] . ' - ' . $post_meta['endTime'] . $timezone : '';
 $language = ( $post_meta['language'] ) ? $post_meta['language'] : '';
 $organizer = ( $post_meta['organizer'] ) ? $post_meta['organizer'] : '';
