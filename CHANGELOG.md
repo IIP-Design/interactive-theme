@@ -1,7 +1,15 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
-## v1.0.0 - Initial Release (2019-02-14)
+## [v1.0.1](https://github.com/IIP-Design/interactive-theme/tree/v1.0.1) (2019-02-14)
+
+**Changed**
+- Tweak resources images on homepage so that they are not warped
+- Bump signup form higher up the page so fully visible on smaller screens
+- Remove CSS made redundant by IIP Gutenberg plugin
+- IIP event single frontend changed to handle new timezone format
+
+## [v1.0.0 - Initial Release](https://github.com/IIP-Design/interactive-theme/tree/v1.0.0) (2019-02-14)
 
 **Added:**
 
