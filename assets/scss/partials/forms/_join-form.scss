@@ -5,19 +5,20 @@
 
 
 	&.ui.form {
-		position: absolute;
-		top: 300%;
-		right: 0;
+    background-color: $blue-bright;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 		display: none;
+		font-family: $font-family;
 		max-height: 1000px;
 		max-width: 650px;
-		width: 100%;
-		font-family: $font-family;
-		background-color: $blue-bright;
 		opacity: 1;
-		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    position: absolute;
+		right: 0;
+		top: -45%;
+		width: 100%;
+    z-index: 2;
 		@media screen and (max-width: 1400px) {
-			top: 200%;
+			top: 100%;
 			max-width: 400px;
 			font-size: 12px;
 		}
