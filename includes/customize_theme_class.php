@@ -118,7 +118,7 @@ class Customize_Theme {
     register_setting(
       'edit-inter-theme',         // Options group
       'inter-google-form-id',     // Option name/database
-      'sanitize_textarea_field'       // Sanitize input value
+      array( 'sanitize_callback' => 'sanitize_textarea_field' )     // Sanitize input value
     );
   }
 
@@ -126,13 +126,13 @@ class Customize_Theme {
   function google_input_markup() {
     $google_tag = get_option( 'inter-google-form-id' );
     $html = '<fieldset>';
-      $html .= '<input ';
+      $html .= '<textarea ';
         $html .= 'id="inter-google-form-id" ';
         $html .= 'name="inter-google-form-id" ';
         $html .= 'placeholder="Google Analytics Global Site Tag Script" ';
-        $html .= 'type="textarea" value style="width: 500px; height: 200px; ';
-        $html .= 'value="' . $google_tag;
-      $html .= '">';
+        $html .= 'style="width: 500px; height: 200px; ';
+        $html .= 'value="' . $google_tag . '">' .$google_tag;
+      $html .= '</textarea>';
     $html .= '</fieldset>';
     echo $html;
   }
