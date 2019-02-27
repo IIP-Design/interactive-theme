@@ -12,6 +12,7 @@ class Customize_Theme {
     add_action( 'admin_menu', array( $this, 'add_customize_theme_submenu' ) );
     add_action( 'admin_init', array( $this, 'add_submenu_sections') );
     add_action( 'admin_init', array( $this, 'formidable_settings' ) );
+    add_action( 'admin_init', array( $this, 'google_settings' ) );
   }
 
   // Add Interactive theme submenu page 
@@ -51,11 +52,21 @@ class Customize_Theme {
       array( $this, 'formidable_section_description' ),   // Section callback function
       'edit-inter-theme'                                  // Settings page slug
     );
+    add_settings_section(
+      'google-analytics',                                 // Section ID
+      __( 'Google Analytics', 'inter' ),                  // Section title
+      array( $this, 'google_section_description' ),   // Section callback function
+      'edit-inter-theme'                                  // Settings page slug
+    );
   }
 
   // Set description for the formidable form settings section
   function formidable_section_description() {
     _e( 'Use the field(s) below to enter Formidable shortcodes.', 'inter' );
+  }
+
+  function google_section_description() {
+    _e( 'Paste in the Google Analytics Global Site Tag (gtag.js) script code.', 'inter' );
   }
 
   function formidable_settings(){
@@ -87,6 +98,40 @@ class Customize_Theme {
         $html .= 'placeholder="[formidable id=1]" ';
         $html .= 'type="text" ';
         $html .= 'value="' . $formidable_id;
+      $html .= '">';
+    $html .= '</fieldset>';
+    echo $html;
+  }
+
+  function google_settings(){
+    //Create Google form settings field
+    add_settings_field(
+      'inter-google-form-id',                        // Field ID
+      __( 'Global Site Tag:', 'inter' ),                // Field title 
+      array( $this, 'google_input_markup' ),         // Field callback function
+      'edit-inter-theme',                            // Settings page slug
+      'google-analytics',                            // Section ID
+      array( 'label_for' => 'inter-google-form-id' ) // Display field title as label
+    );
+
+    //Register Google form settings
+    register_setting(
+      'edit-inter-theme',         // Options group
+      'inter-google-form-id',     // Option name/database
+      'sanitize_textarea_field'       // Sanitize input value
+    );
+  }
+
+  // HTML markup for Google form
+  function google_input_markup() {
+    $google_tag = get_option( 'inter-google-form-id' );
+    $html = '<fieldset>';
+      $html .= '<input ';
+        $html .= 'id="inter-google-form-id" ';
+        $html .= 'name="inter-google-form-id" ';
+        $html .= 'placeholder="Google Analytics Global Site Tag Script" ';
+        $html .= 'type="textarea" value style="width: 500px; height: 200px; ';
+        $html .= 'value="' . $google_tag;
       $html .= '">';
     $html .= '</fieldset>';
     echo $html;
