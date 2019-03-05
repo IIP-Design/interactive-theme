@@ -3,8 +3,6 @@
 {% block content %}
 
   <article class="iip-event-article">
-    <h2>{{ title }}</h2>
-
     {% if thumbnail %}
     <div class="iip-event-hero">
       <figure class="iip-event-featured-image">
@@ -13,18 +11,28 @@
     </div>
     {% endif %}
 
+    <h2>{{ title }}</h2>
+
     <section class="iip-event-meta-container">
       <div class="iip-event-meta">
         <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}
-        {% if language %}
-          <p><strong>Language: </strong> {{ language }} </p>
-        {% endif %}
-        {% if organizer %}
-          <p><strong>Organizer: </strong> {{ organizer }} </p>
-        {% endif %}
-        {% if link %}
-          <p><strong>Link: </strong> <a href={{ link }} target="_blank"> {{ link }} </a> </p>
-        {% endif %}
+        {% for detail in details %}
+          {% if ( detail.title and detail.link and detail.name ) %}
+            <p><strong>{{ detail.title }}: </strong><a href={{ detail.link }}>{{ detail.name }}</a></p>
+          {% elseif ( detail.title and not detail.link and detail.name ) %}
+            <p><strong>{{ detail.title }}: </strong>{{ detail.name }}</p>
+          {% elseif ( detail.title and detail.link and not detail.name ) %}
+            <p><a href={{ detail.link }}><strong>{{ detail.title }}</strong></a></p>
+          {% elseif ( not detail.title and detail.link and detail.name ) %}
+            <p><a href={{ detail.link }}>{{ detail.name }}</a></p>
+          {% elseif ( detail.title and not detail.link and not detail.name ) %}
+            <p><strong>{{ detail.title }}</strong></p>
+          {% elseif ( not detail.title and not detail.link and detail.name ) %}
+            <p>{{ detail.name }}</p>
+          {% elseif ( not detail.title and detail.link and not detail.name ) %}
+            <p><a href={{ detail.link }}>{{ detail.link }}</a></p>
+          {% endif %}
+        {% endfor %}
       </div>
 
       <div class="iip-event-add-to-cal">
@@ -34,29 +42,61 @@
 
     {% if description %}
       <section class="iip-event-body">
-        <h3>Description:</h3>
+        <h3 class="right-arrow">Description:</h3>
         <p>{{ description }}</p>
       </section>
     {% endif %}
 
     {% if speakers %}
       <section class="iip-event-speakers">
-        <h3>Speakers:</h3>
+        <h3 class="right-arrow">Speakers:</h3>
         {% for speaker in speakers %}
-          <strong>{{ speaker.name }}</strong><br />
-          <strong>{{ speaker.title }}</strong>
-          <p>{{ speaker.bio }}</p>
+          <div class="iip-event-speaker">
+            {% if speaker.image %}
+              <div class="iip-event-speaker-img" style="background-image: url({{ speaker.image[0].image }})"></div>
+            {% endif %}
+            <div>
+              <strong>{{ speaker.name }}</strong><br />
+              <strong>{{ speaker.title }}</strong>
+              <p>{{ speaker.bio }}</p>
+            </div>
+          </div>
         {% endfor %}
       </section>
     {% endif %}
 
-    {% if materials %}
+    {% if materials or files %}
+      <h3 class="right-arrow">Promotional Materials:</h3>
       <section class="iip-event-materials">
-        <h3>Promotional Materials:</h3>
-        <a class="ui button" href={{ materials }} target="_blank">
-          See all materials on Box >
-        </a>
+        {% if materials %}
+          {% for material in materials %}
+          <a class="iip-events-material-button" href={{ material.link }} target="_blank">
+            {{ material.label }}
+          </a>
+          {% endfor %}
+        {% endif %}
       </section>
+      {% if files %}
+        <section class="iip-event-files">
+          {% for file in files %}
+            <div class="iip-event-file">
+              <a class="iip-event-file-link" href={{ file.url }} download={{ file.filename }} target="_blank">
+                <div
+                  class="iip-event-file-img"
+                  style="
+                    background-image: url({{ file.image }});
+                    background-size: {{ ( file.type == 'jpg' or file.type == 'jpeg' or file.type == 'png') ? 'cover' : 'contain' }};
+                    margin-top: {{ ( file.type == 'jpg' or file.type == 'jpeg' or file.type == 'png') ? '0' : '5px' }};
+                  ">
+                </div>
+                <p class="iip-event-file-label">
+                  <strong>{{ file.filename }}</strong> ({{ file.type }})
+                </p>
+              </a>
+            </div>
+          {% endfor %}
+        </section>
+      {% endif %}
     {% endif %}
 
     {% if contact.name %}

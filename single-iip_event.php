@@ -22,28 +22,26 @@ $date = date( 'l, M. j, Y', strtotime( $post_meta['date'] ) );
 $end_date = ( $post_meta['multiDay'] == true ) ? ' - ' . date( 'l, M. j, Y', strtotime( $post_meta['endDate'] ) ) : '';
 $timezone = ( $timezone_abbrev ) ? ' ' . $timezone_abbrev : '';
 $time = ( $post_meta['hasTime'] == true ) ? ' at ' . $post_meta['time'] . ' - ' . $post_meta['endTime'] . $timezone : '';
-$language = ( $post_meta['language'] ) ? $post_meta['language'] : '';
-$organizer = ( $post_meta['organizer'] ) ? $post_meta['organizer'] : '';
-$link = ( $post_meta['link'] ) ? ( $post_meta['link'] ) : '';
+$details = ( $post_meta['details'] ) ? $post_meta['details'] : '';
 $description = ( $post_meta['description'] ) ? $post_meta['description'] : '';
 $speakers = ( $post_meta['speakers'] ) ? $post_meta['speakers'] : '';
-$materials = ( $post_meta['materialsLink'] ) ? $post_meta['materialsLink'] : '';
+$materials = ( $post_meta['materials'] ) ? $post_meta['materials'] : '';
+$files = ( $post_meta['files'] ) ? ( $post_meta['files'] ) : '';
 $contact['method'] = ( $post_meta['contactMethod'] ) ? ' at ' . $post_meta['contactMethod'] : '';
 $contact['name'] = ( $post_meta['contact'] ) ? $post_meta['contact'] : '';
 
 $context = array(
-  'title'       => $title,
-  'thumbnail'   => $thumbnail,
+  'contact'     => $contact,
   'date'        => $date,
-  'end_date'    => $end_date,
-  'time'        => $time,
-  'language'    => $language,
-  'organizer'   => $organizer,
-  'link'        => $link,
   'description' => $description,
-  'speakers'    => $speakers,
+  'details'     => $details,
+  'end_date'    => $end_date,
+  'files'       => $files,
   'materials'   => $materials,
-  'contact'     => $contact
+  'speakers'    => $speakers,
+  'thumbnail'   => $thumbnail,
+  'time'        => $time,
+  'title'       => $title
 );
 
 // Render template passing in data array
