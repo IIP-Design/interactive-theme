@@ -23,27 +23,25 @@
 
         {% for detail in details %}
           {% if ( detail.title and detail.link and detail.name ) %}
-            <p><strong>{{ detail.title }}: </strong><a href={{ detail.link }}>{{ detail.name }}</a></p>
+            <p><strong>{{ detail.title }}: </strong><a href={{ detail.link }} target="_blank">{{ detail.name }}</a></p>
           {% elseif ( detail.title and not detail.link and detail.name ) %}
             <p><strong>{{ detail.title }}: </strong>{{ detail.name }}</p>
           {% elseif ( detail.title and detail.link and not detail.name ) %}
-            <p><a href={{ detail.link }}><strong>{{ detail.title }}</strong></a></p>
+            <p><a href={{ detail.link }} target="_blank"><strong>{{ detail.title }}</strong></a></p>
           {% elseif ( not detail.title and detail.link and detail.name ) %}
-            <p><a href={{ detail.link }}>{{ detail.name }}</a></p>
+            <p><a href={{ detail.link }} target="_blank">{{ detail.name }}</a></p>
           {% elseif ( detail.title and not detail.link and not detail.name ) %}
             <p><strong>{{ detail.title }}</strong></p>
           {% elseif ( not detail.title and not detail.link and detail.name ) %}
             <p>{{ detail.name }}</p>
           {% elseif ( not detail.title and detail.link and not detail.name ) %}
-            <p><a href={{ detail.link }}>{{ detail.link }}</a></p>
+            <p><a href={{ detail.link }} target="_blank">{{ detail.link }}</a></p>
           {% endif %}
         {% endfor %}
       </div>
 
       {% if ( no_date != 'tba' and no_date != 'none' ) %}
-        <div class="iip-event-add-to-cal">
-          <div id="iip-events-front"></div>
-        </div>
+        <div class="iip-event-add-to-cal" id="iip-events-front"></div>
       {% endif %}
 
     </section>
