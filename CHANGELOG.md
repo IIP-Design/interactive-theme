@@ -1,9 +1,14 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
-## [v1.0.1](https://github.com/IIP-Design/interactive-theme/tree/v1.0.1) (2019-02-14)
+## [v1.0.2](https://github.com/IIP-Design/interactive-theme/tree/v1.0.2)
 
-**Changed**
+**Changed:**
+- Update single event post type to support the promo files, multiple promo links, a configurable details section, and TBA/no date events added to the plugin
+
+## [v1.0.1](https://github.com/IIP-Design/interactive-theme/tree/v1.0.1) (2019-02-21)
+
+**Changed:**
 - Tweak resources images on homepage so that they are not warped
 - Bump signup form higher up the page so fully visible on smaller screens
 - Remove CSS made redundant by IIP Gutenberg plugin
