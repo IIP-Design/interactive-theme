@@ -15,6 +15,7 @@ $post_meta = unserialize( get_post_meta( $id, '_iip_event_meta', true ) );
 $event_thumbnail = get_the_post_thumbnail_url( $id, 'full' );
 $timezone_obj = ( $post_meta['timezone'] );
 $timezone_abbrev = $timezone_obj->abbreviation;
+$no_date = $post_meta['noDate'];
 
 $title = $post_meta['title'];
 $thumbnail = !empty( $event_thumbnail ) ? $event_thumbnail : '';
@@ -38,6 +39,7 @@ $context = array(
   'end_date'    => $end_date,
   'files'       => $files,
   'materials'   => $materials,
+  'no_date'     => $no_date,
   'speakers'    => $speakers,
   'thumbnail'   => $thumbnail,
   'time'        => $time,

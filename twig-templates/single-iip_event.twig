@@ -15,7 +15,12 @@
 
     <section class="iip-event-meta-container">
       <div class="iip-event-meta">
-        <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}
+        {% if ( no_date == 'tba' ) %}
+          <p><strong>When: </strong>To Be Announced</p>
+        {% elseif ( no_date != 'tba' and no_date != 'none' ) %}
+          <p><strong>When:</strong> {{ date }}{{ end_date }}{{ time }}</p>
+        {% endif %}
+
         {% for detail in details %}
           {% if ( detail.title and detail.link and detail.name ) %}
             <p><strong>{{ detail.title }}: </strong><a href={{ detail.link }}>{{ detail.name }}</a></p>
@@ -35,9 +40,12 @@
         {% endfor %}
       </div>
 
-      <div class="iip-event-add-to-cal">
-        <div id="iip-events-front"></div>
-      </div>
+      {% if ( no_date != 'tba' and no_date != 'none' ) %}
+        <div class="iip-event-add-to-cal">
+          <div id="iip-events-front"></div>
+        </div>
+      {% endif %}
+
     </section>
 
     {% if description %}
