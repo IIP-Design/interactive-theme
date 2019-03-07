@@ -41,13 +41,13 @@
       </div>
 
       {% if ( no_date != 'tba' and no_date != 'none' ) %}
-        <div class="iip-event-add-to-cal" id="iip-events-front"></div>
+        <div class="iip-event-add-to-cal" id="iip-event-add-to-cal"></div>
       {% endif %}
 
     </section>
 
     {% if description %}
-      <section class="iip-event-body">
+      <section class="iip-event-description">
         <h3 class="right-arrow">Description:</h3>
         <p>{{ description }}</p>
       </section>
@@ -76,7 +76,7 @@
       <section class="iip-event-materials">
         {% if materials %}
           {% for material in materials %}
-          <a class="iip-events-material-button" href={{ material.link }} target="_blank">
+          <a class="iip-event-material-button" href={{ material.link }} target="_blank">
             {{ material.label }}
           </a>
           {% endfor %}
@@ -85,8 +85,8 @@
       {% if files %}
         <section class="iip-event-files">
           {% for file in files %}
-            <div class="iip-event-file">
-              <a class="iip-event-file-link" href={{ file.url }} download={{ file.filename }} target="_blank">
+            <a class="iip-event-file iip-event-overlay" href={{ file.url }} download={{ file.filename }} target="_blank">
+              <div class="iip-event-overlay-base">
                 <div
                   class="iip-event-file-img"
                   style="
@@ -98,8 +98,11 @@
                 <p class="iip-event-file-label">
                   <strong>{{ file.filename }}</strong> ({{ file.type }})
                 </p>
-              </a>
-            </div>
+              </div>
+              <div class="iip-event-overlay-hover">
+                <i class="fa fa-3x fa-download iip-event-overlay-text"></i>
+              </div>
+            </a>
           {% endfor %}
         </section>
       {% endif %}
