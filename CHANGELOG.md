@@ -1,10 +1,13 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
-## [v1.0.2](https://github.com/IIP-Design/interactive-theme/tree/v1.0.2)
+## [v1.0.2](https://github.com/IIP-Design/interactive-theme/tree/v1.0.2) (2019-03-11)
 
 **Changed:**
 - Update single event post type to support the promo files, multiple promo links, a configurable details section, and TBA/no date events added to the plugin
+
+**Security:**
+- Update vulnerable NPM packages
 
 ## [v1.0.1](https://github.com/IIP-Design/interactive-theme/tree/v1.0.1) (2019-02-21)
 
