@@ -42,6 +42,9 @@ $search_indexes = InteractiveSite::cdp_get_option('cdp_indexes');
 // TEMP
 $check_host = $_SERVER['SERVER_NAME'];
 
+// Allow for password protected posts
+$password_form = post_password_required() ? get_the_password_form() : '';
+
 $formidable_id = get_option( 'inter-joinus-form-id' );
 $formVar = do_shortcode( $formidable_id );
 $related_content_display = get_post_meta($post->ID, 'related_content_option', true);
@@ -57,23 +60,24 @@ $hero_attribution_display = get_post_meta($post->ID, '_inter_hero_attribution_op
 $hero_attribution_value = get_post_meta($feat_img_obj['id'], '_attribution', true );
 
 $context = array(
-  'check_host'      => $check_host,
-  'formVar'       	=> $formVar,
-	'related_content_display' => $related_content_display,
-	'hero_title_display' => $hero_title_display,
-	'hero_subtitle' 	=> $hero_subtitle,
-  'hero_attribution_display' =>$hero_attribution_display,
-  'hero_attribution_value' => $hero_attribution_value,
-  'post_data'       => $post_data,
-  'header_url'      => $header_url,
-  'taxonomy_terms'  => $taxonomy_terms,
-  'selector'				=> 'feed' . $post->ID,
-  'select_by_taxonomy' => $select_by_taxonomy,
-  'category_slug'		=> $category_slug,
-  'tag_slug'				=> $tag_slug,
-  'category_slug_name'		=> $category_slug_name,
-  'tag_slug_name'				=> $tag_slug_name,
-  'search_indexes'	=> $search_indexes
+  'check_host'               => $check_host,
+  'formVar'       	         => $formVar,
+	'related_content_display'  => $related_content_display,
+	'hero_title_display'       => $hero_title_display,
+	'hero_subtitle' 	         => $hero_subtitle,
+  'hero_attribution_display' => $hero_attribution_display,
+  'hero_attribution_value'   => $hero_attribution_value,
+  'post_data'                => $post_data,
+  'header_url'               => $header_url,
+  'taxonomy_terms'           => $taxonomy_terms,
+  'selector'				         => 'feed' . $post->ID,
+  'select_by_taxonomy'       => $select_by_taxonomy,
+  'category_slug'		         => $category_slug,
+  'password_form'            => $password_form,
+  'tag_slug'				         => $tag_slug,
+  'category_slug_name'		   => $category_slug_name,
+  'tag_slug_name'				     => $tag_slug_name,
+  'search_indexes'	         => $search_indexes
 );
 
 // Render template passing in data array

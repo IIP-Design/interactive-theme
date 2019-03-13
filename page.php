@@ -19,6 +19,9 @@ $img_id = get_post_thumbnail_id( $post->ID );
 $srcset = wp_get_attachment_image_srcset($img_id, "full");
 $sizes = wp_get_attachment_image_sizes($img_id, "full");
 
+// Allow for password protected pages
+$password_form = post_password_required() ? get_the_password_form() : '';
+
 // Taxonomy data
 $categories = Inter\API::get_category_list();
 
@@ -34,20 +37,21 @@ $hero_attribution_value = get_post_meta($feat_img_obj['id'], '_attribution', tru
 
 // Data array for twig
 $context = array(
-  'check_host'    => $check_host,
-  'pagename'      => $pagename,
-  'page_data'     => $page_data,
-  'header_url'    => $header_url,
-  'feat_img'      => $feat_img_obj,
-  'srcset'		    => $srcset,
-  'sizes'		      => $sizes,
-  'formVar'       => $formVar,
-  'hero_title_display' => $hero_title_display,
-  'hero_subtitle' => $hero_subtitle,
-  'hero_attribution_display' =>$hero_attribution_display,
-  'hero_attribution_value' => $hero_attribution_value,
-  'formVar'       => $formVar,
-  'category_list' => $categories
+  'check_host'               => $check_host,
+  'pagename'                 => $pagename,
+  'page_data'                => $page_data,
+  'password_form'            => $password_form,
+  'header_url'               => $header_url,
+  'feat_img'                 => $feat_img_obj,
+  'srcset'		               => $srcset,
+  'sizes'		                 => $sizes,
+  'formVar'                  => $formVar,
+  'hero_title_display'       => $hero_title_display,
+  'hero_subtitle'            => $hero_subtitle,
+  'hero_attribution_display' => $hero_attribution_display,
+  'hero_attribution_value'   => $hero_attribution_value,
+  'formVar'                  => $formVar,
+  'category_list'            => $categories
 );
 
 echo Twig::render( array( "pages/page-" . $pagename . ".twig", "page.twig" ), $context );

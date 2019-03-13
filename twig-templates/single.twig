@@ -30,6 +30,11 @@
     <h4 class='subtitle-container'>{{ hero_subtitle }}</h4>
   {% endif %}
   <div class='inner-container single_post'>
+    {% if password_form is not empty %}
+      <div class='password-form'>
+        {{ password_form }}
+      </div>
+    {% endif %}
     <section class='section single_post_content'>
       <div>{{ post_data.content.rendered }}</div>
 

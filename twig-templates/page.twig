@@ -25,6 +25,11 @@
   	<h1 class='title-overlay_title'>{{ page_data.title.rendered }}</h1>
     <h4 class='subtitle-container'>{{ hero_subtitle }}</h4>
 	{% endif %}
+  {% if password_form is not empty %}
+    <div class='password-form'>
+      {{ password_form }}
+    </div>
+  {% endif %}
 	<div class='inner-container'>
 		<div class='page-content'>
 			{{ page_data.content.rendered }}
