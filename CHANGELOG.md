@@ -6,6 +6,10 @@
 **Added:**
 - Support for password protected pages and posts
 - New layout (full-width side-by-side image and description) for event list content block
+- Site analytics admin section where user can configure Google Tag Manager header
+
+**Changed:**
+- Replace theme placeholder image
 
 ## [v1.0.2](https://github.com/IIP-Design/interactive-theme/tree/v1.0.2) (2019-03-11)
 

@@ -13,6 +13,7 @@ use Inter\Content_Block_Shortcode as Content_Block_Shortcode;
 use Inter\Custom_Button_Shortcode as Custom_Button_Shortcode;
 use Inter\Custom_Iframe_Shortcode as Custom_Iframe_Shortcode;
 use Inter\Customize_Theme as Customize_Theme;
+use Inter\Customize_Analytics as Customize_Analytics;
 use Inter\Content_Type_Tax as Content_Type_Tax;
 
 class InteractiveSite {
@@ -39,8 +40,6 @@ class InteractiveSite {
     add_action( 'pre_get_posts', array( $this, 'search_filter') );
     add_filter( 'frm_notification_attachment', array( $this, 'inter_add_attachment'), 10, 3 );
     add_filter( 'frm_encode_subject', array( $this, 'frm_encode_subject') );
-    add_action( 'wp_head', array( $this, 'insert_gtm_head') );
-    add_action( 'tha_body_top', array( $this, 'insert_gtm_body') );
     // add_action( 'wp_head', array( $this, 'insert_dap') );
     // add_action( 'wp_head', array( $this, 'insert_hotjar') );
     add_filter( 'attachment_fields_to_edit', array( $this, 'inter_attachment_fields' ), 10, 2 );
@@ -109,6 +108,7 @@ class InteractiveSite {
   // Initializes admin menu to customize Interactive theme
   function init_theme_settings_admin() {
     Customize_Theme::init();
+    Customize_Analytics::init();
   }
 
   function enqueue_scripts() {
@@ -195,28 +195,6 @@ class InteractiveSite {
   }
 
   /* ANALYTICS */
-  // Inserts Google Tag Manager snippets into head and body
-  function insert_gtm_head() {
-    ?>
-     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WG2DVMH');</script>
-    <!-- End Google Tag Manager -->
-    <?php
-  }
-
-  function insert_gtm_body() {
-    ?>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG2DVMH"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <?php
-  }
-
   // Inserts Digital Analytics Program (DAP) code
   function insert_dap(){
     ?>

@@ -1,5 +1,6 @@
 <?php
 namespace Inter;
+
 class Customize_Theme {
 
   // Initialize customize theme class
@@ -106,60 +107,64 @@ class Customize_Theme {
   function analytics_settings(){
     //Create Analytics Sectiohn Settings Fields
     add_settings_field(
-      'inter-ga-form-id',                        // Field ID
-      __( 'Google Analytics (UA):', 'inter' ),                // Field title 
+      'inter-ga-id',                             // Field ID
+      __( 'Google Analytics (UA):', 'inter' ),   // Field title 
       array( $this, 'ga_input_markup' ),         // Field callback function
-      'edit-inter-theme',                            // Settings page slug
-      'inter-analytics',                            // Section ID
-      array( 'label_for' => 'inter-ga-form-id' ) // Display field title as label
+      'edit-inter-theme',                        // Settings page slug
+      'inter-analytics',                         // Section ID
+      array( 'label_for' => 'inter-ga-id' )      // Display field title as label
     );
     add_settings_field(
-      'inter-gtm-form-id',                        // Field ID
-      __( 'Google Tag Manager (GTM):', 'inter' ),                // Field title 
+      'inter-gtm-id',                             // Field ID
+      __( 'Google Tag Manager (GTM):', 'inter' ), // Field title 
       array( $this, 'gtm_input_markup' ),         // Field callback function
-      'edit-inter-theme',                            // Settings page slug
-      'inter-analytics',                            // Section ID
-      array( 'label_for' => 'inter-gtm-form-id' ) // Display field title as label
+      'edit-inter-theme',                         // Settings page slug
+      'inter-analytics',                          // Section ID
+      array( 'label_for' => 'inter-gtm-id' )      // Display field title as label
     );
 
     //Register Analytics Section Settings
     register_setting(
-      'edit-inter-theme',         // Options group
-      'inter-ga-form-id',     // Option name/database
-      array( 'sanitize_callback' => 'sanitize_textarea_field' )     // Sanitize input value
+      'edit-inter-theme',                             // Options group
+      'inter-ga-id',                                  // Option name/database
+      array(
+        'sanitize_callback' => 'sanitize_text_field'  // Sanitize input value
+      )
     );
     register_setting(
-      'edit-inter-theme',         // Options group
-      'inter-gtm-form-id',     // Option name/database
-      array( 'sanitize_callback' => 'sanitize_textarea_field' )     // Sanitize input value
+      'edit-inter-theme',
+      'inter-gtm-id',
+      array(
+        'sanitize_callback' => 'sanitize_text_field'
+      )
     );
   }
 
   // HTML markup for analytics form inputs
   function ga_input_markup() {
-    $ga_tag = get_option( 'inter-ga-form-id' );
+    $ga_id = get_option( 'inter-ga-id' );
     $html = '<fieldset>';
       $html .= '<input ';
-        $html .= 'id="inter-ga-form-id" ';
-        $html .= 'name="inter-ga-form-id" ';
+        $html .= 'id="inter-ga-id" ';
+        $html .= 'name="inter-ga-id" ';
         $html .= 'placeholder="Google Analytics (UA)" ';
-        $html .= 'style="width: 250px; height: 25px; ';
+        $html .= 'style="width: 250px; ';
         $html .= 'type="text" ';
-        $html .= 'value="' . $ga_tag;
+        $html .= 'value="' . $ga_id;
       $html .= '">';
     $html .= '</fieldset>';
     echo $html;
   }
   function gtm_input_markup() {
-    $gtm_tag = get_option( 'inter-gtm-form-id' );
+    $gtm_id = get_option( 'inter-gtm-id' );
     $html = '<fieldset>';
       $html .= '<input ';
-        $html .= 'id="inter-gtm-form-id" ';
-        $html .= 'name="inter-gtm-form-id" ';
+        $html .= 'id="inter-gtm-id" ';
+        $html .= 'name="inter-gtm-id" ';
         $html .= 'placeholder="Google Tag Manager (GTM)" ';
-        $html .= 'style="width: 250px; height: 25px; ';
+        $html .= 'style="width: 250px; ';
         $html .= 'type="text" ';
-        $html .= 'value="' . $gtm_tag;
+        $html .= 'value="' . $gtm_id;
       $html .= '">';
     $html .= '</fieldset>';
     echo $html;
