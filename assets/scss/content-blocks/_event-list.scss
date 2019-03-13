@@ -7,8 +7,13 @@
     }
 
     &-title {
+
       font-size: 1.75rem;
       font-weight: 700;
+
+      @media screen and ( max-width: 780px ) {
+        font-size: 1.5rem;
+      }
     }
 
     &-image {
@@ -38,11 +43,13 @@
       margin-bottom: 1.5rem;
 
       @media screen and ( max-width: 780px ) {
+        grid-row-gap: 1rem;
         grid-template-columns: auto;
         grid-template-rows: 250px 1fr;
       }
 
       @media screen and ( max-width: 450px ) {
+        grid-row-gap: 1rem;
         grid-template-rows: 150px 1fr;
       }
       
@@ -68,6 +75,11 @@
   }
 
   &-list_item_excerpt {
+
     font-size: 1.25rem;
+
+    @media screen and ( max-width: 780px ) {
+      font-size: 1.2rem;
+    }
   }
 }
