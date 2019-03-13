@@ -99,3 +99,15 @@
   }
 
 }
+
+.article-item {
+  flex-grow: 0;
+}
+
+.article-item-group {
+  justify-content: center;
+}
+
+.article-image {
+  min-height: 220px;
+}

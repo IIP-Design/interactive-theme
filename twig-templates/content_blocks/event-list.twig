@@ -9,36 +9,20 @@
         <!-- content block excerpt -->
         <p class="cb_excerpt" style="text-align: {{ excerpt_alignment }}; color: {{ excerpt_color }}">{{ excerpt }}</p>
 
-        <style>
-        {% if event_list_layout == 'featured_vertical' %}
-          {% include 'partials/post-list-featured-vertical-layout.twig' ignore missing %}
-        {% endif %}
-
-        {% if event_list_layout == 'featured_sidebar' %}
-          {% set feature_row_span = num_events %}
-          {% include 'partials/post-list-featured-sidebar-layout.twig' ignore missing %}
-        {% endif %}
-
-        {% if event_list_layout == 'featured_block' %}
-          {% set num_rows = ((num_events//2))|round(1, 'ceil') + 1 %}
-          {% include 'partials/post-list-featured-block-layout.twig' ignore missing %}
-        {% endif %}
-        </style>
-
         <div id='{{ selector }}'>
-          <ul class='article-item-group'>
+          <ul class='{{ wide }}article-item-group'>
             {% for event in event_list %}
-            <li class='article-item'>
-              <div class='article-media'>
+            <li class='{{ wide }}article-item'>
+              <div class='{{ wide }}article-media'>
                 <a class='list_item_img_link' href='{{ event.event_link }}'>
                   <div class='article-image-rectangle' style='border: 0px solid transparent'>
-                    <span class='article-image' style='background-image: url("{{ event.event_img }}"); min-height:220px;'></span>
+                    <span class='{{ wide }}article-image' style='background-image: url("{{ event.event_img }}");'></span>
                   </div>
                 </a>
               </div>
-              <div class='article-content'>
+              <div class='{{ wide }}article-content'>
                 <div class='list_item_content'>
-                  <h3 class='article-title'>
+                  <h3 class='{{ wide }}article-title'>
                     <a
                       href='{{ event.event_link }}'
                       class='list_item_link'
@@ -46,7 +30,7 @@
                       {{ event.post_title }}
                     </a>
                   </h3>
-                  <p class='list_item_excerpt'>{{ event.post_excerpt }}</p>
+                  <p class='{{ wide }}list_item_excerpt'>{{ event.post_excerpt }}</p>
 
                   {% if event.related_link is not empty %}
                   <div class="cb_button">

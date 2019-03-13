@@ -87,8 +87,6 @@ $cb_events_list->add_field( array(
   'default' => '3_column_grid',
   'options' => array(
     '3_column_grid'     => __( 'Three column grid of events', 'inter' ),
-    'featured_vertical' => __( 'Featured event with a vertical list of additional event titles', 'inter' ),
-    'featured_sidebar'  => __( 'Featured event with a right sidebar of additional event titles (best with 6 to 9 events)', 'inter' ),
-    'featured_block'    => __( 'Featured event with a right sidebar of two smaller featured events', 'inter' )
+    'full_width_list'   => __( 'Each item takes full row with image next to title and excerpt', 'inter' ),
   ),
 ) );

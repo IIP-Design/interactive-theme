@@ -182,10 +182,13 @@ class Content_Block_Shortcode {
       array_push( $event_list, $listed_event );
     }
 
+    $layout = get_post_meta( $id, 'inter_event_list_layout', true);
+    
     $context['event_list'] = $event_list;
-    $context['event_list_layout'] = get_post_meta( $id, 'inter_cdp_event_list_layout', true);
+    $context['event_list_layout'] = $layout;
     $context['selector'] = 'cb-' . get_the_ID();
     $context['num_events'] = count( $event_list );
+    $context['wide'] = ( $layout == 'full_width_list' ) ? 'wide-' : '';
 
     return Twig::render( 'content_blocks/event-list.twig', $context );
   }

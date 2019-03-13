@@ -1,6 +1,12 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
+## [v1.0.3](https://github.com/IIP-Design/interactive-theme/tree/v1.0.3) (2019-03-13)
+
+**Added:**
+- Support for password protected pages and posts
+- New layout (full-width side-by-side image and description) for event list content block
+
 ## [v1.0.2](https://github.com/IIP-Design/interactive-theme/tree/v1.0.2) (2019-03-11)
 
 **Changed:**
