@@ -1,6 +1,11 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
+## [v1.0.4](https://github.com/IIP-Design/interactive-theme/tree/v1.0.4) (2019-03-26)
+
+**Changed:**
+- Tweak the event list content block placeholder image
+
 ## [v1.0.3](https://github.com/IIP-Design/interactive-theme/tree/v1.0.3) (2019-03-13)
 
 **Added:**
