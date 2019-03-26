@@ -4,7 +4,10 @@
 
 
 html {
-  font-size: 100%;
+  font-size: $font-size + 0px;
+  @media screen and (max-width: 933px) {
+    font-size: $mobile + 0px;
+  }
 }
 
 
@@ -26,30 +29,23 @@ body {
 
 
 h1 {
-  font-size: em(64);
+  font-size: 3.27rem;
   font-weight: 600;
-  @media screen and (max-width: 933px) {
-    font-size: em(34, $mobile);
-  }
 }
 
 
 h2 {
-  font-size: em(48);
+  font-size: 2.22rem;
   font-weight: 600;
-  @media screen and (max-width: 933px) {
-    font-size: em(28, $mobile);
-  }
 }
 
 
 
 h3 {
-  font-size: em(32);
+
+  font-size: 1.67rem;
   font-weight: 500;
-  @media screen and (max-width: 933px) {
-    font-size: em(24, $mobile);
-  }
+
   &.right-arrow {
     &:before {
       content: " > ";
@@ -60,21 +56,19 @@ h3 {
 
 
 h4 {
-  font-size: em(22);
+  font-size: 1.11rem;
   font-weight: 500;
   color: $blue-medium;
-  @media screen and (max-width: 933px) {
-    font-size: em(20, $mobile);
-  }
 }
 
 
 h5 {
-  font-size: em(20);
+  font-size: 1rem;
   font-weight: 500;
-  @media screen and (max-width: 933px) {
-    font-size: em(18, $mobile);
-  }
+}
+
+h6 {
+  font-size: 0.89rem;
 }
 
 
@@ -90,7 +84,7 @@ a {
 }
 
 
-h1, h2, h3, h4, h5, {
+h1, h2, h3, h4, h5 {
 
   > a {
 
@@ -120,7 +114,7 @@ p {
 
 
 p, ol, ul {
-  font-size: em(22);
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.44;
   @media screen and (max-width: 933px) {
@@ -139,7 +133,7 @@ li > a {
 ul {
 
   ol {
-    font-size: 1em;
+    font-size: 1rem;
   }
 }
 
@@ -147,7 +141,7 @@ ul {
 ol {
 
   ul {
-    font-size: 1em;
+    font-size: 1rem;
   }
 }
 

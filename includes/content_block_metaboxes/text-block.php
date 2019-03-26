@@ -16,11 +16,11 @@ $text_block->add_field( array(
     'desc'              => '',
     'id'                => $prefix . 'text_block_font_color',
     'type'              => 'colorpicker',
-    'default'           => '#192856',
+    'default'           => '#112e51',
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
         'border'        => false,
-        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#046b99', '#174f9f', '#192856' )
+        'palettes'      => array( '#ffffff', '#eeeeee', '#DCE4EF', '#046b99', '#112e51' )
     ))
   )
 ));

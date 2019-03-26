@@ -23,10 +23,10 @@ class Custom_Button_Shortcode {
       'btn_size'            => ''
     ), $atts, 'render_custom_button' );
 
-    if ( $atts['btn_color'] == '#f2d400' ) {
-      $atts['btn_label_color'] = '#192856';
+    if ( $atts['btn_color'] == '#DCE4EF' ) {
+      $atts['btn_label_color'] = '#112e51';
     } elseif ( $atts['btn_color'] == '#eeeeee') {
-      $atts['btn_label_color'] = '#192856';
+      $atts['btn_label_color'] = '#112e51';
     } else {
       $atts['btn_label_color'] = '#ffffff';
     }

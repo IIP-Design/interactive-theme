@@ -64,7 +64,7 @@ $cb_box->add_field( array(
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
         'border'        => false,
-        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#046b99', '#174f9f', '#192856' )
+        'palettes'      => array( '#ffffff', '#eeeeee', '#DCE4EF', '#046b99', '#112e51' )
     ) )
   )
 ) );
@@ -128,11 +128,11 @@ $cb_box->add_field( array(
   'desc'               => 'Content block title font color',
   'id'                 => $prefix . 'cb_title_color',
   'type'               => 'colorpicker',
-  'default'            => '#192856',
+  'default'            => '#112e51',
   'attributes'         => array(
     'data-colorpicker' => json_encode( array(
         'border'       => false,
-        'palettes'     => array( '#ffffff', '#eeeeee', '#192856' )
+        'palettes'     => array( '#ffffff', '#eeeeee', '#112e51' )
     ) )
   )
 ) );
@@ -157,11 +157,11 @@ $cb_box->add_field( array(
   'desc'                => 'Content block excerpt font color',
   'id'                  => $prefix . 'cb_excerpt_color',
   'type'                => 'colorpicker',
-  'default'             => '#192856',
+  'default'             => '#112e51',
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
       'border'          => false,
-      'palettes'        => array( '#ffffff', '#eeeeee', '#192856' )
+      'palettes'        => array( '#ffffff', '#eeeeee', '#112e51' )
     ) )
   )
 ) );

@@ -39,7 +39,7 @@
         				text: 'Button Color',
         				name: 'btn_color',
         				values: [
-        					{ text: 'Navy Blue', value: '#192856' },
+        					{ text: 'Navy Blue', value: '#112e51' },
         					{ text: 'Medium Blue', value: '#174f9f' },
         					{ text: 'Light Blue', value: '#25ace2' },
         					{ text: 'Yellow', value: '#f2d400' },

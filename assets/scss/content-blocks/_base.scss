@@ -46,9 +46,10 @@ $filter-bp: 890px; //50em;
     margin-top: 2em;
 
     .ui.button {
-      min-width: 100%;
-      font-size: 1.5em;
       color: #fff;
+      font-size: 1.11rem;
+      font-weight: 500;
+      width: max-content;
 
       &.item {
         background-color: $red;
@@ -59,11 +60,6 @@ $filter-bp: 890px; //50em;
          font-size: 1.2em;
         }
       }
-
-      @media screen and (min-width: 48em) {
-        min-width: 60%;
-        font-size: 1.5em;
-			}
     }
   }
 

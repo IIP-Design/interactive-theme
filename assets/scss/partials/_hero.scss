@@ -3,7 +3,7 @@
 
 
 	&--bg_img {
-    padding-top: 10%;
+    padding-top: 8%;
 	}
 
 	&-inner {		
@@ -13,37 +13,23 @@
 		}		
 
 		&.bottom_padd {
-			@media screen and (max-width: 1024px) {
-				padding-bottom: 16px !important;
-			}
 
 			&--thin {
-				padding-bottom: 85px;
+				padding-bottom: 8%;
 			}
 
 			&--thick {
 				padding-bottom: 200px;
 
 				&_home {
-					padding-bottom: 120px;					
-				}
+          padding-bottom: 120px;
+          
+          @media screen and (max-width: 1024px) {
+            padding-bottom: 16px !important;
+          }
+        }
 			}
 		}
-		
-		h1 {
-      font-size: em(95);
-      line-height: 1;
-      color: #fff;
-      @media screen and (max-width: 933px) {
-        font-size: em(72, $mobile);
-      }
-      @media screen and (max-width: 415px) {
-        font-size: em(51, $mobile);
-      }
-      @media screen and (max-width: 375px) {
-        font-size: em(39, $mobile);
-      }			
-    }	
 
 		p {		
 			font-weight: 300;				
@@ -51,19 +37,9 @@
 	}
 
   .hero-centered {
-    font-size: em(80);
-      line-height: 1;
-      color: #fff;
-      text-align: center;
-      @media screen and (max-width: 933px) {
-        font-size: em(65, $mobile);
-      }
-      @media screen and (max-width: 415px) {
-        font-size: em(45, $mobile);
-      }
-      @media screen and (max-width: 375px) {
-        font-size: em(30, $mobile);
-      }		
+    line-height: 1;
+    color: #fff;
+    text-align: center;
   }
 	.hero-attribution {
 		position: absolute;

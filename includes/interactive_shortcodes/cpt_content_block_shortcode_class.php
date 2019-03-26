@@ -443,7 +443,7 @@ class Content_Block_Shortcode {
     $context['btn_link']            = $this->filter_link( $button['url'] );
     $context['btn_new_win']         = ($button['blank'] == 'true') ? 'target="_blank"' : '';
     $context['btn_bg_color']        = $meta['inter_cb_box_btn_bg_color'][0];
-    $context['btn_label_color']     = ($context['btn_bg_color'] == '#f2d400') ? '#192856': '#ffffff';
+    $context['btn_label_color']     = ($context['btn_bg_color'] == '#DCE4EF') ? '#112e51': '#ffffff';
     $context['btn_text_alignment']  = $meta['inter_cb_box_btn_h_alignment'][0];
 
     return $context;

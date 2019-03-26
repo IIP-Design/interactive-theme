@@ -5,6 +5,7 @@
 
 **Changed:**
 - Tweak the event list content block placeholder image
+- Adjust font sizes and colors to conform to the style guide
 
 ## [v1.0.3](https://github.com/IIP-Design/interactive-theme/tree/v1.0.3) (2019-03-13)
 

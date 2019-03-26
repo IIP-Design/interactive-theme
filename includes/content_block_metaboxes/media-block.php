@@ -13,11 +13,11 @@ $media_block->add_field( array(
   'desc'                => 'Color of text for the block',
   'id'                  => 'block_text_color',
   'type'                => 'colorpicker',
-  'default'             => '#192856',
+  'default'             => '#112e51',
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
         'border'        => false,
-        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#046b99', '#174f9f', '#192856' )
+        'palettes'      => array( '#ffffff', '#eeeeee', '#DCE4EF', '#046b99', '#112e51' )
     ))
   )
 ));
@@ -59,7 +59,7 @@ $media_block->add_group_field( $media_block_group_field, array(
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
         'border'        => false,
-        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#046b99', '#174f9f', '#192856' )
+        'palettes'      => array( '#ffffff', '#eeeeee', '#DCE4EF', '#046b99', '#112e51' )
     ))
   )
 ));
@@ -73,7 +73,7 @@ $media_block->add_group_field( $media_block_group_field, array(
   'attributes'          => array(
     'data-colorpicker'  => json_encode( array(
         'border'        => false,
-        'palettes'      => array( '#ffffff', '#eeeeee', '#f2d400', '#046b99', '#174f9f', '#192856' )
+        'palettes'      => array( '#ffffff', '#eeeeee', '#DCE4EF', '#046b99', '#112e51' )
     ))
   )
 ));

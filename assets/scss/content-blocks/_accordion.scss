@@ -9,17 +9,12 @@
 
 		.title {
 			margin-bottom: 16px;
-			/*border: 8px solid $blue-navy;*/
-			border: 8px solid;
-			font-size: em(32);
-			/*color: $blue-navy;*/
-			@media screen and (min-width: 768px) and (max-width: 933px) {					
-				font-size: em(24, $mobile);
-			}
+      border: 2px solid;
+      border-radius: 3px;
+			font-size: 1.11rem;
 			@media screen and (max-width: 767px) {
 				margin-bottom: 12px;
 				padding: 0.4em 1em;
-				font-size: em(20, $mobile);
 			}
 
 			/*&:hover {
