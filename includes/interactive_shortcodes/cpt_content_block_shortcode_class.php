@@ -161,7 +161,7 @@ class Content_Block_Shortcode {
 
       // Get event image and add as prop to event object
       $featured_img = get_the_post_thumbnail_url( $event_id, 'full' );
-      $event_img = $featured_img ? $featured_img : $listed_event_meta['thumbnail'];
+      $event_img = $featured_img ? $featured_img : plugins_url( '/iip-events/admin/assets/calendar.png' );
       if( !empty( $event_img ) ) {
         $listed_event->event_img = $event_img;
       }
