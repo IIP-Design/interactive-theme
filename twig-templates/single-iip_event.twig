@@ -86,21 +86,23 @@
         <section class="iip-event-files">
           {% for file in files %}
             <a class="iip-event-file iip-event-overlay" href={{ file.url }} download={{ file.filename }} target="_blank">
-              <div class="iip-event-overlay-base">
-                <div
-                  class="iip-event-file-img"
-                  style="
-                    background-image: url({{ file.image }});
-                    background-size: {{ ( file.type == 'jpg' or file.type == 'jpeg' or file.type == 'png') ? 'cover' : 'contain' }};
-                  ">
+              <div class="iip-event-overlay">
+                <div class="iip-event-overlay-base">
+                  <div
+                    class="iip-event-file-img"
+                    style="
+                      background-image: url({{ file.image }});
+                      background-size: {{ ( file.type == 'jpg' or file.type == 'jpeg' or file.type == 'png') ? 'cover' : 'contain' }};
+                    ">
+                  </div>
                 </div>
-                <p class="iip-event-file-label">
-                  <strong>{{ file.filename }}</strong> ({{ file.type }})
-                </p>
+                <div class="iip-event-overlay-hover">
+                  <i class="fa fa-3x fa-download iip-event-overlay-text"></i>
+                </div>
               </div>
-              <div class="iip-event-overlay-hover">
-                <i class="fa fa-3x fa-download iip-event-overlay-text"></i>
-              </div>
+              <p class="iip-event-file-label">
+                <strong>{{ file.filename }}</strong> ({{ file.type }})
+              </p>
             </a>
           {% endfor %}
         </section>
