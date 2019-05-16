@@ -40,6 +40,7 @@ class InteractiveSite {
     add_action( 'pre_get_posts', array( $this, 'search_filter') );
     add_filter( 'frm_notification_attachment', array( $this, 'inter_add_attachment'), 10, 3 );
     add_filter( 'frm_encode_subject', array( $this, 'frm_encode_subject') );
+    add_filter( 'upload_mimes', array( $this, 'custom_mime_types' ) );
     // add_action( 'wp_head', array( $this, 'insert_dap') );
     // add_action( 'wp_head', array( $this, 'insert_hotjar') );
     add_filter( 'attachment_fields_to_edit', array( $this, 'inter_attachment_fields' ), 10, 2 );
@@ -192,6 +193,14 @@ class InteractiveSite {
     }
 
     return $val;
+  }
+
+
+  /* ALLOW ADDITIONAL FILETYPES */
+  function custom_mime_types( $mime_types ) {
+    $mime_types['psd'] = 'image/vnd.adobe.photoshop';
+    $mime_types['vtt'] = 'text/vtt';
+    return $mime_types;
   }
 
   /* ANALYTICS */
