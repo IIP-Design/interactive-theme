@@ -145,6 +145,7 @@ class Content_Block_Shortcode {
       
       $args = array(
         'post_type'      => 'iip_event',
+        'post_status'    => 'publish',
         'fields'         => 'ids',
         'order'          => 'DESC',
         'orderby'        => 'date',

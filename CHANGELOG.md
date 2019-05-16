@@ -6,6 +6,7 @@
 **Changed:**
 - Update some of the site syles
 - Allow for uploads of PSD and VTT files
+- Filter out private posts from event list content blocks
 
 ## [v1.0.4](https://github.com/IIP-Design/interactive-theme/tree/v1.0.4) (2019-03-26)
 
