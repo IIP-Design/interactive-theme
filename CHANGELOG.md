@@ -1,6 +1,12 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
+## [v1.0.5](https://github.com/IIP-Design/interactive-theme/tree/v1.0.5) (2019-05-16)
+
+**Changed:**
+- Update some of the site syles
+- Allow for uploads of PSD and VTT files
+
 ## [v1.0.4](https://github.com/IIP-Design/interactive-theme/tree/v1.0.4) (2019-03-26)
 
 **Changed:**

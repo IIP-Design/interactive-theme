@@ -7,7 +7,7 @@
           {% include 'partials/content_block_title.twig' %}
 
         <!-- content block excerpt -->
-        <p class="cb_excerpt" style="text-align: {{ excerpt_alignment }}; color: {{ excerpt_color }}">{{ excerpt }}</p>
+        <p class="cb_excerpt" style="text-align: {{ excerpt_alignment }}">{{ excerpt }}</p>
 
         <div id='{{ selector }}'>
           <ul class='{{ wide }}article-item-group'>
@@ -25,8 +25,7 @@
                   <h3 class='{{ wide }}article-title'>
                     <a
                       href='{{ event.event_link }}'
-                      class='list_item_link'
-                      style='color: {{ excerpt_color }};'>
+                      class='list_item_link'>
                       {{ event.post_title }}
                     </a>
                   </h3>

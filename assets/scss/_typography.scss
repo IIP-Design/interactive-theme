@@ -20,7 +20,7 @@ body {
   &.error404,
   &.search {
     font-size: $font-size + 0px;
-    color: $blue-navy;
+    color: $font-color;
     @media screen and (max-width: 933px) {
       font-size: $mobile + 0px;
     }
@@ -44,7 +44,7 @@ h2 {
 h3 {
 
   font-size: 1.67rem;
-  font-weight: 500;
+  font-weight: 600;
 
   &.right-arrow {
     &:before {
@@ -78,7 +78,6 @@ a {
 
   &:hover {
     color: $blue-medium;
-    border-bottom: 2px dotted;
   }
 
 }
@@ -86,28 +85,15 @@ a {
 
 h1, h2, h3, h4, h5 {
 
+  color: $blue-navy;
+  
   > a {
 
     color: $blue-navy;
 
     &:hover {
+      color: $red;
       text-decoration: none;
-    }
-
-    &:active {
-      color: $blue-navy;
-      background-color: $yellow;
-    }
-  }
-}
-
-
-p {
-
-  > a {
-
-    &:active {
-      background-color: $yellow;
     }
   }
 }
@@ -115,7 +101,6 @@ p {
 
 p, ol, ul {
   font-size: 1rem;
-  font-weight: 300;
   line-height: 1.44;
   @media screen and (max-width: 933px) {
     font-size: 1em;
