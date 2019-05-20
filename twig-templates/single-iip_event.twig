@@ -76,7 +76,7 @@
       <section class="iip-event-materials">
         {% if materials %}
           {% for material in materials %}
-          <a class="iip-event-material-button" href={{ material.link }} target="_blank">
+          <a class="iip-event-material-button" href="{{ material.link }}" target="_blank">
             {{ material.label }}
           </a>
           {% endfor %}
@@ -85,7 +85,7 @@
       {% if files %}
         <section class="iip-event-files">
           {% for file in files %}
-            <a class="iip-event-file iip-event-overlay" href={{ file.url }} download={{ file.filename }} target="_blank">
+            <a class="iip-event-file iip-event-overlay" href="{{ file.url }}" download="{{ file.filename }}" target="_blank">
               <div class="iip-event-overlay">
                 <div class="iip-event-overlay-base">
                   <div

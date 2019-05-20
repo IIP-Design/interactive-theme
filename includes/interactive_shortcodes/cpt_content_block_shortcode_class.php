@@ -150,7 +150,7 @@ class Content_Block_Shortcode {
         'order'          => 'DESC',
         'orderby'        => 'date',
         'posts_per_page' => $event_number
-         );
+      );
       
       $event_ids = get_posts( $args );
     }
