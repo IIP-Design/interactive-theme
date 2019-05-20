@@ -1,6 +1,14 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
+## [v1.0.6](https://github.com/IIP-Design/interactive-theme/tree/v1.0.6) (2019-05-20)
+
+**Changed:**
+- Set font-weight for remaining headers (h4-h6) to 600
+
+**Fixed:**
+- Correct improperly set quotation marks on file download attribute for event post type
+
 ## [v1.0.5](https://github.com/IIP-Design/interactive-theme/tree/v1.0.5) (2019-05-16)
 
 **Changed:**
