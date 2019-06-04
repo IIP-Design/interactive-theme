@@ -6,6 +6,9 @@
 **Changed:**
 - Change footer text to read 'Global Public Affairs' rather than 'International Information Programs'
 
+**Security:**
+- Update axios to mitigate vulnerability
+
 ## [v1.0.6](https://github.com/IIP-Design/interactive-theme/tree/v1.0.6) (2019-05-20)
 
 **Changed:**
