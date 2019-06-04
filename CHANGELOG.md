@@ -1,6 +1,11 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
+## [v1.0.7](https://github.com/IIP-Design/interactive-theme/tree/v1.0.7) (2019-06-04)
+
+**Changed:**
+- Change footer text to read 'Global Public Affairs' rather than 'International Information Programs'
+
 ## [v1.0.6](https://github.com/IIP-Design/interactive-theme/tree/v1.0.6) (2019-05-20)
 
 **Changed:**
