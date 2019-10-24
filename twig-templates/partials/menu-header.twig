@@ -15,7 +15,7 @@
         <span class='opaque_bg'></span>
         {% for item in menu %}
           {% set single_post = ( item.title == 'Learning' and is_single() == true ) ? "current_page" : "" %}          
-          <li class='nav_menu_item initial_wide'>
+          <li class='nav_menu_item'>
             <div class='nav_menu_item_title-wrapper {{ pagename == item.object_slug ? "current_page" : "" }} {{ single_post }}'>
               <a href="{{ item.url }}">{{ item.title }}</a>
               {% if item.children %}
