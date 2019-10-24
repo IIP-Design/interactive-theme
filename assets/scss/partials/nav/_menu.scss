@@ -42,18 +42,6 @@
       margin: 0;
     }
 
-    &.initial_wide {
-      @media screen and (min-width: 934px) {
-        &:not(.search) {
-          width: 100px;
-        }
-
-        &.search {
-          margin-left: 45px;
-        }
-      }
-    }
-
     &.active {
       .nav_menu_item_title-wrapper {
         @media screen and (max-width: 933px) {
@@ -63,48 +51,48 @@
     }
 
     &_title-wrapper {
-        position: relative;
-        z-index: 2;
-        display: inline-block;
-        @media screen and (max-width: 933px) {
-          display: block;
-          margin: -10px -16px;
-          padding: 16px;
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      @media screen and (max-width: 933px) {
+        display: block;
+        margin: -10px -16px;
+        padding: 16px;
 
-          .menuDropdown {
+        .menuDropdown {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          transform: translateY(-50%);
+        }
+      }
+
+      &.current_page {
+        @media screen and (min-width: 934px) {
+          &:after {
+            content: "";
             position: absolute;
-            top: 50%;
-            right: 16px;
-            transform: translateY(-50%);
+            bottom: -10px;
+            display: block;
+            height: 5px;
+            width: 100%;
           }
         }
+      }
 
-        &.current_page {
-          @media screen and (min-width: 934px) {
-            &:after {
-              content: '';
-              position: absolute;
-              bottom: -10px;
-              display: block;
-              height: 5px;
-              width: 100%;
-            }
-          }
+      a {
+        font-weight: 600;
+        color: $blue-navy;
+        @media screen and (max-width: 933px) {
+          font-size: em(16, $mobile);
         }
 
-        a {
-          font-weight: 600;
-          color: $blue-navy;
-          @media screen and (max-width: 933px) {
-            font-size: em(16, $mobile);
-          }
-
-          &:hover {
-            text-decoration: none;
-            border-bottom: solid;
-            border-color: $blue-navy;
-          }
+        &:hover {
+          text-decoration: none;
+          border-bottom: solid;
+          border-color: $blue-navy;
         }
+      }
     }
 
     &--social {
@@ -133,7 +121,5 @@
         }
       }
     }
-
   }
-
 }
