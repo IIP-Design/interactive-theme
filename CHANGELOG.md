@@ -1,6 +1,11 @@
 # Change Log
 **All notable changes to this project will be documented in this file.**
 
+## [v1.0.8](https://github.com/IIP-Design/interactive-theme/tree/v1.0.8) (2019-11-01)
+
+**Changed:**
+- Removed Contact Us button from header and link homepage CTA to Contact Us page.
+
 ## [v1.0.7](https://github.com/IIP-Design/interactive-theme/tree/v1.0.7) (2019-06-04)
 
 **Changed:**
